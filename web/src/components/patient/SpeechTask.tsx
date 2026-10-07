@@ -1,16 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { PatientLayout } from './Layout';
 import { Button } from '../ui';
 import { useScreeningStore } from '../../state/sessionStore';
+import { SceneIllustration, SCENE_OPTIONS } from './SceneIllustration';
 
 export function SpeechTask() {
   const { setStep, saveSpeech } = useScreeningStore();
   const [status, setStatus] = useState<'idle' | 'recording' | 'done'>('idle');
   const [elapsed, setElapsed] = useState(0);
+  const [selectedSceneIndex, setSelectedSceneIndex] = useState(0);
   
   const mediaRecorder = useRef<MediaRecorder | null>(null);
   const audioChunks = useRef<Blob[]>([]);
   const timer = useRef<NodeJS.Timeout | null>(null);
+
+  const currentScene = SCENE_OPTIONS[selectedSceneIndex];
+
+  const nextScene = () => {
+    setSelectedSceneIndex((prev) => (prev + 1) % SCENE_OPTIONS.length);
+  };
 
   const startRecording = async () => {
     try {
@@ -56,7 +64,7 @@ export function SpeechTask() {
   };
 
   const handleNext = () => setStep('remember');
-  const handleSkip = () => setStep('remember'); // Should flag as skipped modality
+  const handleSkip = () => setStep('remember');
 
   const formatTime = (secs: number) => {
     const m = Math.floor(secs / 60);
@@ -71,62 +79,148 @@ export function SpeechTask() {
       title="Describe everything you see in this picture."
       subtitle="Talk for about a minute. There are no wrong answers."
     >
-      <div className="flex flex-col md:flex-row gap-8 items-stretch">
-        <div className="flex-1 bg-white rounded-3xl p-4 border border-gray-200 shadow-sm flex flex-col">
-          <div className="w-full aspect-[4/3] bg-gray-100 rounded-2xl flex items-center justify-center relative overflow-hidden">
-            {/* The cookie theft picture or similar goes here. Placeholder for now. */}
-            <div className="text-gray-400 font-bold text-xl">[ Clinical Scene Image ]</div>
+      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        {/* Left Side: Picture Display & Switcher */}
+        <div className="flex-1 bg-white rounded-3xl p-6 border border-gray-200 shadow-sm flex flex-col">
+          {/* Top header with Scene selector */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-gray-100">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-muted block">Picture</span>
+              <h2 className="text-lg font-bold text-ink">{currentScene.title}</h2>
+            </div>
+
+            {status === 'idle' && (
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={nextScene}
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold text-ink bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ink"
+                  title="Switch to another picture"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                  </svg>
+                  Change picture ({selectedSceneIndex + 1}/{SCENE_OPTIONS.length})
+                </button>
+              </div>
+            )}
           </div>
-          <div className="mt-6 text-center">
+
+          {/* Scene Illustration Canvas */}
+          <div className="w-full aspect-[4/3] bg-[#FAF8F5] rounded-2xl flex items-center justify-center relative overflow-hidden border border-gray-200 p-2">
+            <SceneIllustration sceneId={currentScene.id} />
+          </div>
+
+          {/* Picture Selector Pills & Skip Option */}
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
+            {status === 'idle' ? (
+              <div className="flex flex-wrap gap-2">
+                {SCENE_OPTIONS.map((scene, idx) => (
+                  <button
+                    key={scene.id}
+                    onClick={() => setSelectedSceneIndex(idx)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                      selectedSceneIndex === idx
+                        ? 'bg-ink text-paper shadow-sm'
+                        : 'bg-gray-100 text-muted hover:bg-gray-200'
+                    }`}
+                  >
+                    {idx + 1}. {scene.title.split(' ')[0]}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="text-xs text-muted font-medium">
+                {currentScene.description}
+              </div>
+            )}
+
             <button 
               onClick={handleSkip}
-              className="text-muted underline hover:text-ink font-medium focus:outline-none focus:ring-[3px] focus:ring-ink p-2 rounded-md"
+              className="text-sm text-muted underline hover:text-ink font-medium focus:outline-none focus:ring-2 focus:ring-ink p-1 rounded-md ml-auto"
             >
               I can't see the picture
             </button>
           </div>
         </div>
 
-        <div className="w-full md:w-80 bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col items-center justify-center relative">
+        {/* Right Side: Recording Controls */}
+        <div className="w-full lg:w-88 bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col items-center justify-center relative">
           
           {status === 'idle' && (
-            <Button variant="primary" size="patient" onClick={startRecording} className="w-full mb-6">
-              <span className="w-4 h-4 bg-lime rounded-full mr-4 inline-block shadow-[0_0_0_4px_rgba(228,255,101,0.3)]"></span>
-              Start talking
-            </Button>
+            <div className="flex flex-col items-center text-center w-full">
+              <div className="w-20 h-20 bg-lime/30 rounded-full flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-ink rounded-full flex items-center justify-center text-lime">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    <line x1="12" y1="19" x2="12" y2="23"></line>
+                    <line x1="8" y1="23" x2="16" y2="23"></line>
+                  </svg>
+                </div>
+              </div>
+
+              <h3 className="text-xl font-bold text-ink mb-2">Ready to talk?</h3>
+              <p className="text-sm text-muted mb-8 leading-relaxed">
+                Take a moment to look at the picture. Press the button when you're ready to speak.
+              </p>
+
+              <Button variant="primary" size="patient" onClick={startRecording} className="w-full">
+                <span className="w-3.5 h-3.5 bg-lime rounded-full mr-3 inline-block shadow-[0_0_0_4px_rgba(228,255,101,0.3)]"></span>
+                Start talking
+              </Button>
+            </div>
           )}
 
           {status === 'recording' && (
-            <div className="flex flex-col items-center w-full">
-              <div className="w-24 h-24 rounded-full bg-red-100 flex items-center justify-center animate-pulse mb-6">
-                <div className="w-12 h-12 bg-red-500 rounded-full"></div>
+            <div className="flex flex-col items-center w-full text-center">
+              {/* Pulsing Recording Indicator */}
+              <div className="relative mb-6">
+                <div className="w-24 h-24 rounded-full bg-red-100 flex items-center justify-center animate-pulse">
+                  <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-md">
+                    <div className="w-4 h-4 bg-white rounded-sm"></div>
+                  </div>
+                </div>
               </div>
-              <div className="text-4xl font-mono font-bold text-ink mb-12 tabular-nums">
+
+              {/* Timer Display */}
+              <div className="text-4xl font-mono font-bold text-ink mb-2 tabular-nums">
                 {formatTime(elapsed)}
               </div>
+
+              <div className="text-xs font-bold uppercase tracking-wider text-red-600 mb-6 flex items-center gap-1.5 justify-center">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                Recording in progress
+              </div>
               
-              {elapsed < 45 ? (
-                <p className="text-xl text-muted text-center h-16">Keep going if you can...</p>
-              ) : (
-                <div className="h-16 flex items-center">
-                  <Button variant="secondary" size="patient" onClick={stopRecording} className="w-full border-ink">
-                    I'm finished <span className="ml-2">→</span>
-                  </Button>
-                </div>
-              )}
+              <p className="text-sm text-muted mb-6 leading-normal min-h-[40px]">
+                {elapsed < 45 
+                  ? "Talk about what people are doing, objects, and what is happening." 
+                  : "Good job! You can stop anytime or keep going."}
+              </p>
+
+              {/* ALWAYS AVAILABLE STOP RECORDING BUTTON */}
+              <button
+                onClick={stopRecording}
+                className="w-full py-4 px-6 rounded-2xl bg-ink hover:bg-neutral-800 text-paper font-bold text-lg flex items-center justify-center gap-3 shadow-lg transition-all transform active:scale-95 focus:outline-none focus:ring-4 focus:ring-red-400"
+              >
+                <div className="w-4 h-4 bg-red-500 rounded-sm"></div>
+                Stop recording
+              </button>
             </div>
           )}
 
           {status === 'done' && (
-            <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center text-center w-full">
               <div className="w-20 h-20 bg-[var(--color-risk-low-bg)] text-[var(--color-risk-low-text)] rounded-full flex items-center justify-center mb-6">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <p className="text-xl font-bold mb-8">Recording saved.</p>
+              <h3 className="text-xl font-bold text-ink mb-1">Recording saved</h3>
+              <p className="text-sm text-muted mb-8 font-mono">{formatTime(elapsed)} recorded</p>
+              
               <Button variant="primary" size="patient" onClick={handleNext} className="w-full">
-                Next Task
+                Next Task →
               </Button>
             </div>
           )}

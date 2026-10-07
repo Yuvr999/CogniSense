@@ -7,3 +7,4 @@ export * from './FluencyTask';
 export * from './TraceTask';
 export * from './RecallTask';
 export * from './Done';
+export * from './SceneIllustration';
