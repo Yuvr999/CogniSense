@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data
+data/raw/
+data/interim/
+*.wav
+*.mp3
+models/*.bin
+*.parquet
+
+# Virtual environments
+venv/
+.env
+.venv/
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Frontend
+web/node_modules/
+web/dist/

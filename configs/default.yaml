@@ -1,0 +1,23 @@
+seed: 42
+data:
+  adress_root: data/raw/adress
+  adni_root: data/raw/adni
+  mode: synthetic            # real | synthetic
+cv:
+  n_splits: 5
+  n_repeats: 5
+  group_col: subject_id
+asr:
+  model: small.en
+  compute_type: int8
+  initial_prompt: "Umm, let me think like, hmm... okay, so, uh, I see a"
+fusion:
+  weights: {speech: 0.7, cognitive: 0.7}
+  population_prior: 0.12     # clinic-configurable; document source
+operating_point:
+  target_sensitivity: 0.90
+conformal:
+  alpha: 0.10
+privacy:
+  audio_ttl_seconds: 0       # delete immediately after feature extraction
+  store_transcripts: false   # store features + de-identified summary only
