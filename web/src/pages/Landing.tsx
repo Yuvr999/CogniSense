@@ -13,18 +13,23 @@ import {
   Footer 
 } from '../components/landing';
 
+import { useTranslation } from 'react-i18next';
+
 export function Landing() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     document.documentElement.setAttribute('data-mode', 'landing');
     return () => document.documentElement.removeAttribute('data-mode');
   }, []);
 
   const navLinks = [
-    { label: 'How it works', href: '#how-it-works' },
-    { label: 'For clinicians', href: '#clinicians' },
-    { label: 'Evidence', href: '#evidence' },
-    { label: 'Privacy', href: '#privacy' }
+    { label: t('nav.howItWorks'), href: '#how-it-works' },
+    { label: t('nav.forClinicians'), href: '#clinicians' },
+    { label: t('nav.evidence'), href: '#evidence' },
+    { label: t('nav.privacy'), href: '#privacy' }
   ];
+
 
   return (
     <div className="bg-paper min-h-screen">

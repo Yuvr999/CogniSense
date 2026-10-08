@@ -16,11 +16,12 @@ i18n
     }
   });
 
-export const changeAppLanguage = (lng: 'en' | 'hi' | 'mr') => {
+export const changeAppLanguage = (lng: 'en' | 'hi' | 'mr' | 'kn') => {
   i18n.changeLanguage(lng);
   if (typeof window !== 'undefined') {
     localStorage.setItem('cognisense_language', lng);
   }
 };
+
 
 export default i18n;

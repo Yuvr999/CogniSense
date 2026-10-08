@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 interface NavPillProps {
@@ -7,6 +8,7 @@ interface NavPillProps {
 }
 
 export function NavPill({ links, activeHref }: NavPillProps) {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -27,23 +29,23 @@ export function NavPill({ links, activeHref }: NavPillProps) {
         Skip to content
       </a>
 
-      <div className={`fixed z-40 transition-all duration-300 ${scrolled ? 'top-2' : 'top-6'} left-1/2 -translate-x-1/2`}>
+      <div className={`fixed z-40 transition-all duration-300 ${scrolled ? 'top-2' : 'top-5'} left-1/2 -translate-x-1/2 max-w-[98vw]`}>
         <nav 
-          className={`bg-cream rounded-full shadow-[var(--shadow-float)] transition-all duration-300 overflow-hidden flex items-center ${scrolled ? 'py-1 px-2' : 'py-2 px-4'}`}
+          className={`bg-cream rounded-full shadow-[var(--shadow-float)] transition-all duration-300 flex items-center justify-between gap-2 md:gap-4 ${scrolled ? 'py-1 px-3' : 'py-2 px-5'}`}
           aria-label="Main Navigation"
         >
           {/* Logo area */}
-          <div className="font-display font-bold text-ink mr-6 whitespace-nowrap pl-2">
+          <div className="font-display font-bold text-ink whitespace-nowrap pl-1 pr-2 flex-shrink-0 text-base md:text-lg">
             CogniSense
           </div>
 
           {/* Desktop links */}
-          <ul className="hidden md:flex items-center space-x-1">
+          <ul className="hidden md:flex items-center space-x-1 flex-shrink-0">
             {links.map(link => (
-              <li key={link.href}>
+              <li key={link.href} className="whitespace-nowrap">
                 <a 
                   href={link.href}
-                  className={`px-4 py-2 rounded-full font-bold text-sm transition-colors focus:outline-none focus:ring-[3px] focus:ring-ink ${
+                  className={`px-3 py-1.5 rounded-full font-bold text-sm whitespace-nowrap transition-colors focus:outline-none focus:ring-[3px] focus:ring-ink ${
                     activeHref === link.href 
                       ? 'bg-ink text-paper' 
                       : 'text-ink hover:bg-paper-dim'
@@ -56,25 +58,30 @@ export function NavPill({ links, activeHref }: NavPillProps) {
             ))}
           </ul>
           
-          <div className="hidden lg:block ml-2">
+          {/* Language Switcher Dropdown */}
+          <div className="hidden sm:block flex-shrink-0 ml-1">
             <LanguageSwitcher size="sm" />
           </div>
 
-          <div className="hidden md:block ml-3 pr-1">
-            <a href="/clinic" className="inline-flex items-center px-4 py-2 bg-ink text-paper rounded-full font-bold text-sm hover:bg-muted focus:outline-none focus:ring-[3px] focus:ring-ink focus:ring-offset-2">
-              Open clinician demo 
-              <span className="ml-2 text-lime">→</span>
+          {/* Clinician Demo CTA Button */}
+          <div className="hidden md:block flex-shrink-0 pl-1">
+            <a 
+              href="/clinic" 
+              className="inline-flex items-center whitespace-nowrap px-4 py-2 bg-ink text-paper rounded-full font-bold text-sm hover:bg-muted focus:outline-none focus:ring-[3px] focus:ring-ink focus:ring-offset-2 shadow-xs transition-transform active:scale-95"
+            >
+              <span>{t('common.openClinicianDemo')}</span>
+              <span className="ml-2 text-lime font-mono">→</span>
             </a>
           </div>
 
           {/* Mobile toggle */}
           <button 
-            className="md:hidden ml-auto p-2 rounded-full text-ink focus:outline-none focus:ring-[3px] focus:ring-ink"
+            className="md:hidden ml-1 p-2 rounded-full text-ink focus:outline-none focus:ring-[3px] focus:ring-ink"
             onClick={() => setMobileOpen(true)}
             aria-expanded={mobileOpen}
             aria-label="Open menu"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -83,9 +90,9 @@ export function NavPill({ links, activeHref }: NavPillProps) {
         </nav>
       </div>
 
-      {/* Mobile sheet (simplified for now) */}
+      {/* Mobile sheet */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 bg-paper p-6 md:hidden">
+        <div className="fixed inset-0 z-50 bg-paper p-6 md:hidden overflow-y-auto">
           <div className="flex justify-between items-center mb-8">
             <div className="font-display font-bold text-ink text-2xl">CogniSense</div>
             <button 
@@ -111,12 +118,13 @@ export function NavPill({ links, activeHref }: NavPillProps) {
                 </a>
               </li>
             ))}
-            <li className="pt-4 pb-2">
+            <li className="pt-4 pb-2 border-t border-gray-200">
+              <div className="text-xs font-bold text-muted uppercase tracking-wider mb-2">Language</div>
               <LanguageSwitcher size="md" />
             </li>
             <li className="pt-4">
                <a href="/clinic" className="inline-flex items-center text-2xl font-bold text-ink underline decoration-lime decoration-4 underline-offset-4">
-                Open clinician demo <span className="text-lime ml-2">→</span>
+                {t('common.openClinicianDemo')} <span className="text-lime ml-2">→</span>
               </a>
             </li>
           </ul>

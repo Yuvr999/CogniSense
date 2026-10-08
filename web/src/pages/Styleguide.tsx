@@ -211,20 +211,23 @@ export function Styleguide() {
         </section>
 
         <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-6 border-b border-gray-200 pb-2">9. Language Switcher (Multilingual: EN / HI / MR)</h2>
+          <h2 className="text-2xl font-bold mb-6 border-b border-gray-200 pb-2">9. Language Switcher Dropdown (EN / HI / MR / KN)</h2>
           <div className="bg-white p-8 rounded-2xl shadow-sm space-y-6">
             <div>
-              <h3 className="text-sm font-bold text-muted mb-3 uppercase tracking-wider">Segmented Control (Default)</h3>
-              <div className="flex flex-wrap gap-4 items-center">
-                <LanguageSwitcher size="sm" />
-                <LanguageSwitcher size="md" />
-                <LanguageSwitcher size="lg" />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-sm font-bold text-muted mb-3 uppercase tracking-wider">Compact Variant</h3>
-              <div className="flex flex-wrap gap-4 items-center">
-                <LanguageSwitcher variant="compact" />
+              <h3 className="text-sm font-bold text-muted mb-3 uppercase tracking-wider">Dropdown Trigger Sizes</h3>
+              <div className="flex flex-wrap gap-6 items-center">
+                <div>
+                  <span className="text-xs text-muted block mb-1">Small (Navbar)</span>
+                  <LanguageSwitcher size="sm" />
+                </div>
+                <div>
+                  <span className="text-xs text-muted block mb-1">Medium (Default)</span>
+                  <LanguageSwitcher size="md" />
+                </div>
+                <div>
+                  <span className="text-xs text-muted block mb-1">Large (Patient Flow)</span>
+                  <LanguageSwitcher size="lg" />
+                </div>
               </div>
             </div>
           </div>
