@@ -11,7 +11,8 @@ import {
   Skeleton, 
   EmptyState, 
   ErrorState, 
-  DisclaimerBar 
+  DisclaimerBar,
+  LanguageSwitcher
 } from '../components/ui';
 
 export function Styleguide() {
@@ -204,6 +205,26 @@ export function Styleguide() {
               <div className="flex gap-4 pt-4">
                 <Skeleton className="h-10 w-24 rounded-full" />
                 <Skeleton className="h-10 w-24 rounded-full" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold mb-6 border-b border-gray-200 pb-2">9. Language Switcher (Multilingual: EN / HI / MR)</h2>
+          <div className="bg-white p-8 rounded-2xl shadow-sm space-y-6">
+            <div>
+              <h3 className="text-sm font-bold text-muted mb-3 uppercase tracking-wider">Segmented Control (Default)</h3>
+              <div className="flex flex-wrap gap-4 items-center">
+                <LanguageSwitcher size="sm" />
+                <LanguageSwitcher size="md" />
+                <LanguageSwitcher size="lg" />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-muted mb-3 uppercase tracking-wider">Compact Variant</h3>
+              <div className="flex flex-wrap gap-4 items-center">
+                <LanguageSwitcher variant="compact" />
               </div>
             </div>
           </div>

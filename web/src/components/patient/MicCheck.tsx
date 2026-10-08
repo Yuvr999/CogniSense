@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { PatientLayout } from './Layout';
 import { Button } from '../ui';
 import { useScreeningStore } from '../../state/sessionStore';
 
 export function MicCheck() {
+  const { t } = useTranslation();
   const { setStep } = useScreeningStore();
   const [status, setStatus] = useState<'idle' | 'testing' | 'success' | 'error' | 'denied'>('idle');
   const [level, setLevel] = useState(0);
@@ -75,19 +77,19 @@ export function MicCheck() {
   };
 
   return (
-    <PatientLayout currentStep={3} totalSteps={7} title="Microphone check">
+    <PatientLayout currentStep={3} totalSteps={7} title={t('micCheck.title')}>
       <div className="max-w-2xl bg-white p-12 rounded-3xl shadow-sm border border-gray-200 text-center">
         
         {status === 'idle' && (
           <>
-            <p className="text-xl mb-8">We need to check your microphone before we start.</p>
-            <Button variant="primary" size="patient" onClick={startTest}>Start Test</Button>
+            <p className="text-xl mb-8">{t('micCheck.intro')}</p>
+            <Button variant="primary" size="patient" onClick={startTest}>{t('micCheck.startTest')}</Button>
           </>
         )}
         
         {status === 'testing' && (
           <>
-            <p className="text-3xl font-bold mb-12">Please say your name aloud.</p>
+            <p className="text-3xl font-bold mb-12">{t('micCheck.sayName')}</p>
             <div className="w-full h-12 bg-gray-100 rounded-full overflow-hidden flex items-center px-2">
               <div 
                 className="h-8 bg-lime rounded-full transition-all duration-75"
@@ -104,29 +106,29 @@ export function MicCheck() {
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
             </div>
-            <p className="text-3xl font-bold mb-12">Microphone is working perfectly.</p>
-            <Button variant="primary" size="patient" onClick={() => setStep('speech')}>Continue</Button>
+            <p className="text-3xl font-bold mb-12">{t('micCheck.working')}</p>
+            <Button variant="primary" size="patient" onClick={() => setStep('speech')}>{t('common.continue')}</Button>
           </>
         )}
         
         {status === 'error' && (
           <>
-            <p className="text-xl text-[var(--color-risk-high)] mb-8 font-bold">We couldn't hear you clearly.</p>
-            <p className="text-xl text-muted mb-8">Move closer to the microphone and speak up.</p>
+            <p className="text-xl text-[var(--color-risk-high)] mb-8 font-bold">{t('micCheck.couldNotHear')}</p>
+            <p className="text-xl text-muted mb-8">{t('micCheck.speakUp')}</p>
             <div className="flex justify-center gap-4">
-              <Button variant="secondary" size="patient" onClick={() => setStep('speech')}>Skip Test</Button>
-              <Button variant="primary" size="patient" onClick={startTest}>Try Again</Button>
+              <Button variant="secondary" size="patient" onClick={() => setStep('speech')}>{t('micCheck.skipTest')}</Button>
+              <Button variant="primary" size="patient" onClick={startTest}>{t('micCheck.tryAgain')}</Button>
             </div>
           </>
         )}
 
         {status === 'denied' && (
           <>
-            <p className="text-xl text-[var(--color-risk-high)] mb-8 font-bold">We can't hear you yet.</p>
-            <p className="text-xl text-muted mb-8">Allow the microphone in your browser, then press Try again.</p>
+            <p className="text-xl text-[var(--color-risk-high)] mb-8 font-bold">{t('micCheck.cantHearYet')}</p>
+            <p className="text-xl text-muted mb-8">{t('micCheck.allowMic')}</p>
             <div className="flex justify-center gap-4">
-              <Button variant="secondary" size="patient" onClick={() => setStep('speech')}>Skip Test</Button>
-              <Button variant="primary" size="patient" onClick={startTest}>Try Again</Button>
+              <Button variant="secondary" size="patient" onClick={() => setStep('speech')}>{t('micCheck.skipTest')}</Button>
+              <Button variant="primary" size="patient" onClick={startTest}>{t('micCheck.tryAgain')}</Button>
             </div>
           </>
         )}
@@ -134,7 +136,7 @@ export function MicCheck() {
       </div>
       {status === 'idle' && (
         <div className="mt-8 flex justify-start">
-          <Button variant="secondary" size="patient" onClick={() => setStep('profile')}>Back</Button>
+          <Button variant="secondary" size="patient" onClick={() => setStep('profile')}>{t('common.back')}</Button>
         </div>
       )}
     </PatientLayout>

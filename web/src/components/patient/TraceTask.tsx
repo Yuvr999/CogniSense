@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { PatientLayout } from './Layout';
 import { Button } from '../ui';
 import { useScreeningStore } from '../../state/sessionStore';
@@ -14,6 +15,7 @@ const targets = [
 const order = ['1', 'A', '2', 'B', '3', 'C'];
 
 export function TraceTask() {
+  const { t } = useTranslation();
   const { setStep, saveTrace } = useScreeningStore();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [errorShake, setErrorShake] = useState<string | null>(null);
@@ -40,8 +42,8 @@ export function TraceTask() {
     <PatientLayout 
       currentStep={7} 
       totalSteps={7} 
-      title="Trace the path"
-      subtitle="Tap the numbers and letters in order: 1, then A, then 2, then B, and so on."
+      title={t('trace.title')}
+      subtitle={t('trace.subtitle')}
     >
       <div className="bg-white rounded-3xl shadow-sm border border-gray-200 aspect-[4/3] relative overflow-hidden mt-4">
         
@@ -64,7 +66,6 @@ export function TraceTask() {
 
         {targets.map(target => {
           const isCompleted = order.indexOf(target.id) < currentIndex;
-          const isNext = order[currentIndex] === target.id;
           const isError = errorShake === target.id;
           
           let stateClasses = "bg-white border-4 border-ink text-ink";
@@ -79,7 +80,7 @@ export function TraceTask() {
               style={{ 
                 left: `calc(${target.x}% - 32px)`, 
                 top: `calc(${target.y}% - 32px)`,
-                transform: isError ? 'translateX(0)' : undefined // Let tailwind handle animation
+                transform: isError ? 'translateX(0)' : undefined
               }}
               aria-label={`Target ${target.label}`}
               disabled={currentIndex >= order.length}
@@ -91,8 +92,8 @@ export function TraceTask() {
         
         {currentIndex >= order.length && (
           <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center z-10">
-            <h2 className="text-4xl font-bold mb-8">Path complete!</h2>
-            <Button variant="primary" size="patient" onClick={handleNext}>Next Task</Button>
+            <h2 className="text-4xl font-bold mb-8">{t('trace.complete')}</h2>
+            <Button variant="primary" size="patient" onClick={handleNext}>{t('common.nextTask')}</Button>
           </div>
         )}
 

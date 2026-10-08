@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 interface NavPillProps {
   links: { label: string; href: string }[];
@@ -55,7 +56,11 @@ export function NavPill({ links, activeHref }: NavPillProps) {
             ))}
           </ul>
           
-          <div className="hidden md:block ml-4 pr-1">
+          <div className="hidden lg:block ml-2">
+            <LanguageSwitcher size="sm" />
+          </div>
+
+          <div className="hidden md:block ml-3 pr-1">
             <a href="/clinic" className="inline-flex items-center px-4 py-2 bg-ink text-paper rounded-full font-bold text-sm hover:bg-muted focus:outline-none focus:ring-[3px] focus:ring-ink focus:ring-offset-2">
               Open clinician demo 
               <span className="ml-2 text-lime">→</span>
@@ -106,7 +111,10 @@ export function NavPill({ links, activeHref }: NavPillProps) {
                 </a>
               </li>
             ))}
-            <li className="pt-8">
+            <li className="pt-4 pb-2">
+              <LanguageSwitcher size="md" />
+            </li>
+            <li className="pt-4">
                <a href="/clinic" className="inline-flex items-center text-2xl font-bold text-ink underline decoration-lime decoration-4 underline-offset-4">
                 Open clinician demo <span className="text-lime ml-2">→</span>
               </a>

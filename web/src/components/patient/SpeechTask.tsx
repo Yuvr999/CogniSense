@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { PatientLayout } from './Layout';
 import { Button } from '../ui';
 import { useScreeningStore } from '../../state/sessionStore';
 import { SceneIllustration, SCENE_OPTIONS } from './SceneIllustration';
 
 export function SpeechTask() {
+  const { t } = useTranslation();
   const { setStep, saveSpeech } = useScreeningStore();
   const [status, setStatus] = useState<'idle' | 'recording' | 'done'>('idle');
   const [elapsed, setElapsed] = useState(0);
@@ -76,8 +78,8 @@ export function SpeechTask() {
     <PatientLayout 
       currentStep={4} 
       totalSteps={7} 
-      title="Describe everything you see in this picture."
-      subtitle="Talk for about a minute. There are no wrong answers."
+      title={t('speech.title')}
+      subtitle={t('speech.subtitle')}
     >
       <div className="flex flex-col lg:flex-row gap-8 items-stretch">
         {/* Left Side: Picture Display & Switcher */}
@@ -85,7 +87,7 @@ export function SpeechTask() {
           {/* Top header with Scene selector */}
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-gray-100">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-muted block">Picture</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-muted block">{t('speech.pictureLabel')}</span>
               <h2 className="text-lg font-bold text-ink">{currentScene.title}</h2>
             </div>
 
@@ -94,12 +96,12 @@ export function SpeechTask() {
                 <button
                   onClick={nextScene}
                   className="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold text-ink bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ink"
-                  title="Switch to another picture"
+                  title={t('speech.changePicture')}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
                   </svg>
-                  Change picture ({selectedSceneIndex + 1}/{SCENE_OPTIONS.length})
+                  {t('speech.changePicture')} ({selectedSceneIndex + 1}/{SCENE_OPTIONS.length})
                 </button>
               </div>
             )}
@@ -138,7 +140,7 @@ export function SpeechTask() {
               onClick={handleSkip}
               className="text-sm text-muted underline hover:text-ink font-medium focus:outline-none focus:ring-2 focus:ring-ink p-1 rounded-md ml-auto"
             >
-              I can't see the picture
+              {t('speech.cantSeePic')}
             </button>
           </div>
         </div>
@@ -159,14 +161,14 @@ export function SpeechTask() {
                 </div>
               </div>
 
-              <h3 className="text-xl font-bold text-ink mb-2">Ready to talk?</h3>
+              <h3 className="text-xl font-bold text-ink mb-2">{t('speech.readyTitle')}</h3>
               <p className="text-sm text-muted mb-8 leading-relaxed">
-                Take a moment to look at the picture. Press the button when you're ready to speak.
+                {t('speech.readyDesc')}
               </p>
 
               <Button variant="primary" size="patient" onClick={startRecording} className="w-full">
                 <span className="w-3.5 h-3.5 bg-lime rounded-full mr-3 inline-block shadow-[0_0_0_4px_rgba(228,255,101,0.3)]"></span>
-                Start talking
+                {t('speech.startTalking')}
               </Button>
             </div>
           )}
@@ -189,13 +191,13 @@ export function SpeechTask() {
 
               <div className="text-xs font-bold uppercase tracking-wider text-red-600 mb-6 flex items-center gap-1.5 justify-center">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                Recording in progress
+                {t('speech.recordingInProgress')}
               </div>
               
               <p className="text-sm text-muted mb-6 leading-normal min-h-[40px]">
                 {elapsed < 45 
-                  ? "Talk about what people are doing, objects, and what is happening." 
-                  : "Good job! You can stop anytime or keep going."}
+                  ? t('speech.keepGoing')
+                  : t('speech.goodJob')}
               </p>
 
               {/* ALWAYS AVAILABLE STOP RECORDING BUTTON */}
@@ -204,7 +206,7 @@ export function SpeechTask() {
                 className="w-full py-4 px-6 rounded-2xl bg-ink hover:bg-neutral-800 text-paper font-bold text-lg flex items-center justify-center gap-3 shadow-lg transition-all transform active:scale-95 focus:outline-none focus:ring-4 focus:ring-red-400"
               >
                 <div className="w-4 h-4 bg-red-500 rounded-sm"></div>
-                Stop recording
+                {t('speech.stopRecording')}
               </button>
             </div>
           )}
@@ -216,11 +218,11 @@ export function SpeechTask() {
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-ink mb-1">Recording saved</h3>
-              <p className="text-sm text-muted mb-8 font-mono">{formatTime(elapsed)} recorded</p>
+              <h3 className="text-xl font-bold text-ink mb-1">{t('speech.recordingSaved')}</h3>
+              <p className="text-sm text-muted mb-8 font-mono">{formatTime(elapsed)}</p>
               
               <Button variant="primary" size="patient" onClick={handleNext} className="w-full">
-                Next Task →
+                {t('common.nextTask')} →
               </Button>
             </div>
           )}

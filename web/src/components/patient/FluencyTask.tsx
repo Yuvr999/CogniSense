@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { PatientLayout } from './Layout';
 import { Button } from '../ui';
 import { useScreeningStore } from '../../state/sessionStore';
 
 export function FluencyTask() {
+  const { t } = useTranslation();
   const { setStep, saveFluency } = useScreeningStore();
   const [status, setStatus] = useState<'intro' | 'active' | 'done'>('intro');
   const [timeLeft, setTimeLeft] = useState(60);
@@ -37,19 +39,19 @@ export function FluencyTask() {
     <PatientLayout currentStep={6} totalSteps={7}>
       {status === 'intro' && (
         <div className="text-center max-w-2xl mx-auto bg-white p-12 rounded-3xl shadow-sm border border-gray-200 mt-12">
-          <h1 className="text-4xl font-bold mb-8">Name as many animals as you can.</h1>
-          <p className="text-xl text-muted mb-12">You will have 1 minute. You can type them in the box or ask the person helping you to type them.</p>
-          <Button variant="primary" size="patient" onClick={() => setStatus('active')}>Start Timer</Button>
+          <h1 className="text-4xl font-bold mb-8">{t('fluency.introTitle')}</h1>
+          <p className="text-xl text-muted mb-12">{t('fluency.introDesc')}</p>
+          <Button variant="primary" size="patient" onClick={() => setStatus('active')}>{t('fluency.startTimer')}</Button>
         </div>
       )}
 
       {status === 'active' && (
         <div className="flex flex-col lg:flex-row gap-12 max-w-5xl mx-auto mt-4">
           <div className="flex-1 bg-white p-8 rounded-3xl shadow-sm border border-gray-200 flex flex-col">
-            <h2 className="text-3xl font-bold mb-6">Type animals here:</h2>
+            <h2 className="text-3xl font-bold mb-6">{t('fluency.typeBoxTitle')}</h2>
             <textarea 
               className="flex-1 w-full bg-paper rounded-2xl p-6 text-xl font-mono focus:outline-none focus:ring-4 focus:ring-lime resize-none min-h-[300px]"
-              placeholder="Dog, cat, lion..."
+              placeholder={t('fluency.placeholder')}
               value={text}
               onChange={e => setText(e.target.value)}
               autoFocus
@@ -76,7 +78,7 @@ export function FluencyTask() {
             </div>
 
             <Button variant="secondary" size="patient" onClick={handleFinish} className="w-full">
-              I can't think of more
+              {t('fluency.cantThinkMore')}
             </Button>
           </div>
         </div>
@@ -84,9 +86,9 @@ export function FluencyTask() {
 
       {status === 'done' && (
         <div className="text-center max-w-2xl mx-auto bg-white p-12 rounded-3xl shadow-sm border border-gray-200 mt-12">
-          <h1 className="text-4xl font-bold mb-8">Time's up.</h1>
-          <p className="text-xl text-muted mb-12">Thank you. Let's go to the next task.</p>
-          <Button variant="primary" size="patient" onClick={handleNext}>Next Task</Button>
+          <h1 className="text-4xl font-bold mb-8">{t('fluency.timesUp')}</h1>
+          <p className="text-xl text-muted mb-12">{t('fluency.thankYou')}</p>
+          <Button variant="primary" size="patient" onClick={handleNext}>{t('common.nextTask')}</Button>
         </div>
       )}
     </PatientLayout>

@@ -9,3 +9,4 @@ export * from './DataQualityBanner';
 export * from './Skeleton';
 export * from './States';
 export * from './DisclaimerBar';
+export * from './LanguageSwitcher';

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 
 interface StepperProps {
   currentStep: number;
@@ -7,7 +9,7 @@ interface StepperProps {
 
 export function Stepper({ currentStep, totalSteps }: StepperProps) {
   return (
-    <div className="flex items-center flex-1 max-w-xl mx-8" aria-hidden="true">
+    <div className="flex items-center flex-1 max-w-sm md:max-w-md mx-4 md:mx-8" aria-hidden="true">
       {/* Background track */}
       <div className="h-2 w-full bg-gray-200 rounded-full relative">
         {/* Progress fill */}
@@ -33,21 +35,29 @@ export function PatientLayout({ children, currentStep, totalSteps, title, subtit
   subtitle?: string,
   onHelp?: () => void 
 }) {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-paper flex flex-col p-4 md:p-8 selection:bg-lime selection:text-ink">
-      <header className="w-full max-w-5xl mx-auto flex items-center justify-between mb-8 md:mb-16">
-        <div className="text-xl font-bold text-muted whitespace-nowrap">
-          Step {currentStep} of {totalSteps}
+      <header className="w-full max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4 mb-8 md:mb-12">
+        <div className="flex items-center gap-2">
+          <div className="text-xl font-bold text-muted whitespace-nowrap">
+            {t('common.stepOf', { current: currentStep, total: totalSteps })}
+          </div>
         </div>
         
         <Stepper currentStep={currentStep} totalSteps={totalSteps} />
         
-        <button 
-          onClick={onHelp}
-          className="text-xl font-bold text-ink underline underline-offset-4 decoration-2 decoration-gray-300 hover:decoration-ink focus:outline-none focus:ring-[3px] focus:ring-ink p-2 rounded-md transition-colors"
-        >
-          Need help?
-        </button>
+        <div className="flex items-center gap-4">
+          <LanguageSwitcher size="sm" />
+          
+          <button 
+            onClick={onHelp}
+            className="text-lg font-bold text-ink underline underline-offset-4 decoration-2 decoration-gray-300 hover:decoration-ink focus:outline-none focus:ring-[3px] focus:ring-ink p-1.5 rounded-md transition-colors whitespace-nowrap"
+          >
+            {t('common.needHelp')}
+          </button>
+        </div>
       </header>
 
       <main className="flex-1 w-full max-w-5xl mx-auto flex flex-col">
@@ -65,3 +75,4 @@ export function PatientLayout({ children, currentStep, totalSteps, title, subtit
     </div>
   );
 }
+

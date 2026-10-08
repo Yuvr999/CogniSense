@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 
 interface ClinicLayoutProps {
   children: React.ReactNode;
@@ -36,6 +37,7 @@ export function ClinicLayout({ children, activePath = '/clinic' }: ClinicLayoutP
           </nav>
         </div>
         <div className="flex items-center space-x-4">
+          <LanguageSwitcher size="sm" />
           <div className="text-sm">Dr. Demo ▾</div>
         </div>
       </header>

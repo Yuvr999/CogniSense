@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../ui';
 import { useScreeningStore } from '../../state/sessionStore';
 
 export function Done() {
+  const { t } = useTranslation();
   const { reset } = useScreeningStore();
   const [uploading, setUploading] = useState(true);
 
@@ -29,8 +31,8 @@ export function Done() {
               <div className="absolute inset-0 border-8 border-gray-100 rounded-full"></div>
               <div className="absolute inset-0 border-8 border-ink rounded-full border-t-transparent animate-spin"></div>
             </div>
-            <h1 className="text-4xl font-bold mb-4">Saving your answers...</h1>
-            <p className="text-xl text-muted">Please wait a moment.</p>
+            <h1 className="text-4xl font-bold mb-4">{t('done.savingTitle')}</h1>
+            <p className="text-xl text-muted">{t('done.savingSub')}</p>
           </>
         ) : (
           <>
@@ -39,12 +41,12 @@ export function Done() {
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
             </div>
-            <h1 className="text-4xl font-bold mb-8">All done. Thank you.</h1>
+            <h1 className="text-4xl font-bold mb-8">{t('done.allDoneTitle')}</h1>
             <p className="text-xl text-muted mb-16 leading-relaxed max-w-lg mx-auto">
-              Your clinician will talk through the next steps with you shortly.
+              {t('done.allDoneSub')}
             </p>
             <Button variant="secondary" size="patient" onClick={handleRestart}>
-              Start Next Patient
+              {t('common.startNextPatient')}
             </Button>
           </>
         )}

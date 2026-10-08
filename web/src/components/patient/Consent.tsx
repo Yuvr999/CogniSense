@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../ui';
 import { useScreeningStore } from '../../state/sessionStore';
 import { PatientLayout } from './Layout';
 import * as Checkbox from '@radix-ui/react-checkbox';
 
 export function Consent() {
+  const { t } = useTranslation();
   const { setConsents, setStep } = useScreeningStore();
   const [screeningConsent, setScreeningConsent] = useState(false);
   const [researchConsent, setResearchConsent] = useState(false);
@@ -15,11 +17,11 @@ export function Consent() {
   };
 
   return (
-    <PatientLayout currentStep={1} totalSteps={7} title="Welcome to the CogniSense screening">
+    <PatientLayout currentStep={1} totalSteps={7} title={t('consent.title')}>
       <div className="max-w-3xl space-y-8 text-lg text-ink leading-relaxed">
-        <p>This screening takes about 8 minutes. We will ask you to describe a picture and do a few short memory and attention tasks.</p>
+        <p>{t('consent.intro')}</p>
         
-        <p><strong>Your privacy:</strong> Your voice recording is processed securely on this clinic's server and is deleted immediately after analysis. It is never sent to the cloud.</p>
+        <p><strong>{t('consent.privacyBold')}</strong> {t('consent.privacyText')}</p>
         
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 mt-12 space-y-8">
           <label className="flex items-start cursor-pointer group">
@@ -36,7 +38,7 @@ export function Consent() {
               </Checkbox.Indicator>
             </Checkbox.Root>
             <div className="text-lg pt-1">
-              I agree to take this screening. I understand it is an aid for my clinician, not a medical diagnosis. <span className="text-muted text-base">(Required)</span>
+              {t('consent.screeningConsent')} <span className="text-muted text-base">({t('common.required')})</span>
             </div>
           </label>
 
@@ -54,7 +56,7 @@ export function Consent() {
               </Checkbox.Indicator>
             </Checkbox.Root>
             <div className="text-lg pt-1">
-              I agree to let my anonymized results be used for future research to improve this tool. <span className="text-muted text-base">(Optional)</span>
+              {t('consent.researchConsent')} <span className="text-muted text-base">({t('common.optional')})</span>
             </div>
           </label>
         </div>
@@ -66,7 +68,7 @@ export function Consent() {
             disabled={!screeningConsent}
             onClick={handleNext}
           >
-            Start Screening
+            {t('common.startScreening')}
           </Button>
         </div>
       </div>
