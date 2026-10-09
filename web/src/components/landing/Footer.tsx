@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
@@ -23,16 +24,17 @@ export function Footer() {
           <div>
             <h3 className="font-bold mb-4 uppercase tracking-wider text-gray-400">Documentation</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="hover:text-lime transition-colors">Model card</a></li>
-              <li><a href="#" className="hover:text-lime transition-colors">Data sheet</a></li>
-              <li><a href="#" className="hover:text-lime transition-colors">Fairness report</a></li>
+              <li><Link to="/evidence" className="hover:text-lime transition-colors">Model card & Evidence</Link></li>
+              <li><Link to="/evidence/fairness" className="hover:text-lime transition-colors">Fairness report</Link></li>
+              <li><Link to="/privacy" className="hover:text-lime transition-colors">Privacy architecture</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4 uppercase tracking-wider text-gray-400">Project</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="hover:text-lime transition-colors">Privacy design</a></li>
-              <li><a href="#" className="hover:text-lime transition-colors">Source code</a></li>
+              <li><Link to="/clinic" className="hover:text-lime transition-colors">Clinician Portal</Link></li>
+              <li><Link to="/screen" className="hover:text-lime transition-colors">Patient Screening Flow</Link></li>
+              <li><Link to="/styleguide" className="hover:text-lime transition-colors">Design System</Link></li>
             </ul>
           </div>
         </div>

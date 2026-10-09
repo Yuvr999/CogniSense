@@ -1,0 +1,1001 @@
+patient_id,age,sex,education_years,hypertension,diabetes,dyslipidemia,previous_mci,vitamin_b12_pg_ml,tsh_uiu_ml,cholesterol_mg_dl,baseline_cognitive_score,medication_history,medication_adherence,family_history_ad,genetic_risk_apoe4,demo_persona
+PT-0001,62,Female,13,0,0,0,0,514.8,3.91,231.8,28.5,No Medication,0.59,0,0,Persona 1: Stable Benchmark
+PT-0002,73,Male,17,1,0,1,0,465.7,3.52,210.2,25.0,Metformin+Statin,0.83,0,0,Persona 2: Progressive Physiological Decline
+PT-0003,68,Female,18,0,1,0,0,464.4,2.0,234.9,26.0,Antihypertensive,0.79,0,1,Persona 3: Incomplete/Noisy Wearable Telemetry
+PT-0004,79,Male,11,1,1,1,1,384.7,3.34,207.3,21.0,Antihypertensive+Statin,0.86,1,0,Persona 4: Multi-Domain Deterioration Risk
+PT-0005,70,Female,16,1,0,1,0,261.8,2.78,200.4,24.9,No Medication,0.82,0,0,Standard Population
+PT-0006,74,Male,10,1,1,1,1,274.2,4.05,130.0,22.9,Antihypertensive,0.91,0,0,Standard Population
+PT-0007,62,Male,18,0,1,1,1,512.2,2.48,184.7,22.8,Antihypertensive+Metformin+Statin,0.92,0,0,Standard Population
+PT-0008,62,Male,6,0,1,0,0,422.5,3.53,194.0,25.8,No Medication,0.81,0,1,Standard Population
+PT-0009,75,Female,13,1,0,0,0,402.0,5.31,269.2,26.1,Statin,0.67,1,1,Standard Population
+PT-0010,87,Male,8,0,0,0,0,364.9,3.06,221.1,23.2,Antihypertensive,0.91,0,1,Standard Population
+PT-0011,75,Male,20,1,0,0,0,380.3,2.45,253.4,26.0,Antihypertensive+Metformin+Statin,0.82,1,0,Standard Population
+PT-0012,54,Female,11,0,0,0,0,556.1,3.19,217.7,27.1,Metformin+Statin,0.61,0,0,Standard Population
+PT-0013,73,Male,8,0,0,0,0,376.4,2.0,168.0,22.8,Antihypertensive,0.94,0,0,Standard Population
+PT-0014,53,Female,12,0,0,0,0,245.7,5.03,199.5,28.8,No Medication,0.83,1,0,Standard Population
+PT-0015,75,Male,18,0,1,0,0,516.7,2.6,204.0,24.0,Antihypertensive+Statin,0.94,0,0,Standard Population
+PT-0016,81,Male,19,1,0,0,0,393.4,2.1,159.3,25.6,Antihypertensive,0.84,1,1,Standard Population
+PT-0017,53,Male,12,0,0,0,0,424.1,1.48,180.4,29.2,Antihypertensive+Statin,0.5,0,1,Standard Population
+PT-0018,72,Female,17,0,0,0,0,629.0,3.61,187.2,27.8,No Medication,0.67,0,1,Standard Population
+PT-0019,84,Female,20,0,0,0,0,417.3,3.35,256.0,25.4,No Medication,0.85,0,1,Standard Population
+PT-0020,63,Female,14,0,0,0,0,457.6,1.85,130.0,25.6,Antihypertensive+Statin,0.79,0,1,Standard Population
+PT-0021,73,Male,10,0,1,0,0,266.7,3.03,240.8,27.7,Antihypertensive,0.9,0,0,Standard Population
+PT-0022,76,Female,20,0,0,1,0,391.4,0.74,159.4,27.0,Metformin+Statin,0.83,0,1,Standard Population
+PT-0023,78,Male,13,1,1,0,1,499.2,2.6,142.9,20.6,No Medication,0.83,0,0,Standard Population
+PT-0024,79,Male,15,0,0,1,0,217.8,2.9,239.8,24.0,Antihypertensive,0.95,0,0,Standard Population
+PT-0025,67,Female,15,0,1,0,0,446.1,4.28,222.8,22.0,Antihypertensive+Metformin+Statin,0.72,0,0,Standard Population
+PT-0026,66,Male,13,1,0,0,0,433.1,1.55,242.7,26.5,Statin,0.67,1,0,Standard Population
+PT-0027,54,Male,6,0,0,0,1,425.4,0.99,225.4,22.8,Antihypertensive+Statin,0.92,0,0,Standard Population
+PT-0028,88,Male,17,1,0,0,0,554.8,1.42,273.3,27.4,Antihypertensive,0.72,0,0,Standard Population
+PT-0029,58,Male,10,0,1,0,0,463.5,0.93,216.2,27.3,Antihypertensive+Statin,0.53,0,0,Standard Population
+PT-0030,72,Male,8,1,0,1,0,612.1,3.87,189.1,28.6,Antihypertensive+Statin,0.8,1,1,Standard Population
+PT-0031,60,Female,6,1,0,0,0,290.8,4.1,208.0,25.1,Antihypertensive,0.8,0,1,Standard Population
+PT-0032,69,Male,9,1,1,0,0,437.7,2.75,242.3,28.3,Metformin+Statin,0.91,1,0,Standard Population
+PT-0033,55,Female,13,1,1,0,0,431.0,3.74,165.4,25.7,Antihypertensive+Statin,0.74,1,0,Standard Population
+PT-0034,76,Female,8,0,0,1,0,281.0,2.55,170.2,27.3,Antihypertensive,0.54,0,0,Standard Population
+PT-0035,65,Male,15,1,0,0,0,544.3,2.3,183.3,23.3,Statin,0.96,0,0,Standard Population
+PT-0036,60,Male,7,0,0,0,0,722.2,2.03,130.0,27.0,Statin,0.64,1,0,Standard Population
+PT-0037,77,Male,16,0,0,0,0,417.8,2.06,200.2,21.7,Antihypertensive,0.89,0,1,Standard Population
+PT-0038,53,Female,14,0,0,1,1,485.7,0.7,130.0,22.5,Statin,0.93,0,0,Standard Population
+PT-0039,71,Male,15,0,1,1,0,431.0,2.69,197.0,26.8,Antihypertensive,0.86,1,0,Standard Population
+PT-0040,79,Female,10,0,1,0,1,327.2,2.36,227.9,20.7,Statin,0.84,0,0,Standard Population
+PT-0041,58,Male,19,0,0,1,0,183.3,3.22,176.9,24.5,Antihypertensive+Statin,0.9,1,0,Standard Population
+PT-0042,59,Female,12,0,0,1,0,328.2,2.5,258.7,28.2,Statin,0.8,1,0,Standard Population
+PT-0043,86,Male,16,1,0,0,0,239.0,2.22,139.5,25.0,Antihypertensive+Metformin+Statin,0.95,0,0,Standard Population
+PT-0044,65,Male,16,1,1,0,1,641.5,1.44,240.3,21.5,Antihypertensive,0.95,0,1,Standard Population
+PT-0045,68,Female,7,0,1,0,0,405.0,2.48,220.7,26.2,Statin,0.82,0,0,Standard Population
+PT-0046,87,Female,14,0,0,1,0,375.0,3.21,130.0,30.0,Antihypertensive+Statin,0.96,0,0,Standard Population
+PT-0047,55,Male,18,0,1,0,0,535.6,1.14,298.0,29.1,Statin,0.87,1,0,Standard Population
+PT-0048,53,Female,14,0,0,1,0,274.2,2.5,192.6,29.2,Statin,0.74,1,0,Standard Population
+PT-0049,57,Female,9,0,0,0,0,320.3,2.66,161.7,27.5,No Medication,0.78,0,0,Standard Population
+PT-0050,55,Female,9,0,0,1,0,428.8,1.61,141.5,27.1,Antihypertensive,0.77,0,0,Standard Population
+PT-0051,80,Female,11,0,0,0,0,553.7,1.75,186.6,20.7,Antihypertensive,0.93,0,0,Standard Population
+PT-0052,69,Male,15,1,0,0,0,485.2,2.65,190.2,24.7,Antihypertensive+Metformin+Statin,0.78,1,0,Standard Population
+PT-0053,77,Male,15,0,0,1,0,452.3,1.15,198.9,24.7,Antihypertensive,0.86,0,0,Standard Population
+PT-0054,85,Male,15,0,0,1,0,430.2,2.78,183.7,21.5,Metformin+Statin,0.53,1,0,Standard Population
+PT-0055,61,Female,11,0,1,1,0,472.0,1.42,219.1,24.1,Antihypertensive+Statin,0.87,0,0,Standard Population
+PT-0056,87,Female,17,0,0,0,0,446.2,3.57,180.3,21.2,Antihypertensive,0.86,1,0,Standard Population
+PT-0057,65,Male,6,0,0,1,0,286.1,4.97,130.0,26.2,Statin,0.71,0,0,Standard Population
+PT-0058,82,Male,19,1,0,0,0,426.0,1.45,189.3,27.0,Metformin+Statin,0.9,0,0,Standard Population
+PT-0059,66,Female,19,0,0,0,1,280.4,2.99,130.0,24.6,Metformin+Statin,0.84,0,0,Standard Population
+PT-0060,59,Female,14,0,0,0,1,430.5,1.6,208.4,23.6,Antihypertensive,0.85,1,0,Standard Population
+PT-0061,65,Female,7,1,0,0,0,357.5,3.55,157.8,24.3,Antihypertensive,0.75,0,0,Standard Population
+PT-0062,74,Male,10,1,0,0,0,750.1,1.01,201.2,21.9,Antihypertensive,0.82,0,0,Standard Population
+PT-0063,72,Male,14,1,0,1,0,414.8,2.93,244.9,22.4,No Medication,0.59,0,0,Standard Population
+PT-0064,67,Male,9,0,0,0,0,237.4,1.44,158.9,23.6,Statin,0.69,0,1,Standard Population
+PT-0065,69,Female,16,1,0,0,0,402.6,2.17,235.3,24.3,Metformin+Statin,0.96,0,0,Standard Population
+PT-0066,75,Male,8,0,0,0,0,487.5,1.27,178.5,25.4,Antihypertensive,0.67,0,1,Standard Population
+PT-0067,77,Female,20,0,0,0,0,637.5,3.3,261.6,23.6,Antihypertensive+Statin,0.75,0,1,Standard Population
+PT-0068,76,Male,12,0,0,0,1,343.4,1.48,181.1,22.6,Antihypertensive+Statin,0.92,0,1,Standard Population
+PT-0069,80,Female,11,0,1,1,1,214.3,3.01,163.1,21.2,Antihypertensive,0.82,0,0,Standard Population
+PT-0070,66,Female,13,0,0,1,0,526.2,2.02,221.1,26.2,No Medication,0.91,1,0,Standard Population
+PT-0071,52,Female,8,0,0,1,0,240.5,2.27,178.4,29.2,Antihypertensive+Statin,0.97,0,0,Standard Population
+PT-0072,76,Male,10,1,1,1,0,363.3,2.56,163.0,23.3,Metformin+Statin,0.83,0,0,Standard Population
+PT-0073,58,Male,15,1,0,0,0,386.5,1.56,176.8,27.4,Antihypertensive+Statin,0.69,0,0,Standard Population
+PT-0074,60,Male,9,1,0,0,0,410.9,2.63,193.3,26.5,No Medication,0.79,0,1,Standard Population
+PT-0075,75,Female,20,0,1,0,0,509.6,4.08,246.0,25.1,Antihypertensive,0.61,0,0,Standard Population
+PT-0076,52,Female,18,1,1,0,0,331.1,1.54,130.0,28.7,No Medication,0.87,1,0,Standard Population
+PT-0077,59,Female,9,0,1,0,0,384.4,3.69,195.9,28.3,Statin,0.77,1,0,Standard Population
+PT-0078,75,Female,9,1,0,0,0,418.1,4.05,218.7,23.9,Antihypertensive+Statin,0.86,0,0,Standard Population
+PT-0079,62,Female,15,0,0,0,0,439.4,1.5,202.4,26.0,No Medication,0.52,0,0,Standard Population
+PT-0080,68,Male,13,1,0,0,0,432.7,0.8,244.8,26.7,Metformin+Statin,0.79,0,0,Standard Population
+PT-0081,59,Female,11,0,0,0,0,476.7,2.73,192.2,26.0,Statin,0.91,1,0,Standard Population
+PT-0082,86,Male,8,1,0,0,0,529.7,1.8,188.0,26.4,Antihypertensive+Statin,0.97,1,0,Standard Population
+PT-0083,86,Male,15,1,0,0,0,471.0,4.46,217.5,25.8,Antihypertensive+Metformin+Statin,0.81,0,1,Standard Population
+PT-0084,84,Female,10,0,1,0,0,479.0,2.44,198.8,29.0,No Medication,0.87,0,1,Standard Population
+PT-0085,56,Male,11,0,0,0,0,214.3,1.52,180.2,23.6,Antihypertensive+Metformin+Statin,0.93,1,0,Standard Population
+PT-0086,79,Male,10,1,0,1,1,426.5,1.14,214.6,21.5,No Medication,0.71,0,1,Standard Population
+PT-0087,58,Female,11,0,0,0,0,482.3,3.6,170.2,24.8,Antihypertensive,0.83,0,0,Standard Population
+PT-0088,60,Male,13,1,0,0,0,514.8,1.77,171.8,27.7,Metformin+Statin,0.9,1,0,Standard Population
+PT-0089,59,Female,12,0,0,1,0,330.0,2.45,174.9,23.3,Antihypertensive+Metformin+Statin,0.91,0,0,Standard Population
+PT-0090,63,Male,10,0,0,0,1,334.3,3.45,246.4,23.2,Statin,0.7,0,0,Standard Population
+PT-0091,85,Male,15,0,0,0,0,345.4,1.87,130.0,24.0,Statin,0.71,1,0,Standard Population
+PT-0092,84,Male,11,0,0,1,0,489.7,2.35,210.0,23.8,Antihypertensive+Statin,0.85,0,0,Standard Population
+PT-0093,74,Male,19,1,1,0,0,554.4,2.38,196.3,22.9,Metformin+Statin,0.87,0,0,Standard Population
+PT-0094,75,Female,9,0,1,1,0,367.0,3.15,131.1,24.8,No Medication,0.81,0,0,Standard Population
+PT-0095,88,Male,17,0,0,1,0,538.0,3.05,206.8,27.3,Metformin+Statin,0.81,0,0,Standard Population
+PT-0096,86,Female,14,0,0,0,0,436.1,2.16,213.1,25.1,Statin,0.78,0,0,Standard Population
+PT-0097,73,Male,18,0,1,0,0,403.8,2.47,217.4,27.1,Statin,0.79,0,0,Standard Population
+PT-0098,78,Female,9,1,1,0,1,392.5,1.99,130.0,25.1,Statin,0.88,0,1,Standard Population
+PT-0099,86,Female,6,1,0,0,0,517.1,0.77,246.9,25.7,Statin,0.91,1,0,Standard Population
+PT-0100,52,Female,12,0,0,0,0,462.3,2.68,167.0,25.8,Antihypertensive+Metformin+Statin,0.85,0,0,Standard Population
+PT-0101,86,Male,12,1,0,0,0,715.9,4.48,221.1,26.1,Statin,0.82,1,0,Standard Population
+PT-0102,88,Male,9,1,1,0,0,309.2,1.43,223.2,24.0,Antihypertensive+Metformin+Statin,0.84,0,0,Standard Population
+PT-0103,65,Male,18,0,1,0,0,487.4,1.55,161.7,25.2,Antihypertensive,0.83,1,0,Standard Population
+PT-0104,54,Female,19,1,0,0,0,351.2,1.44,220.1,23.8,Antihypertensive+Statin,0.87,0,0,Standard Population
+PT-0105,52,Male,8,0,1,0,0,307.0,3.2,180.4,28.8,Metformin+Statin,0.69,0,0,Standard Population
+PT-0106,56,Female,13,0,0,0,0,418.6,2.89,130.0,25.9,Antihypertensive+Statin,0.7,0,0,Standard Population
+PT-0107,77,Female,10,1,1,1,0,437.9,2.23,239.4,26.0,Antihypertensive+Statin,0.37,0,0,Standard Population
+PT-0108,65,Male,15,0,0,0,0,799.4,1.39,165.5,24.2,Statin,0.65,0,0,Standard Population
+PT-0109,78,Female,12,1,1,0,0,396.1,2.5,162.5,26.5,Metformin+Statin,0.91,0,1,Standard Population
+PT-0110,60,Male,9,1,0,1,0,273.1,0.68,179.7,25.0,Metformin+Statin,0.88,1,0,Standard Population
+PT-0111,66,Male,9,0,0,0,0,455.5,2.56,205.3,25.9,No Medication,0.58,1,0,Standard Population
+PT-0112,66,Female,13,1,0,0,1,150.3,3.36,192.8,24.2,Metformin+Statin,0.88,1,0,Standard Population
+PT-0113,77,Female,19,0,1,0,1,408.0,1.02,215.8,23.4,Statin,0.73,0,1,Standard Population
+PT-0114,64,Female,13,0,1,0,0,422.1,0.71,144.1,26.3,Antihypertensive,0.92,1,0,Standard Population
+PT-0115,83,Male,7,1,1,0,0,523.3,4.14,166.8,21.8,Metformin+Statin,0.86,1,0,Standard Population
+PT-0116,83,Male,19,1,1,0,0,546.6,1.73,190.6,30.0,Statin,0.91,0,0,Standard Population
+PT-0117,55,Female,7,0,0,0,0,354.5,3.65,267.1,30.0,Metformin+Statin,0.88,0,0,Standard Population
+PT-0118,81,Female,8,0,0,1,0,400.4,2.23,190.7,26.9,Antihypertensive,0.8,0,1,Standard Population
+PT-0119,88,Female,20,1,0,0,0,320.4,2.22,236.2,23.6,No Medication,0.86,0,0,Standard Population
+PT-0120,74,Male,17,1,0,0,0,273.4,2.88,196.5,25.6,Statin,0.81,0,0,Standard Population
+PT-0121,66,Female,17,1,0,1,1,460.3,1.43,176.6,21.3,No Medication,0.75,0,1,Standard Population
+PT-0122,80,Male,8,0,0,0,0,254.4,2.55,185.6,28.0,Antihypertensive+Statin,0.85,0,1,Standard Population
+PT-0123,87,Male,6,0,0,1,0,366.1,1.98,188.6,25.7,Antihypertensive,0.7,0,0,Standard Population
+PT-0124,64,Female,20,0,0,0,0,290.6,0.95,217.9,24.7,Statin,0.68,0,0,Standard Population
+PT-0125,83,Male,19,1,0,1,0,491.5,2.77,247.2,24.4,No Medication,0.85,1,0,Standard Population
+PT-0126,58,Female,8,0,0,0,0,654.2,2.11,208.7,28.8,Antihypertensive,0.82,1,0,Standard Population
+PT-0127,73,Male,11,0,1,1,0,250.8,2.23,240.1,29.1,Antihypertensive+Statin,0.88,1,1,Standard Population
+PT-0128,79,Male,13,1,1,1,0,179.1,1.07,158.3,28.6,Antihypertensive,0.79,0,0,Standard Population
+PT-0129,53,Female,18,0,1,0,0,403.8,4.15,179.2,28.4,Antihypertensive+Statin,0.38,0,0,Standard Population
+PT-0130,57,Female,17,1,0,0,0,422.0,3.36,167.5,26.1,Antihypertensive+Metformin+Statin,0.95,0,0,Standard Population
+PT-0131,79,Female,19,1,0,0,0,448.4,3.46,206.9,19.1,Antihypertensive+Statin,0.95,0,0,Standard Population
+PT-0132,79,Female,15,1,1,0,0,362.0,2.06,181.4,26.1,Metformin+Statin,0.78,0,0,Standard Population
+PT-0133,71,Female,11,0,0,0,0,393.9,0.5,222.7,25.9,No Medication,0.88,0,0,Standard Population
+PT-0134,81,Female,10,0,0,0,0,467.8,4.55,159.6,25.7,Antihypertensive,0.68,1,0,Standard Population
+PT-0135,62,Female,20,1,0,0,0,555.3,2.33,196.6,26.5,Metformin+Statin,0.97,0,0,Standard Population
+PT-0136,79,Male,9,1,0,0,0,165.8,1.58,221.1,22.9,Antihypertensive+Statin,0.77,0,1,Standard Population
+PT-0137,76,Female,8,1,0,0,0,372.0,2.86,130.0,26.8,Antihypertensive+Statin,0.94,0,0,Standard Population
+PT-0138,84,Male,18,0,0,0,1,447.8,3.68,275.6,22.8,Antihypertensive+Statin,0.73,0,0,Standard Population
+PT-0139,52,Female,9,1,0,0,0,300.7,2.37,184.2,28.3,Statin,0.84,0,0,Standard Population
+PT-0140,78,Female,19,1,0,0,0,645.1,3.81,130.0,27.5,No Medication,0.84,0,0,Standard Population
+PT-0141,64,Male,12,1,0,0,0,337.4,3.59,201.0,27.5,Antihypertensive+Statin,0.91,0,0,Standard Population
+PT-0142,54,Female,6,1,1,0,0,414.6,1.22,196.3,26.0,Antihypertensive+Statin,0.97,0,0,Standard Population
+PT-0143,57,Female,12,1,0,0,1,492.3,1.66,191.9,22.7,Statin,0.91,0,0,Standard Population
+PT-0144,59,Male,6,1,0,0,1,343.1,3.45,232.7,22.9,Metformin+Statin,0.88,0,0,Standard Population
+PT-0145,78,Female,7,0,1,0,0,179.9,0.4,223.4,25.8,Antihypertensive,0.96,0,0,Standard Population
+PT-0146,60,Female,20,0,0,1,0,364.3,2.24,206.3,28.5,Antihypertensive,0.56,1,0,Standard Population
+PT-0147,88,Male,9,0,0,0,0,553.8,0.83,212.1,26.4,Metformin+Statin,0.79,0,1,Standard Population
+PT-0148,84,Female,6,0,0,0,0,376.2,1.88,191.0,29.5,Antihypertensive+Statin,0.94,0,0,Standard Population
+PT-0149,75,Male,16,0,0,0,0,310.0,2.07,262.5,30.0,Statin,0.68,0,1,Standard Population
+PT-0150,66,Female,17,0,0,1,0,540.3,2.01,138.8,26.4,No Medication,0.8,0,1,Standard Population
+PT-0151,83,Female,16,0,1,1,0,377.0,1.79,200.3,17.7,Antihypertensive,0.76,0,0,Standard Population
+PT-0152,83,Female,20,0,0,0,0,353.7,1.19,197.5,27.8,Antihypertensive+Statin,0.83,0,0,Standard Population
+PT-0153,75,Male,16,1,0,0,1,439.4,4.92,225.9,20.9,Antihypertensive,0.83,0,0,Standard Population
+PT-0154,63,Female,14,1,0,1,0,520.2,4.45,162.9,24.7,Metformin+Statin,0.82,0,0,Standard Population
+PT-0155,53,Female,17,0,0,0,1,729.6,1.12,130.0,22.3,Antihypertensive+Metformin+Statin,0.85,0,0,Standard Population
+PT-0156,54,Male,11,1,0,0,0,527.5,4.14,201.0,25.9,Metformin+Statin,0.9,1,0,Standard Population
+PT-0157,88,Female,18,0,0,0,0,570.8,1.96,205.7,26.3,Antihypertensive,0.59,1,0,Standard Population
+PT-0158,68,Male,6,0,0,0,0,354.2,2.54,251.6,23.0,Antihypertensive+Statin,0.83,0,0,Standard Population
+PT-0159,53,Female,6,0,0,1,0,286.6,2.33,146.7,24.7,Antihypertensive,0.66,0,0,Standard Population
+PT-0160,53,Male,11,0,0,1,0,428.1,1.67,238.9,27.5,Antihypertensive,0.85,0,0,Standard Population
+PT-0161,79,Male,9,1,0,1,0,433.9,3.48,285.0,26.8,No Medication,0.83,0,0,Standard Population
+PT-0162,74,Male,9,1,1,0,1,279.8,2.54,180.6,23.3,Antihypertensive,0.86,0,0,Standard Population
+PT-0163,88,Female,20,0,0,1,0,397.2,1.88,145.9,23.5,Antihypertensive+Metformin+Statin,0.83,0,0,Standard Population
+PT-0164,83,Male,16,0,0,0,0,471.9,0.96,179.5,23.4,Antihypertensive,0.69,1,0,Standard Population
+PT-0165,84,Female,20,0,0,0,1,466.9,1.42,195.5,20.5,Antihypertensive,0.87,0,0,Standard Population
+PT-0166,52,Male,11,0,0,1,0,485.6,0.59,216.4,27.4,Antihypertensive+Metformin+Statin,0.66,0,0,Standard Population
+PT-0167,70,Male,20,0,0,0,0,457.8,2.41,172.5,29.0,No Medication,0.81,0,0,Standard Population
+PT-0168,53,Female,19,0,0,0,0,354.1,1.08,254.1,22.8,Antihypertensive+Statin,0.93,0,0,Standard Population
+PT-0169,77,Female,17,1,1,0,1,353.2,2.11,152.6,21.4,Antihypertensive,0.88,1,1,Standard Population
+PT-0170,83,Male,16,1,1,1,1,264.1,3.91,130.0,18.9,No Medication,0.82,0,1,Standard Population
+PT-0171,57,Female,12,0,0,0,1,652.0,3.72,237.1,19.5,Antihypertensive+Metformin+Statin,0.83,1,0,Standard Population
+PT-0172,83,Female,14,1,0,0,0,421.7,2.36,130.0,27.3,No Medication,0.74,0,0,Standard Population
+PT-0173,55,Female,15,0,1,0,1,390.8,2.3,187.2,24.0,Statin,0.44,0,0,Standard Population
+PT-0174,62,Male,10,0,1,1,0,299.3,4.47,310.0,27.3,Antihypertensive,0.87,1,0,Standard Population
+PT-0175,68,Male,14,0,1,1,0,801.6,2.97,194.5,27.9,No Medication,0.88,0,0,Standard Population
+PT-0176,75,Female,9,1,0,0,0,280.5,2.04,152.4,24.8,No Medication,0.61,0,0,Standard Population
+PT-0177,56,Male,18,1,0,0,0,364.2,0.83,192.8,25.8,No Medication,0.84,0,0,Standard Population
+PT-0178,85,Female,15,1,0,0,1,474.1,2.83,193.1,25.8,No Medication,0.9,0,0,Standard Population
+PT-0179,57,Female,7,0,0,1,1,498.0,3.31,201.1,22.4,Antihypertensive+Statin,0.59,0,0,Standard Population
+PT-0180,73,Female,8,1,0,0,0,544.5,1.71,220.2,27.3,Statin,0.89,1,0,Standard Population
+PT-0181,62,Female,18,0,0,1,0,655.0,2.72,155.5,26.4,Antihypertensive,0.64,1,0,Standard Population
+PT-0182,67,Female,16,1,1,0,0,485.8,2.0,259.1,22.5,Statin,0.68,0,0,Standard Population
+PT-0183,84,Male,6,0,0,1,1,282.7,2.2,204.3,17.4,Antihypertensive+Metformin+Statin,0.75,0,0,Standard Population
+PT-0184,60,Female,19,0,1,1,0,386.6,0.4,222.6,25.3,Antihypertensive+Metformin+Statin,0.84,0,0,Standard Population
+PT-0185,57,Male,19,0,0,1,0,460.0,2.16,171.1,28.8,Antihypertensive+Statin,0.81,1,0,Standard Population
+PT-0186,67,Male,11,1,0,1,0,688.9,3.47,243.9,27.7,Metformin+Statin,0.86,1,0,Standard Population
+PT-0187,80,Female,18,0,0,0,0,238.3,1.71,185.2,27.3,Antihypertensive,0.85,0,0,Standard Population
+PT-0188,54,Female,11,1,1,0,0,576.3,2.46,205.5,24.8,Antihypertensive,0.97,0,0,Standard Population
+PT-0189,71,Female,6,0,0,0,1,443.4,1.57,159.5,25.4,Antihypertensive+Statin,0.76,0,0,Standard Population
+PT-0190,87,Female,16,1,0,1,0,528.9,2.8,157.1,23.2,Antihypertensive+Statin,0.71,0,0,Standard Population
+PT-0191,70,Male,18,1,1,0,0,406.7,2.16,221.2,26.4,Statin,0.4,0,0,Standard Population
+PT-0192,77,Male,8,1,0,0,0,310.5,1.37,178.1,25.6,Statin,0.69,0,0,Standard Population
+PT-0193,54,Female,10,0,0,0,0,517.6,3.87,162.6,26.5,Antihypertensive+Metformin+Statin,0.9,0,0,Standard Population
+PT-0194,70,Male,8,0,0,0,1,505.1,3.42,170.6,24.9,Metformin+Statin,0.92,1,0,Standard Population
+PT-0195,71,Male,15,0,0,0,0,546.4,1.73,221.6,24.5,Statin,0.88,1,0,Standard Population
+PT-0196,83,Male,8,1,0,0,0,418.3,2.95,171.1,22.7,Antihypertensive+Statin,0.95,1,0,Standard Population
+PT-0197,58,Male,19,0,0,1,0,342.0,2.99,190.5,26.6,Antihypertensive,0.7,0,0,Standard Population
+PT-0198,84,Male,15,0,0,0,0,217.4,3.11,195.6,24.5,No Medication,0.75,0,0,Standard Population
+PT-0199,69,Male,8,0,0,0,0,526.5,0.54,130.0,30.0,Antihypertensive,0.71,0,0,Standard Population
+PT-0200,52,Male,10,0,0,0,0,475.1,3.51,139.1,28.3,Statin,0.92,0,0,Standard Population
+PT-0201,62,Male,18,1,0,0,0,294.4,1.77,207.8,25.6,No Medication,0.86,0,1,Standard Population
+PT-0202,79,Female,10,0,0,1,0,350.0,2.01,167.0,23.4,Metformin+Statin,0.72,1,0,Standard Population
+PT-0203,76,Male,9,1,0,1,0,359.3,5.3,235.2,21.9,Antihypertensive,0.8,0,0,Standard Population
+PT-0204,74,Male,6,0,0,0,0,227.2,2.73,231.7,23.7,Statin,0.9,1,0,Standard Population
+PT-0205,82,Female,10,0,0,1,0,313.7,1.98,222.3,25.6,No Medication,0.96,1,0,Standard Population
+PT-0206,81,Male,15,0,0,1,0,272.6,0.4,264.2,28.3,Antihypertensive,0.86,1,0,Standard Population
+PT-0207,86,Female,10,0,1,1,1,366.4,3.93,191.8,23.6,Metformin+Statin,0.91,1,0,Standard Population
+PT-0208,58,Female,9,0,0,0,1,324.0,0.92,219.7,23.3,Antihypertensive+Statin,0.94,0,0,Standard Population
+PT-0209,67,Male,11,1,1,1,0,208.5,1.3,172.8,25.5,Antihypertensive+Metformin+Statin,0.5,1,0,Standard Population
+PT-0210,77,Male,15,0,1,0,0,682.9,2.04,288.2,26.2,Antihypertensive+Metformin+Statin,0.87,0,1,Standard Population
+PT-0211,53,Female,9,1,0,0,0,582.8,3.96,270.4,25.8,Antihypertensive,0.81,1,0,Standard Population
+PT-0212,52,Female,19,0,0,0,0,318.7,3.25,195.5,30.0,Antihypertensive,0.83,0,0,Standard Population
+PT-0213,63,Male,12,0,0,0,1,455.4,2.23,209.7,22.2,Metformin+Statin,0.79,0,0,Standard Population
+PT-0214,56,Female,12,1,1,0,0,474.3,2.74,246.7,26.5,Antihypertensive+Metformin+Statin,0.74,0,0,Standard Population
+PT-0215,88,Male,7,0,0,0,0,574.8,1.74,189.4,20.7,Antihypertensive+Statin,0.76,0,0,Standard Population
+PT-0216,83,Female,8,0,0,0,1,313.6,2.55,170.0,21.2,Antihypertensive+Statin,0.5,0,0,Standard Population
+PT-0217,60,Male,6,0,0,1,1,562.0,2.48,228.2,24.4,Antihypertensive+Statin,0.59,0,0,Standard Population
+PT-0218,86,Female,13,0,1,1,0,348.8,3.47,198.0,23.1,Antihypertensive,0.73,1,0,Standard Population
+PT-0219,70,Female,14,1,1,0,0,246.3,3.46,202.0,24.5,Statin,0.86,0,0,Standard Population
+PT-0220,67,Female,9,0,0,1,0,514.1,2.94,163.3,27.7,Metformin+Statin,0.71,0,0,Standard Population
+PT-0221,54,Female,11,1,0,1,0,587.8,2.0,130.0,23.8,Antihypertensive+Statin,0.63,0,0,Standard Population
+PT-0222,71,Male,14,1,0,1,1,756.4,3.22,204.0,24.3,No Medication,0.61,0,0,Standard Population
+PT-0223,75,Male,11,0,0,0,1,264.0,2.3,229.4,20.9,Antihypertensive,0.79,0,0,Standard Population
+PT-0224,84,Male,19,1,1,1,0,510.9,1.21,186.4,24.5,No Medication,0.81,0,0,Standard Population
+PT-0225,75,Male,17,0,0,1,0,366.7,1.96,249.6,23.5,Antihypertensive,0.69,0,0,Standard Population
+PT-0226,62,Female,17,1,0,1,1,521.8,2.49,168.3,23.4,Antihypertensive+Metformin+Statin,0.89,0,0,Standard Population
+PT-0227,59,Male,17,0,0,0,0,228.8,3.4,154.9,30.0,No Medication,0.59,0,1,Standard Population
+PT-0228,87,Male,14,1,1,0,0,255.8,2.2,192.4,26.7,Antihypertensive,0.86,0,0,Standard Population
+PT-0229,71,Female,20,0,1,0,0,319.1,1.07,191.9,24.2,Antihypertensive,0.91,0,0,Standard Population
+PT-0230,86,Female,9,0,0,0,0,430.3,2.46,224.3,27.5,Antihypertensive+Statin,0.74,1,0,Standard Population
+PT-0231,76,Female,13,1,1,0,0,336.7,2.52,165.6,25.1,Statin,0.56,0,1,Standard Population
+PT-0232,86,Female,14,1,0,0,0,505.7,2.6,247.0,27.9,Antihypertensive,0.76,0,0,Standard Population
+PT-0233,76,Male,9,0,0,1,0,553.5,3.41,269.7,27.3,Antihypertensive,0.81,0,0,Standard Population
+PT-0234,80,Male,10,0,0,1,0,497.9,3.52,193.5,19.6,Antihypertensive,0.89,0,1,Standard Population
+PT-0235,69,Female,19,1,0,0,0,630.4,1.75,242.5,24.0,Statin,0.6,0,1,Standard Population
+PT-0236,69,Female,13,1,0,1,0,474.1,1.72,154.9,27.9,Antihypertensive,0.91,0,0,Standard Population
+PT-0237,53,Male,17,1,1,0,0,261.8,1.26,235.9,27.2,Antihypertensive+Metformin+Statin,0.96,0,1,Standard Population
+PT-0238,86,Female,15,1,0,0,1,597.2,3.17,234.8,19.4,Statin,0.6,1,0,Standard Population
+PT-0239,67,Male,19,1,0,1,0,341.3,3.99,227.8,24.9,No Medication,0.65,0,0,Standard Population
+PT-0240,87,Male,11,1,0,1,0,538.4,2.05,194.4,21.3,Antihypertensive+Statin,0.73,1,0,Standard Population
+PT-0241,84,Female,17,0,0,1,0,624.6,2.13,130.0,25.1,Antihypertensive,0.67,0,1,Standard Population
+PT-0242,55,Female,12,0,1,0,0,479.4,4.01,170.6,30.0,Antihypertensive+Statin,0.73,0,0,Standard Population
+PT-0243,84,Female,8,1,0,1,0,225.5,2.96,171.2,26.9,Antihypertensive,0.87,1,0,Standard Population
+PT-0244,65,Male,12,1,0,0,0,300.6,2.88,157.8,30.0,Statin,0.6,1,1,Standard Population
+PT-0245,72,Female,17,0,1,1,0,592.0,1.09,199.6,27.7,Antihypertensive+Statin,0.92,0,0,Standard Population
+PT-0246,71,Male,19,0,0,1,0,398.0,3.15,179.1,28.0,Antihypertensive+Metformin+Statin,0.71,1,0,Standard Population
+PT-0247,59,Male,13,1,0,0,0,430.3,1.38,163.7,30.0,Antihypertensive,0.87,0,0,Standard Population
+PT-0248,58,Female,15,0,0,0,0,518.6,1.15,154.8,27.4,Antihypertensive,0.56,0,0,Standard Population
+PT-0249,54,Female,11,0,0,1,0,510.5,2.02,167.8,26.4,Statin,0.83,0,0,Standard Population
+PT-0250,68,Female,20,0,1,0,0,456.2,1.76,237.6,28.2,Antihypertensive+Metformin+Statin,0.97,0,1,Standard Population
+PT-0251,84,Female,15,0,1,0,0,392.9,2.16,169.9,28.2,Antihypertensive+Metformin+Statin,0.82,1,0,Standard Population
+PT-0252,63,Female,14,0,0,1,0,379.4,0.81,175.4,25.4,No Medication,0.58,0,0,Standard Population
+PT-0253,73,Female,18,0,1,0,0,531.5,3.45,177.6,24.4,No Medication,0.62,0,0,Standard Population
+PT-0254,73,Male,11,0,0,1,0,492.0,3.64,207.9,26.1,Statin,0.62,1,0,Standard Population
+PT-0255,81,Male,17,1,0,0,0,386.6,0.4,212.3,27.1,No Medication,0.97,0,0,Standard Population
+PT-0256,59,Male,14,0,0,0,0,560.7,3.48,130.0,28.1,Antihypertensive,0.98,0,0,Standard Population
+PT-0257,78,Male,18,1,0,1,0,403.2,1.51,233.8,22.8,No Medication,0.77,0,0,Standard Population
+PT-0258,78,Female,9,1,0,0,1,309.3,3.34,249.6,25.6,Antihypertensive+Statin,0.7,0,1,Standard Population
+PT-0259,85,Female,13,0,0,0,1,321.3,2.32,155.1,20.2,Antihypertensive+Metformin+Statin,0.66,1,0,Standard Population
+PT-0260,72,Male,16,1,1,1,0,292.8,2.43,158.1,25.4,Antihypertensive+Metformin+Statin,0.78,0,0,Standard Population
+PT-0261,81,Male,9,0,0,0,0,384.6,2.2,177.9,23.6,Antihypertensive,0.83,0,1,Standard Population
+PT-0262,84,Female,7,1,0,0,0,580.4,3.73,166.3,30.0,Statin,0.97,0,0,Standard Population
+PT-0263,79,Male,15,0,0,0,0,315.3,1.04,203.5,26.0,Metformin+Statin,0.75,0,0,Standard Population
+PT-0264,84,Female,16,1,0,1,0,444.5,3.07,130.0,23.6,No Medication,0.9,0,1,Standard Population
+PT-0265,56,Female,14,1,0,1,0,334.6,3.61,152.5,28.4,Antihypertensive+Statin,0.75,1,0,Standard Population
+PT-0266,70,Female,10,0,0,1,0,386.2,3.19,253.5,27.5,Statin,0.85,0,0,Standard Population
+PT-0267,55,Female,9,0,1,0,0,223.7,4.96,159.7,26.4,Antihypertensive,0.68,0,0,Standard Population
+PT-0268,86,Female,7,1,0,1,1,391.3,1.82,242.3,23.1,Statin,0.8,0,0,Standard Population
+PT-0269,68,Male,6,1,0,0,0,394.8,3.45,208.5,24.4,No Medication,0.85,0,0,Standard Population
+PT-0270,79,Female,16,0,0,1,0,490.2,2.28,130.0,24.6,Antihypertensive+Statin,0.88,0,0,Standard Population
+PT-0271,81,Female,12,1,0,0,1,449.0,3.76,219.1,17.6,Antihypertensive,0.89,0,0,Standard Population
+PT-0272,80,Male,11,0,0,1,0,264.2,2.39,190.5,22.9,Antihypertensive,0.88,1,0,Standard Population
+PT-0273,57,Female,20,1,0,1,0,560.9,1.97,177.7,30.0,No Medication,0.8,0,0,Standard Population
+PT-0274,86,Female,20,0,0,0,0,447.3,3.84,204.3,28.5,Metformin+Statin,0.86,0,0,Standard Population
+PT-0275,88,Female,7,1,0,0,1,445.8,1.86,213.0,21.4,Statin,0.79,1,0,Standard Population
+PT-0276,75,Female,13,0,0,1,0,418.8,0.85,221.9,29.1,Statin,0.86,0,0,Standard Population
+PT-0277,80,Female,16,0,0,0,0,352.7,1.83,239.8,25.2,Statin,0.82,0,0,Standard Population
+PT-0278,82,Female,9,0,0,1,0,448.3,3.08,210.5,24.9,Statin,0.86,0,0,Standard Population
+PT-0279,86,Female,13,0,1,0,0,481.8,3.93,142.7,25.3,Antihypertensive,0.86,0,0,Standard Population
+PT-0280,84,Female,20,0,0,0,0,192.9,2.52,177.0,25.1,Antihypertensive+Statin,0.69,1,0,Standard Population
+PT-0281,72,Female,12,0,1,0,0,350.0,3.85,306.8,25.5,No Medication,0.82,0,0,Standard Population
+PT-0282,83,Female,10,1,0,0,0,386.9,0.91,222.5,27.6,No Medication,0.88,1,1,Standard Population
+PT-0283,74,Female,15,0,1,1,1,453.3,1.91,285.0,22.3,Antihypertensive+Statin,0.67,0,0,Standard Population
+PT-0284,84,Male,15,0,0,0,0,575.1,2.08,248.0,26.7,Antihypertensive,0.87,0,0,Standard Population
+PT-0285,54,Female,17,0,0,1,0,319.7,2.27,204.2,28.9,Antihypertensive,0.91,0,0,Standard Population
+PT-0286,69,Female,13,0,0,0,0,355.3,2.49,206.5,26.8,Statin,0.86,0,0,Standard Population
+PT-0287,76,Male,19,0,1,0,0,353.4,3.16,193.6,23.8,Statin,0.63,0,0,Standard Population
+PT-0288,82,Female,14,0,0,0,1,315.8,1.91,130.0,18.9,Antihypertensive+Statin,0.7,0,0,Standard Population
+PT-0289,54,Male,10,0,0,0,0,374.9,2.55,195.7,27.1,Antihypertensive+Statin,0.79,1,1,Standard Population
+PT-0290,75,Male,15,0,0,1,0,520.2,2.35,241.0,25.4,Antihypertensive+Statin,0.98,0,0,Standard Population
+PT-0291,83,Female,10,0,1,0,0,283.0,1.38,172.2,25.5,Antihypertensive+Statin,0.86,0,0,Standard Population
+PT-0292,73,Male,7,0,0,0,0,475.6,2.27,210.7,25.8,Antihypertensive,0.76,0,1,Standard Population
+PT-0293,74,Female,10,0,1,0,0,198.8,2.24,227.4,30.0,Antihypertensive,0.87,0,0,Standard Population
+PT-0294,53,Female,8,0,0,0,0,347.0,2.22,160.4,24.2,Statin,0.77,0,0,Standard Population
+PT-0295,78,Female,12,1,0,0,0,377.2,2.43,177.9,21.6,Antihypertensive,0.76,0,1,Standard Population
+PT-0296,53,Male,15,0,0,1,0,637.7,2.48,156.3,27.5,Antihypertensive+Metformin+Statin,0.82,0,0,Standard Population
+PT-0297,77,Male,10,1,1,0,0,384.3,1.92,163.8,24.9,Metformin+Statin,0.83,1,0,Standard Population
+PT-0298,68,Female,13,0,0,0,0,150.0,3.8,146.1,26.7,Antihypertensive,0.96,0,1,Standard Population
+PT-0299,84,Female,6,1,1,0,1,160.1,1.11,160.8,22.7,No Medication,0.87,0,0,Standard Population
+PT-0300,60,Female,8,1,0,1,0,424.4,1.61,248.9,29.1,No Medication,0.64,0,1,Standard Population
+PT-0301,80,Male,8,0,0,0,0,499.8,5.46,160.2,22.5,Antihypertensive,0.88,0,0,Standard Population
+PT-0302,77,Female,14,1,0,0,0,468.8,1.26,199.8,24.5,No Medication,0.97,0,0,Standard Population
+PT-0303,86,Female,10,0,0,0,0,441.8,0.91,175.9,26.1,Statin,0.91,0,0,Standard Population
+PT-0304,76,Female,17,0,1,0,0,571.1,3.21,239.8,27.2,Metformin+Statin,0.84,0,0,Standard Population
+PT-0305,75,Male,14,1,1,0,1,349.9,0.4,244.8,26.3,Antihypertensive+Statin,0.55,1,0,Standard Population
+PT-0306,64,Female,18,1,1,0,0,536.3,2.14,227.8,28.2,Antihypertensive,0.93,0,0,Standard Population
+PT-0307,58,Female,14,0,0,1,1,207.8,4.76,206.6,22.7,Antihypertensive,0.89,0,0,Standard Population
+PT-0308,87,Female,6,0,0,0,0,302.4,0.7,186.2,23.4,Statin,0.5,0,0,Standard Population
+PT-0309,71,Male,7,0,0,1,0,185.1,0.4,149.7,24.8,Metformin+Statin,0.89,1,0,Standard Population
+PT-0310,52,Female,10,0,1,0,1,384.3,0.75,268.9,21.9,Metformin+Statin,0.67,0,0,Standard Population
+PT-0311,59,Female,9,1,0,0,0,414.0,3.39,166.1,27.9,Antihypertensive+Metformin+Statin,0.64,1,0,Standard Population
+PT-0312,67,Male,20,0,0,0,1,434.8,3.64,220.2,22.9,Statin,0.8,1,0,Standard Population
+PT-0313,65,Female,15,0,0,0,0,428.0,1.84,235.3,23.6,Antihypertensive+Statin,0.82,0,1,Standard Population
+PT-0314,63,Female,14,0,0,1,1,299.4,3.15,173.9,21.7,No Medication,0.74,1,0,Standard Population
+PT-0315,74,Male,12,0,1,0,0,395.3,3.93,234.4,27.6,Statin,0.94,0,0,Standard Population
+PT-0316,66,Male,11,0,0,0,0,225.3,4.37,224.0,26.9,Antihypertensive,0.86,0,1,Standard Population
+PT-0317,79,Female,12,1,0,0,0,597.2,2.13,260.7,26.7,Statin,0.72,0,0,Standard Population
+PT-0318,85,Male,6,1,0,1,0,380.5,0.4,177.2,26.0,Antihypertensive+Statin,0.91,0,0,Standard Population
+PT-0319,53,Female,6,1,0,0,0,356.4,1.5,146.1,30.0,Antihypertensive,0.58,0,0,Standard Population
+PT-0320,83,Male,13,0,0,1,0,626.6,1.93,175.8,25.8,No Medication,0.73,0,1,Standard Population
+PT-0321,74,Female,18,1,0,0,0,258.5,2.12,202.9,25.0,No Medication,0.85,0,0,Standard Population
+PT-0322,73,Male,18,1,1,0,0,273.7,2.19,197.2,24.0,No Medication,0.76,1,1,Standard Population
+PT-0323,76,Female,7,1,1,0,0,277.5,3.63,180.0,26.2,No Medication,0.84,0,1,Standard Population
+PT-0324,73,Female,17,0,0,0,0,411.2,3.8,130.0,21.0,No Medication,0.7,0,0,Standard Population
+PT-0325,73,Female,15,0,0,0,0,476.1,2.21,212.9,25.5,Antihypertensive,0.68,1,0,Standard Population
+PT-0326,57,Female,16,0,1,0,0,516.2,3.61,269.9,26.2,Antihypertensive,0.89,0,0,Standard Population
+PT-0327,66,Male,14,0,0,1,0,754.4,2.79,212.6,23.5,Antihypertensive+Metformin+Statin,0.83,0,0,Standard Population
+PT-0328,88,Female,12,0,0,1,0,150.0,2.47,218.1,23.2,Antihypertensive,0.9,1,0,Standard Population
+PT-0329,84,Male,11,0,0,1,0,499.1,3.4,216.8,26.9,No Medication,0.89,0,1,Standard Population
+PT-0330,59,Male,6,0,0,0,1,347.6,2.48,210.1,23.2,Statin,0.97,0,0,Standard Population
+PT-0331,56,Male,6,1,0,0,1,343.8,4.66,230.4,23.1,Metformin+Statin,0.76,0,0,Standard Population
+PT-0332,55,Female,7,0,1,0,0,339.4,0.82,210.0,27.4,Antihypertensive+Statin,0.63,1,0,Standard Population
+PT-0333,57,Female,11,0,0,1,0,301.9,1.83,183.1,26.8,Antihypertensive,0.81,0,0,Standard Population
+PT-0334,83,Female,19,1,0,1,0,639.0,2.26,164.8,27.8,Statin,0.54,0,0,Standard Population
+PT-0335,81,Male,11,1,0,0,0,529.5,2.88,185.5,25.7,Antihypertensive+Statin,0.89,1,0,Standard Population
+PT-0336,86,Male,7,1,0,0,0,423.0,3.79,206.9,22.3,Antihypertensive+Statin,0.9,0,0,Standard Population
+PT-0337,67,Female,6,1,0,0,0,595.6,2.37,183.0,29.4,Antihypertensive+Statin,0.67,1,0,Standard Population
+PT-0338,64,Male,15,0,1,0,0,223.4,0.84,206.9,27.0,Metformin+Statin,0.92,1,1,Standard Population
+PT-0339,81,Male,10,1,1,0,0,247.0,3.33,211.7,24.3,Metformin+Statin,0.53,1,0,Standard Population
+PT-0340,70,Male,10,0,0,0,0,150.0,3.23,226.7,23.5,Statin,0.81,1,0,Standard Population
+PT-0341,68,Female,7,0,1,1,1,329.1,0.4,243.7,23.1,Statin,0.85,0,0,Standard Population
+PT-0342,70,Female,11,0,1,0,0,441.0,2.4,198.0,25.8,Antihypertensive+Statin,0.98,1,0,Standard Population
+PT-0343,79,Male,14,0,1,0,1,433.4,0.65,145.3,24.9,Metformin+Statin,0.73,0,0,Standard Population
+PT-0344,77,Male,7,0,0,1,1,439.4,1.67,181.9,21.2,No Medication,0.61,0,0,Standard Population
+PT-0345,88,Female,15,1,0,0,0,236.6,1.41,196.7,23.4,Antihypertensive+Metformin+Statin,0.94,0,1,Standard Population
+PT-0346,77,Female,7,1,0,0,0,524.4,3.29,130.0,27.4,Antihypertensive,0.89,1,0,Standard Population
+PT-0347,74,Male,8,0,0,0,0,451.2,2.53,247.8,27.7,Statin,0.94,0,0,Standard Population
+PT-0348,60,Female,18,0,0,0,1,515.3,0.99,200.4,23.0,Metformin+Statin,0.84,1,0,Standard Population
+PT-0349,63,Male,12,1,0,0,1,173.9,3.37,209.5,23.9,Antihypertensive,0.77,0,1,Standard Population
+PT-0350,52,Male,11,1,1,1,0,460.5,0.82,246.9,26.8,Statin,0.62,1,0,Standard Population
+PT-0351,52,Female,17,0,1,0,0,265.6,2.76,171.1,27.4,No Medication,0.8,1,0,Standard Population
+PT-0352,85,Male,13,1,1,0,0,368.3,1.5,216.8,27.6,Antihypertensive,0.71,0,0,Standard Population
+PT-0353,83,Female,20,0,0,0,0,489.5,2.0,190.8,26.6,Antihypertensive,0.93,0,1,Standard Population
+PT-0354,76,Male,13,0,0,0,0,431.8,2.95,188.0,25.4,Antihypertensive,0.98,0,1,Standard Population
+PT-0355,52,Male,11,1,0,1,1,309.3,2.97,165.7,25.8,Antihypertensive,0.94,0,0,Standard Population
+PT-0356,67,Female,17,0,0,1,0,420.8,3.87,258.3,21.4,Antihypertensive+Metformin+Statin,0.86,0,0,Standard Population
+PT-0357,56,Male,16,0,0,0,0,220.9,2.31,180.7,30.0,Antihypertensive+Metformin+Statin,0.85,0,0,Standard Population
+PT-0358,73,Female,15,1,0,1,0,569.5,2.74,221.6,22.4,No Medication,0.84,0,1,Standard Population
+PT-0359,80,Male,8,1,0,0,0,393.3,1.92,130.0,24.2,Antihypertensive+Statin,0.78,0,1,Standard Population
+PT-0360,54,Male,8,0,1,1,0,565.4,2.6,239.8,26.7,No Medication,0.64,0,1,Standard Population
+PT-0361,63,Male,20,0,0,0,0,351.6,2.88,235.0,26.1,No Medication,0.7,0,1,Standard Population
+PT-0362,77,Female,6,0,0,1,1,351.9,2.29,198.7,23.9,No Medication,0.9,1,1,Standard Population
+PT-0363,67,Male,12,1,0,1,1,320.7,0.42,186.4,20.2,Antihypertensive+Metformin+Statin,0.53,0,0,Standard Population
+PT-0364,88,Female,10,0,0,0,0,533.9,2.76,210.2,25.6,Antihypertensive+Metformin+Statin,0.79,0,1,Standard Population
+PT-0365,73,Male,9,0,0,0,1,327.8,2.8,282.0,20.9,Antihypertensive,0.6,0,0,Standard Population
+PT-0366,80,Female,15,1,0,1,0,503.8,1.65,130.0,26.1,Antihypertensive,0.98,0,1,Standard Population
+PT-0367,65,Male,20,0,0,1,0,370.3,0.99,224.7,26.1,Antihypertensive,0.82,1,0,Standard Population
+PT-0368,79,Female,9,0,0,0,0,163.1,4.02,160.4,25.7,Statin,0.94,0,0,Standard Population
+PT-0369,56,Female,19,0,0,1,0,345.9,2.94,194.2,25.6,Statin,0.89,0,0,Standard Population
+PT-0370,81,Female,9,1,0,0,1,266.7,2.15,185.6,20.6,Antihypertensive,0.83,1,0,Standard Population
+PT-0371,56,Female,11,0,0,0,0,424.4,1.15,178.7,27.3,Antihypertensive+Statin,0.79,0,0,Standard Population
+PT-0372,63,Female,20,0,1,0,0,265.2,1.5,194.6,28.2,Antihypertensive,0.73,0,0,Standard Population
+PT-0373,67,Female,13,1,0,0,0,540.4,3.83,151.9,25.0,Antihypertensive+Metformin+Statin,0.78,0,0,Standard Population
+PT-0374,77,Male,13,0,0,1,0,408.2,2.55,234.1,23.9,Antihypertensive+Statin,0.89,0,0,Standard Population
+PT-0375,77,Male,10,0,0,0,0,396.9,1.79,130.0,26.9,Statin,0.81,1,0,Standard Population
+PT-0376,72,Female,20,0,1,1,0,505.3,2.96,215.5,25.8,Antihypertensive+Statin,0.97,0,0,Standard Population
+PT-0377,87,Female,11,0,1,0,0,545.3,1.5,182.6,26.8,Metformin+Statin,0.87,1,1,Standard Population
+PT-0378,84,Female,9,0,0,0,0,417.4,4.05,150.5,23.5,Antihypertensive,0.53,1,0,Standard Population
+PT-0379,81,Female,17,0,0,0,1,319.7,3.89,202.7,18.1,Antihypertensive,0.51,0,0,Standard Population
+PT-0380,88,Male,19,0,1,0,0,189.4,1.89,135.8,24.0,Antihypertensive+Metformin+Statin,0.76,0,0,Standard Population
+PT-0381,74,Male,16,0,0,0,0,330.8,1.71,196.5,24.3,Antihypertensive,0.65,0,0,Standard Population
+PT-0382,61,Female,18,1,0,0,0,339.8,0.4,140.9,26.3,No Medication,0.76,0,0,Standard Population
+PT-0383,56,Male,14,1,0,0,0,433.9,0.77,212.5,25.4,Statin,0.81,0,0,Standard Population
+PT-0384,87,Male,13,1,1,0,0,375.1,0.93,159.9,26.6,Metformin+Statin,0.81,0,0,Standard Population
+PT-0385,85,Female,15,1,1,0,0,509.4,2.55,177.9,24.7,Antihypertensive+Statin,0.56,0,0,Standard Population
+PT-0386,82,Male,17,0,0,0,1,340.3,2.04,206.2,21.9,Antihypertensive+Metformin+Statin,0.63,1,0,Standard Population
+PT-0387,61,Female,15,1,0,1,0,412.6,0.92,165.6,26.8,Statin,0.79,0,0,Standard Population
+PT-0388,70,Male,6,0,0,1,0,573.9,2.09,192.8,26.4,No Medication,0.8,0,0,Standard Population
+PT-0389,83,Female,20,1,0,0,1,464.4,2.96,137.5,21.5,Statin,0.81,1,1,Standard Population
+PT-0390,52,Male,7,1,1,0,0,412.2,2.98,219.0,27.9,Antihypertensive+Statin,0.87,0,0,Standard Population
+PT-0391,56,Male,14,1,0,0,0,341.7,0.4,262.1,25.1,No Medication,0.68,0,0,Standard Population
+PT-0392,55,Male,13,1,0,1,0,337.7,2.26,301.1,29.5,Antihypertensive,0.79,0,0,Standard Population
+PT-0393,67,Male,19,0,0,0,1,309.4,0.88,198.5,21.9,No Medication,0.66,0,0,Standard Population
+PT-0394,75,Male,8,0,0,0,1,349.7,3.39,225.0,19.3,Statin,0.9,0,0,Standard Population
+PT-0395,67,Male,13,0,0,0,0,518.2,3.26,130.0,26.5,Metformin+Statin,0.88,0,0,Standard Population
+PT-0396,53,Female,17,0,0,0,0,391.2,1.41,252.1,25.1,Antihypertensive+Statin,0.89,0,0,Standard Population
+PT-0397,79,Male,6,0,0,0,0,244.5,1.56,224.5,26.9,Antihypertensive+Metformin+Statin,0.76,1,0,Standard Population
+PT-0398,83,Female,15,1,0,1,1,649.9,1.89,176.6,26.0,No Medication,0.68,0,0,Standard Population
+PT-0399,78,Female,9,1,0,0,1,461.6,0.4,242.0,20.2,Antihypertensive+Metformin+Statin,0.65,0,0,Standard Population
+PT-0400,71,Female,8,0,0,0,0,237.1,2.77,185.3,26.6,Metformin+Statin,0.88,0,0,Standard Population
+PT-0401,75,Male,11,1,0,0,0,362.6,2.1,177.6,22.2,Antihypertensive,0.78,0,1,Standard Population
+PT-0402,63,Female,12,1,1,0,0,434.4,3.47,213.1,27.3,Antihypertensive+Metformin+Statin,0.65,0,0,Standard Population
+PT-0403,86,Male,9,1,1,1,0,641.6,1.19,154.6,23.4,Antihypertensive,0.55,1,0,Standard Population
+PT-0404,84,Male,12,1,1,0,0,275.9,1.72,233.8,24.1,Metformin+Statin,0.88,0,0,Standard Population
+PT-0405,84,Female,14,0,0,1,0,546.9,0.74,154.9,23.1,Metformin+Statin,0.87,0,0,Standard Population
+PT-0406,88,Male,16,1,1,0,0,601.9,1.3,155.1,26.6,Antihypertensive+Statin,0.8,0,0,Standard Population
+PT-0407,63,Female,7,1,0,0,0,338.3,1.1,160.4,28.4,Statin,0.98,0,0,Standard Population
+PT-0408,54,Female,16,0,0,1,1,383.9,3.5,223.9,23.0,No Medication,0.78,0,1,Standard Population
+PT-0409,52,Female,8,0,0,0,0,285.3,1.63,171.6,25.2,Statin,0.77,0,0,Standard Population
+PT-0410,84,Female,10,1,0,1,0,393.6,2.54,143.8,28.5,Antihypertensive,0.92,0,0,Standard Population
+PT-0411,61,Male,8,0,0,0,0,415.2,1.98,172.0,24.9,Antihypertensive+Statin,0.82,0,0,Standard Population
+PT-0412,80,Male,16,1,0,1,1,505.8,1.0,193.8,17.4,Antihypertensive+Statin,0.77,0,1,Standard Population
+PT-0413,64,Female,13,1,0,0,1,561.7,2.21,150.1,23.4,Antihypertensive+Metformin+Statin,0.77,0,0,Standard Population
+PT-0414,63,Male,17,0,0,0,0,322.7,3.06,151.2,24.1,No Medication,0.64,0,0,Standard Population
+PT-0415,82,Male,15,0,0,1,0,164.2,1.07,275.2,27.4,Metformin+Statin,0.8,1,0,Standard Population
+PT-0416,53,Male,13,1,0,1,0,417.2,3.29,162.3,26.1,Antihypertensive+Metformin+Statin,0.81,0,0,Standard Population
+PT-0417,86,Male,13,0,0,1,0,458.2,1.47,182.7,26.4,Antihypertensive+Statin,0.85,1,0,Standard Population
+PT-0418,74,Male,17,0,1,1,0,452.4,1.87,181.0,28.6,No Medication,0.82,0,1,Standard Population
+PT-0419,68,Male,17,0,1,1,1,377.5,2.98,179.0,19.9,No Medication,0.95,0,0,Standard Population
+PT-0420,77,Female,14,0,0,0,0,436.2,1.67,218.6,24.5,No Medication,0.73,0,0,Standard Population
+PT-0421,59,Female,9,1,0,0,1,617.0,2.44,231.0,22.6,Antihypertensive+Statin,0.79,0,1,Standard Population
+PT-0422,80,Female,10,0,0,0,0,469.6,2.05,183.4,28.6,Antihypertensive+Statin,0.85,0,0,Standard Population
+PT-0423,77,Male,10,1,1,0,0,371.5,2.54,148.0,24.3,Antihypertensive+Metformin+Statin,0.85,0,0,Standard Population
+PT-0424,61,Male,13,0,0,0,0,355.0,0.4,243.4,25.3,Antihypertensive,0.96,1,0,Standard Population
+PT-0425,77,Male,12,0,0,0,0,397.9,0.4,191.4,26.6,Antihypertensive,0.77,0,0,Standard Population
+PT-0426,85,Female,14,1,0,0,0,632.8,3.08,260.8,24.1,Antihypertensive+Statin,0.88,0,0,Standard Population
+PT-0427,58,Female,20,1,0,1,0,396.2,3.54,130.0,26.9,Metformin+Statin,0.7,0,0,Standard Population
+PT-0428,55,Male,20,0,0,0,0,417.4,1.4,202.4,23.6,Antihypertensive+Metformin+Statin,0.89,1,1,Standard Population
+PT-0429,62,Female,19,0,1,0,0,357.3,2.13,267.9,30.0,Metformin+Statin,0.85,0,1,Standard Population
+PT-0430,80,Male,13,0,0,0,0,562.9,2.72,181.6,22.8,Statin,0.95,0,0,Standard Population
+PT-0431,87,Female,7,0,0,1,1,674.8,3.16,186.4,20.7,Antihypertensive+Statin,0.85,1,0,Standard Population
+PT-0432,76,Female,15,1,1,1,0,478.6,0.4,206.2,25.6,Metformin+Statin,0.81,0,0,Standard Population
+PT-0433,72,Female,17,0,1,0,0,430.8,1.43,173.8,29.7,Statin,0.82,0,0,Standard Population
+PT-0434,87,Female,9,0,0,0,0,424.8,2.03,183.1,22.5,Antihypertensive,0.84,0,0,Standard Population
+PT-0435,61,Female,11,0,0,0,0,150.0,3.17,182.2,30.0,Antihypertensive,0.74,1,0,Standard Population
+PT-0436,88,Male,17,1,0,0,0,516.9,5.15,171.2,26.6,No Medication,0.74,1,0,Standard Population
+PT-0437,60,Female,7,1,1,0,1,437.4,2.15,241.7,23.5,Antihypertensive+Statin,0.86,1,1,Standard Population
+PT-0438,75,Male,12,0,0,0,0,475.7,0.85,212.5,23.8,No Medication,0.84,0,0,Standard Population
+PT-0439,86,Female,8,1,1,0,0,327.5,2.84,204.5,26.3,Antihypertensive,0.91,1,0,Standard Population
+PT-0440,86,Female,18,0,0,0,0,370.0,3.85,225.7,23.8,Antihypertensive,0.56,0,0,Standard Population
+PT-0441,87,Female,8,0,0,1,0,366.6,2.52,185.0,27.7,Statin,0.78,0,0,Standard Population
+PT-0442,69,Male,16,1,0,1,0,552.8,1.4,165.6,24.1,Antihypertensive,0.82,0,1,Standard Population
+PT-0443,83,Female,7,1,0,0,0,370.8,3.45,172.1,25.1,Antihypertensive+Statin,0.88,0,1,Standard Population
+PT-0444,75,Female,16,1,0,0,0,690.7,3.13,195.1,24.6,No Medication,0.87,0,0,Standard Population
+PT-0445,74,Female,13,0,0,0,1,476.0,1.27,154.7,20.0,No Medication,0.76,0,0,Standard Population
+PT-0446,83,Male,11,0,0,0,0,254.2,2.82,176.0,26.8,Statin,0.88,1,0,Standard Population
+PT-0447,88,Male,6,1,1,1,0,403.3,3.5,175.4,26.2,Antihypertensive,0.84,0,0,Standard Population
+PT-0448,63,Male,17,0,0,0,0,335.3,3.7,275.7,28.8,Antihypertensive,0.73,0,0,Standard Population
+PT-0449,64,Male,6,0,0,1,0,150.0,2.33,130.0,22.7,No Medication,0.69,1,0,Standard Population
+PT-0450,74,Female,12,0,0,0,0,627.9,2.01,188.2,27.9,Metformin+Statin,0.89,0,0,Standard Population
+PT-0451,76,Male,13,1,0,1,0,511.4,3.75,260.6,30.0,Antihypertensive+Statin,0.87,0,0,Standard Population
+PT-0452,86,Female,10,0,0,0,1,489.3,1.07,199.6,20.5,No Medication,0.83,0,0,Standard Population
+PT-0453,81,Male,17,0,0,1,1,441.5,2.88,223.6,25.4,No Medication,0.94,0,0,Standard Population
+PT-0454,68,Male,16,1,1,0,1,240.3,0.89,198.8,21.8,Antihypertensive+Metformin+Statin,0.79,0,0,Standard Population
+PT-0455,71,Female,10,0,0,0,0,357.1,3.57,169.6,23.2,Antihypertensive+Statin,0.89,0,0,Standard Population
+PT-0456,76,Female,9,0,0,0,0,529.4,2.12,130.0,25.1,Statin,0.6,1,0,Standard Population
+PT-0457,73,Female,19,0,0,0,0,283.3,3.8,202.8,27.9,Antihypertensive+Statin,0.86,0,0,Standard Population
+PT-0458,64,Female,11,0,0,1,0,150.0,2.94,165.5,24.6,Antihypertensive+Statin,0.78,0,0,Standard Population
+PT-0459,70,Female,19,0,0,1,0,390.5,1.05,164.6,24.8,Antihypertensive+Statin,0.79,0,1,Standard Population
+PT-0460,87,Male,11,0,1,1,0,401.6,3.97,176.0,26.3,Statin,0.62,0,1,Standard Population
+PT-0461,63,Female,8,1,1,0,0,437.6,4.11,261.3,26.4,Statin,0.75,0,1,Standard Population
+PT-0462,70,Female,14,0,0,1,0,514.7,3.37,286.4,27.2,No Medication,0.68,1,0,Standard Population
+PT-0463,63,Female,17,1,0,0,0,502.9,1.56,203.3,26.8,Antihypertensive+Metformin+Statin,0.87,0,0,Standard Population
+PT-0464,60,Male,16,0,0,0,0,453.6,2.06,177.3,27.5,Antihypertensive+Statin,0.8,0,0,Standard Population
+PT-0465,58,Female,19,0,0,0,0,575.4,2.56,150.3,25.7,Antihypertensive,0.88,1,0,Standard Population
+PT-0466,79,Male,12,0,0,0,0,222.5,1.63,212.8,26.0,Antihypertensive+Metformin+Statin,0.77,0,0,Standard Population
+PT-0467,65,Male,6,0,0,0,0,485.6,4.26,262.8,24.4,Antihypertensive+Metformin+Statin,0.93,0,0,Standard Population
+PT-0468,82,Male,20,1,0,0,0,501.4,2.56,185.6,28.0,Antihypertensive+Metformin+Statin,0.7,0,0,Standard Population
+PT-0469,70,Male,18,0,0,0,0,258.9,0.4,130.0,24.7,Metformin+Statin,1.0,0,0,Standard Population
+PT-0470,67,Female,12,0,0,1,0,224.6,2.77,220.5,28.4,Antihypertensive+Metformin+Statin,0.72,1,1,Standard Population
+PT-0471,56,Female,10,1,0,0,0,323.0,2.02,232.4,26.2,Antihypertensive,0.93,0,0,Standard Population
+PT-0472,86,Female,10,1,0,0,0,334.0,2.32,134.7,25.6,Metformin+Statin,0.95,0,1,Standard Population
+PT-0473,63,Male,19,1,0,0,0,517.9,1.99,201.7,25.4,Metformin+Statin,0.87,0,0,Standard Population
+PT-0474,76,Male,18,0,1,0,1,340.1,3.29,212.1,19.9,Antihypertensive,0.63,1,0,Standard Population
+PT-0475,72,Male,7,1,0,0,0,308.7,3.63,192.2,22.4,No Medication,0.67,1,0,Standard Population
+PT-0476,87,Female,9,0,0,0,0,340.5,2.71,165.0,23.0,Antihypertensive+Metformin+Statin,0.95,0,0,Standard Population
+PT-0477,74,Male,17,0,0,0,1,565.4,2.03,233.6,21.4,Antihypertensive,0.76,0,0,Standard Population
+PT-0478,67,Female,11,0,1,1,0,421.7,2.35,179.7,26.6,Metformin+Statin,0.79,0,0,Standard Population
+PT-0479,65,Female,15,0,0,0,0,396.7,2.42,138.6,28.3,No Medication,0.93,0,0,Standard Population
+PT-0480,82,Male,20,0,0,1,0,405.7,1.52,130.0,24.5,No Medication,0.51,1,0,Standard Population
+PT-0481,56,Female,16,0,0,0,0,588.0,3.04,242.9,24.9,Statin,0.86,1,0,Standard Population
+PT-0482,86,Female,12,1,0,0,0,322.6,2.91,218.4,22.3,Antihypertensive,0.91,1,0,Standard Population
+PT-0483,74,Female,16,0,1,1,0,591.0,4.09,198.3,26.8,Antihypertensive+Statin,0.79,0,0,Standard Population
+PT-0484,80,Female,10,0,0,0,1,447.4,3.78,178.3,24.5,Statin,0.73,1,1,Standard Population
+PT-0485,62,Male,14,0,1,0,0,399.1,1.65,174.9,28.9,No Medication,0.76,1,0,Standard Population
+PT-0486,69,Male,8,1,1,1,0,745.1,3.3,154.1,27.5,Antihypertensive,0.73,0,0,Standard Population
+PT-0487,63,Female,6,0,1,0,0,282.8,1.35,178.6,27.6,Antihypertensive,0.91,0,0,Standard Population
+PT-0488,60,Female,9,0,0,1,1,374.0,3.17,130.0,26.1,Antihypertensive,0.8,1,1,Standard Population
+PT-0489,61,Male,14,1,0,0,0,259.8,1.83,167.0,27.1,Antihypertensive+Statin,0.35,0,0,Standard Population
+PT-0490,68,Female,9,1,0,1,0,543.8,1.27,183.2,27.4,Statin,0.8,1,0,Standard Population
+PT-0491,58,Female,7,0,1,0,0,639.6,2.71,218.2,26.0,No Medication,0.73,0,0,Standard Population
+PT-0492,64,Female,15,1,0,0,0,637.1,0.4,193.5,23.6,Statin,0.91,0,0,Standard Population
+PT-0493,60,Male,19,1,0,0,0,579.1,0.47,225.2,25.1,No Medication,0.84,1,0,Standard Population
+PT-0494,78,Female,19,1,0,0,0,394.3,2.2,246.3,25.6,No Medication,0.8,0,0,Standard Population
+PT-0495,53,Female,10,0,0,0,0,372.5,2.49,235.2,27.0,Antihypertensive,0.81,1,1,Standard Population
+PT-0496,56,Male,8,1,1,0,0,202.7,1.99,212.9,30.0,Metformin+Statin,0.89,0,0,Standard Population
+PT-0497,80,Male,18,0,0,0,1,684.7,0.66,195.5,21.9,Antihypertensive+Metformin+Statin,0.65,0,1,Standard Population
+PT-0498,88,Female,17,0,1,0,0,481.0,1.5,157.7,27.5,Metformin+Statin,0.86,0,1,Standard Population
+PT-0499,70,Male,18,0,0,0,1,356.0,2.83,223.1,21.3,Antihypertensive,0.91,0,0,Standard Population
+PT-0500,59,Female,14,0,1,1,0,592.6,3.04,258.8,25.9,Antihypertensive,0.85,0,0,Standard Population
+PT-0501,52,Female,9,0,0,0,0,293.5,2.38,208.0,24.2,Statin,0.73,1,0,Standard Population
+PT-0502,73,Male,11,1,0,0,0,472.9,3.67,267.9,24.4,Antihypertensive+Statin,0.78,0,1,Standard Population
+PT-0503,68,Female,7,0,1,0,0,397.6,2.84,137.0,27.2,Antihypertensive+Metformin+Statin,0.79,0,0,Standard Population
+PT-0504,58,Male,11,0,0,0,0,503.0,1.58,151.1,26.6,No Medication,0.84,0,0,Standard Population
+PT-0505,76,Female,8,0,1,1,0,411.7,2.09,227.5,27.6,No Medication,0.99,0,0,Standard Population
+PT-0506,55,Male,17,0,0,0,0,231.4,0.86,205.0,27.1,Antihypertensive+Statin,0.71,1,1,Standard Population
+PT-0507,87,Female,17,1,0,1,0,429.8,2.28,244.9,24.4,Metformin+Statin,0.59,0,0,Standard Population
+PT-0508,57,Male,14,0,0,0,0,556.4,3.62,194.4,30.0,Metformin+Statin,0.77,0,0,Standard Population
+PT-0509,82,Male,16,0,0,1,0,416.2,3.15,162.0,25.2,Antihypertensive+Statin,0.79,0,0,Standard Population
+PT-0510,70,Female,7,0,0,0,0,520.8,3.94,186.9,28.3,Antihypertensive+Metformin+Statin,0.89,0,0,Standard Population
+PT-0511,78,Male,20,0,0,1,0,284.1,2.07,136.8,24.8,Statin,0.9,0,0,Standard Population
+PT-0512,61,Female,17,0,0,0,1,416.6,3.88,152.1,24.1,Antihypertensive+Metformin+Statin,0.92,0,1,Standard Population
+PT-0513,77,Male,17,1,0,0,0,338.8,2.19,232.0,27.5,Antihypertensive+Metformin+Statin,0.48,0,0,Standard Population
+PT-0514,70,Female,14,1,1,0,0,517.1,4.02,228.2,26.4,Metformin+Statin,0.69,1,0,Standard Population
+PT-0515,54,Male,10,0,1,0,0,424.1,2.38,208.8,22.1,Antihypertensive,0.68,1,0,Standard Population
+PT-0516,64,Female,13,1,0,1,0,509.7,3.18,130.0,26.3,Antihypertensive,0.93,1,0,Standard Population
+PT-0517,79,Male,7,1,0,0,1,561.4,4.02,181.4,24.2,Statin,0.69,1,0,Standard Population
+PT-0518,71,Male,11,1,0,0,0,509.9,2.19,148.5,27.0,Statin,0.93,1,0,Standard Population
+PT-0519,79,Male,8,0,0,1,0,455.5,2.64,239.7,26.4,Metformin+Statin,0.94,0,0,Standard Population
+PT-0520,59,Male,17,0,1,0,0,290.2,3.82,172.8,23.1,No Medication,0.62,0,0,Standard Population
+PT-0521,52,Female,17,0,1,1,0,419.6,2.25,153.7,25.5,Antihypertensive,0.75,0,0,Standard Population
+PT-0522,54,Male,19,1,0,1,1,350.7,0.95,196.1,23.8,Antihypertensive+Statin,0.83,1,0,Standard Population
+PT-0523,64,Female,15,1,1,0,0,375.3,4.76,170.7,27.1,No Medication,0.92,0,0,Standard Population
+PT-0524,79,Male,10,0,0,1,0,371.3,1.88,251.4,28.0,Antihypertensive,0.65,0,0,Standard Population
+PT-0525,76,Male,17,0,1,0,0,292.6,2.57,167.1,25.4,Antihypertensive,0.92,0,0,Standard Population
+PT-0526,84,Female,13,1,0,0,0,165.5,3.67,141.8,26.1,Antihypertensive+Statin,0.74,0,0,Standard Population
+PT-0527,57,Female,15,1,0,0,0,333.1,1.73,130.0,26.7,Antihypertensive,0.85,0,0,Standard Population
+PT-0528,83,Male,19,1,0,0,0,445.1,1.29,193.8,23.4,Metformin+Statin,0.96,0,0,Standard Population
+PT-0529,72,Male,6,1,0,1,0,244.7,2.68,173.6,21.4,Statin,0.84,0,0,Standard Population
+PT-0530,67,Male,10,0,0,1,1,422.0,0.43,140.7,23.2,Antihypertensive+Metformin+Statin,0.71,0,1,Standard Population
+PT-0531,72,Female,8,0,1,0,0,667.0,2.08,240.2,26.2,Statin,0.82,0,0,Standard Population
+PT-0532,62,Female,9,1,0,0,0,553.0,2.67,220.4,25.2,Antihypertensive,0.84,0,0,Standard Population
+PT-0533,88,Male,7,0,0,1,0,633.7,2.1,193.9,21.9,No Medication,0.8,0,0,Standard Population
+PT-0534,87,Female,14,0,0,0,1,470.8,0.7,246.8,22.6,No Medication,0.89,0,0,Standard Population
+PT-0535,86,Female,8,1,0,0,0,571.8,4.15,220.2,24.7,Statin,0.87,0,0,Standard Population
+PT-0536,70,Female,20,0,0,0,0,325.9,2.51,163.7,27.1,No Medication,0.85,0,0,Standard Population
+PT-0537,71,Female,7,1,0,1,0,336.2,3.97,155.5,29.7,Antihypertensive,0.67,0,0,Standard Population
+PT-0538,69,Male,15,0,0,0,0,150.0,2.11,226.1,21.8,Statin,0.96,1,0,Standard Population
+PT-0539,65,Male,16,1,0,1,0,574.2,1.43,210.1,24.9,Antihypertensive,0.83,0,0,Standard Population
+PT-0540,66,Male,14,0,0,1,0,620.2,2.7,201.5,25.8,Antihypertensive,0.91,0,0,Standard Population
+PT-0541,82,Male,12,0,1,0,0,348.1,2.16,162.8,28.3,Antihypertensive+Statin,0.64,1,0,Standard Population
+PT-0542,52,Female,11,1,1,0,0,387.0,1.1,218.1,23.6,Antihypertensive+Metformin+Statin,0.96,0,1,Standard Population
+PT-0543,54,Female,6,0,0,1,0,322.0,4.02,166.3,30.0,No Medication,0.76,0,0,Standard Population
+PT-0544,67,Male,10,1,0,0,1,469.7,1.72,191.1,22.6,Antihypertensive,0.94,0,0,Standard Population
+PT-0545,74,Male,17,1,0,1,1,566.2,0.4,250.0,21.8,Antihypertensive+Metformin+Statin,0.85,1,0,Standard Population
+PT-0546,62,Male,16,0,0,1,0,193.4,3.86,169.9,26.0,No Medication,0.69,1,0,Standard Population
+PT-0547,63,Female,19,0,0,0,0,473.2,1.85,135.2,25.5,Antihypertensive+Metformin+Statin,0.92,0,0,Standard Population
+PT-0548,61,Male,20,0,0,1,0,384.0,1.73,155.0,28.5,No Medication,0.6,0,0,Standard Population
+PT-0549,83,Female,16,0,0,1,0,434.7,0.46,232.8,23.2,Metformin+Statin,0.82,0,0,Standard Population
+PT-0550,67,Male,8,1,0,1,1,479.7,4.32,204.7,23.0,Antihypertensive,0.94,0,0,Standard Population
+PT-0551,59,Male,6,1,0,0,0,395.5,0.98,190.1,25.8,Antihypertensive+Metformin+Statin,0.63,0,0,Standard Population
+PT-0552,63,Female,9,1,1,0,0,406.5,2.46,175.7,24.8,Antihypertensive,0.75,0,0,Standard Population
+PT-0553,75,Female,18,1,1,0,0,392.2,3.4,213.4,30.0,Antihypertensive+Statin,0.96,0,1,Standard Population
+PT-0554,79,Male,7,0,0,0,0,546.1,2.86,162.7,26.4,No Medication,0.78,0,0,Standard Population
+PT-0555,59,Female,7,1,0,0,0,474.4,2.33,206.6,27.8,Antihypertensive,0.89,0,1,Standard Population
+PT-0556,79,Female,8,1,1,1,0,448.7,0.53,167.2,27.8,Antihypertensive+Statin,0.9,0,0,Standard Population
+PT-0557,87,Female,13,1,1,0,0,254.8,1.51,160.9,22.3,Statin,0.96,0,1,Standard Population
+PT-0558,77,Male,13,1,0,0,0,370.8,2.61,170.8,29.2,Antihypertensive+Metformin+Statin,0.83,0,0,Standard Population
+PT-0559,59,Female,17,0,0,0,0,536.8,1.53,180.7,21.5,Statin,0.83,1,0,Standard Population
+PT-0560,79,Female,20,1,0,1,0,424.9,2.62,193.1,24.0,Metformin+Statin,0.68,0,0,Standard Population
+PT-0561,79,Female,12,0,0,0,0,505.7,3.15,203.9,24.6,Statin,0.93,0,0,Standard Population
+PT-0562,88,Male,11,0,0,0,1,649.6,3.46,130.0,22.5,Antihypertensive+Metformin+Statin,0.92,0,0,Standard Population
+PT-0563,87,Male,14,0,0,0,0,555.0,1.05,164.3,25.6,Antihypertensive+Metformin+Statin,0.79,0,0,Standard Population
+PT-0564,78,Male,9,1,0,1,0,432.1,4.82,180.1,25.3,Antihypertensive,0.9,0,1,Standard Population
+PT-0565,68,Female,17,1,0,0,0,353.6,3.24,252.2,26.1,Metformin+Statin,0.95,1,0,Standard Population
+PT-0566,60,Male,6,1,1,0,1,150.0,2.4,154.0,20.7,Metformin+Statin,0.85,0,0,Standard Population
+PT-0567,84,Female,13,1,0,1,1,398.1,3.6,201.2,18.5,Antihypertensive,0.86,0,0,Standard Population
+PT-0568,71,Female,12,0,0,1,0,377.6,5.0,251.8,27.4,Antihypertensive+Statin,0.79,0,0,Standard Population
+PT-0569,64,Male,12,1,0,1,1,470.7,0.82,145.1,23.9,No Medication,0.85,1,0,Standard Population
+PT-0570,79,Female,20,0,0,0,1,400.0,2.15,210.0,24.9,Metformin+Statin,0.53,1,0,Standard Population
+PT-0571,80,Male,8,0,1,0,0,378.3,0.4,164.5,23.9,Antihypertensive,0.83,0,1,Standard Population
+PT-0572,64,Female,9,0,0,1,0,188.7,2.61,175.8,27.7,No Medication,0.53,0,0,Standard Population
+PT-0573,86,Male,15,1,0,0,0,297.8,2.8,164.5,24.6,Statin,0.81,0,0,Standard Population
+PT-0574,57,Female,14,1,0,1,1,482.0,2.36,167.2,25.2,Statin,0.97,0,0,Standard Population
+PT-0575,69,Female,20,0,0,0,0,643.1,1.68,298.4,28.1,Metformin+Statin,0.79,0,1,Standard Population
+PT-0576,56,Female,11,0,1,0,1,407.3,0.4,227.1,23.3,Antihypertensive+Metformin+Statin,0.89,1,0,Standard Population
+PT-0577,76,Female,20,1,0,0,0,462.6,2.81,236.9,25.0,Statin,0.77,0,1,Standard Population
+PT-0578,53,Female,20,0,0,0,0,543.8,4.0,213.7,28.8,No Medication,0.89,0,0,Standard Population
+PT-0579,61,Female,10,1,0,0,0,314.6,1.75,134.0,27.7,Antihypertensive+Statin,0.89,0,0,Standard Population
+PT-0580,81,Female,8,1,0,0,0,467.7,2.88,210.0,24.1,Statin,0.89,0,0,Standard Population
+PT-0581,56,Female,14,0,1,1,0,323.7,0.68,235.8,24.0,Statin,0.5,0,0,Standard Population
+PT-0582,84,Male,10,0,1,0,0,532.4,2.9,162.6,24.7,Antihypertensive,0.77,0,0,Standard Population
+PT-0583,52,Female,10,1,0,0,1,439.7,1.97,231.7,26.1,Statin,0.91,0,0,Standard Population
+PT-0584,69,Female,19,1,0,1,0,458.8,1.56,221.8,28.3,Antihypertensive,0.65,0,0,Standard Population
+PT-0585,83,Female,9,0,1,0,0,318.3,1.56,265.4,23.1,Antihypertensive+Statin,0.78,0,1,Standard Population
+PT-0586,62,Male,19,1,1,0,0,511.9,1.97,179.1,24.1,Statin,0.61,1,1,Standard Population
+PT-0587,72,Female,9,0,0,1,0,691.0,2.82,153.3,28.4,Metformin+Statin,0.91,0,1,Standard Population
+PT-0588,77,Male,17,0,0,0,1,289.0,0.96,181.3,19.6,Statin,0.8,0,1,Standard Population
+PT-0589,76,Female,6,1,0,1,0,375.8,1.96,249.6,26.7,Antihypertensive,0.35,0,0,Standard Population
+PT-0590,73,Male,12,1,1,1,1,450.1,2.35,130.0,20.8,Metformin+Statin,0.92,0,0,Standard Population
+PT-0591,78,Female,14,0,0,1,0,522.2,1.19,130.0,28.8,Statin,0.95,1,1,Standard Population
+PT-0592,64,Female,8,1,0,0,0,347.3,4.38,198.4,24.8,Antihypertensive,0.75,1,0,Standard Population
+PT-0593,84,Male,17,0,1,0,0,150.0,1.46,178.2,27.6,Antihypertensive+Statin,0.85,0,0,Standard Population
+PT-0594,85,Female,18,0,0,0,0,596.7,1.66,195.3,25.6,Antihypertensive,0.77,0,0,Standard Population
+PT-0595,86,Male,20,0,0,0,0,518.9,1.32,230.9,25.7,Metformin+Statin,0.74,0,0,Standard Population
+PT-0596,52,Female,7,1,0,1,0,193.4,4.38,174.0,23.0,Statin,0.9,1,0,Standard Population
+PT-0597,72,Female,8,0,0,0,0,341.0,3.01,130.0,21.5,Antihypertensive+Statin,0.72,0,0,Standard Population
+PT-0598,57,Female,6,0,0,0,0,623.9,1.37,272.7,26.2,No Medication,0.85,0,0,Standard Population
+PT-0599,79,Female,11,0,0,1,0,608.2,3.62,157.1,26.0,Antihypertensive,0.68,0,1,Standard Population
+PT-0600,68,Female,16,1,0,0,0,542.0,2.62,154.8,23.8,Antihypertensive+Metformin+Statin,0.94,1,0,Standard Population
+PT-0601,56,Male,16,1,0,0,0,397.1,2.68,236.9,24.5,Metformin+Statin,0.9,0,0,Standard Population
+PT-0602,82,Male,12,1,1,0,0,430.8,2.02,180.4,26.5,Antihypertensive,0.94,0,0,Standard Population
+PT-0603,56,Female,16,0,1,1,1,403.0,1.58,192.6,24.0,Antihypertensive,0.91,0,1,Standard Population
+PT-0604,54,Female,16,1,0,0,0,566.7,2.77,213.3,26.5,Antihypertensive,0.81,1,0,Standard Population
+PT-0605,74,Female,7,0,0,1,0,306.1,1.8,236.2,27.4,Antihypertensive+Statin,0.85,0,0,Standard Population
+PT-0606,88,Female,13,1,0,0,1,315.2,4.4,182.3,19.0,Antihypertensive+Statin,0.68,1,1,Standard Population
+PT-0607,88,Male,19,1,0,1,0,551.3,1.0,252.8,24.4,Antihypertensive+Statin,0.88,0,0,Standard Population
+PT-0608,61,Female,11,0,0,1,0,414.2,4.09,130.0,29.7,Statin,0.83,0,1,Standard Population
+PT-0609,61,Male,19,1,0,0,0,599.2,2.28,223.9,26.6,Metformin+Statin,0.72,1,0,Standard Population
+PT-0610,70,Female,9,0,0,0,0,332.7,2.73,163.1,26.3,Statin,0.41,1,0,Standard Population
+PT-0611,68,Male,10,0,0,0,0,412.9,3.32,247.1,30.0,No Medication,0.94,0,0,Standard Population
+PT-0612,72,Male,13,0,0,1,0,300.1,1.71,200.4,23.1,Statin,0.93,0,0,Standard Population
+PT-0613,65,Male,19,0,0,0,1,421.0,3.35,169.4,24.0,Antihypertensive+Metformin+Statin,0.96,0,0,Standard Population
+PT-0614,60,Male,8,0,0,0,0,227.8,0.4,220.2,29.8,Antihypertensive+Statin,0.72,0,1,Standard Population
+PT-0615,52,Female,8,1,0,0,0,356.6,1.61,228.9,26.3,Statin,0.82,0,1,Standard Population
+PT-0616,64,Male,19,0,0,0,0,233.3,1.38,219.4,28.0,Antihypertensive+Statin,0.91,0,1,Standard Population
+PT-0617,55,Male,20,1,1,0,0,510.2,1.02,155.9,24.8,Antihypertensive+Metformin+Statin,0.92,0,0,Standard Population
+PT-0618,52,Male,19,0,1,0,0,513.2,2.16,176.6,25.5,Statin,0.49,0,1,Standard Population
+PT-0619,83,Male,16,0,0,0,0,195.1,2.82,194.8,26.1,Antihypertensive,0.93,0,0,Standard Population
+PT-0620,85,Male,9,1,0,1,0,593.4,3.17,193.4,26.8,Antihypertensive+Metformin+Statin,0.84,0,1,Standard Population
+PT-0621,79,Male,6,0,0,0,0,744.7,2.66,223.5,27.8,Metformin+Statin,0.87,0,0,Standard Population
+PT-0622,82,Female,14,0,0,0,1,426.0,1.67,130.0,24.7,Antihypertensive,0.67,0,0,Standard Population
+PT-0623,59,Female,13,1,0,1,1,336.7,2.81,207.7,22.6,Statin,0.96,0,1,Standard Population
+PT-0624,77,Female,13,0,1,1,0,787.2,2.54,184.0,28.0,Statin,0.77,0,1,Standard Population
+PT-0625,85,Male,19,0,0,1,0,248.5,3.43,163.1,24.6,No Medication,0.83,0,0,Standard Population
+PT-0626,54,Male,15,0,1,0,0,422.6,3.25,166.8,28.6,Antihypertensive+Metformin+Statin,0.78,0,0,Standard Population
+PT-0627,63,Female,11,1,0,0,1,443.4,2.43,186.8,23.0,Statin,0.81,0,0,Standard Population
+PT-0628,52,Female,12,1,0,0,0,594.9,1.41,130.0,27.8,Metformin+Statin,0.95,1,0,Standard Population
+PT-0629,56,Male,11,1,0,1,0,466.8,1.68,168.4,27.5,Antihypertensive,0.83,0,0,Standard Population
+PT-0630,81,Male,14,1,0,0,0,355.2,1.8,161.7,22.2,Statin,0.84,0,0,Standard Population
+PT-0631,81,Male,8,0,0,0,0,296.3,2.05,215.2,23.2,No Medication,0.67,0,0,Standard Population
+PT-0632,68,Male,19,0,0,0,0,375.6,2.69,164.4,26.3,Antihypertensive+Statin,0.94,1,0,Standard Population
+PT-0633,74,Male,8,1,0,0,0,289.1,3.19,186.8,22.4,Statin,0.86,0,0,Standard Population
+PT-0634,66,Female,8,0,1,0,0,426.2,2.34,253.6,27.9,Antihypertensive+Statin,0.73,1,0,Standard Population
+PT-0635,88,Female,15,0,0,0,0,346.7,2.42,232.8,26.8,No Medication,0.77,0,0,Standard Population
+PT-0636,72,Female,8,0,1,0,0,225.8,2.56,229.3,26.6,Antihypertensive,0.87,1,0,Standard Population
+PT-0637,65,Female,14,0,1,0,0,583.2,1.83,176.0,24.0,No Medication,0.91,0,0,Standard Population
+PT-0638,53,Female,17,1,1,1,1,355.3,1.38,215.6,25.8,Antihypertensive,0.91,0,0,Standard Population
+PT-0639,62,Female,9,0,0,1,0,255.1,0.47,186.1,30.0,Antihypertensive+Statin,0.7,1,0,Standard Population
+PT-0640,85,Female,18,0,0,1,1,398.1,1.64,187.5,21.7,Statin,0.81,0,0,Standard Population
+PT-0641,85,Male,12,0,1,1,0,428.9,2.92,210.6,26.3,Antihypertensive+Statin,0.89,0,0,Standard Population
+PT-0642,69,Male,19,1,0,0,0,193.0,1.63,172.3,26.5,Statin,0.71,0,0,Standard Population
+PT-0643,81,Male,20,0,0,0,0,463.1,2.14,251.7,26.5,Antihypertensive,0.92,0,1,Standard Population
+PT-0644,66,Female,14,0,0,0,0,283.9,2.91,188.9,26.0,Antihypertensive,0.95,1,0,Standard Population
+PT-0645,78,Female,16,1,0,0,0,642.4,2.97,218.5,25.5,No Medication,0.74,0,0,Standard Population
+PT-0646,85,Male,17,1,0,0,0,488.1,1.21,250.3,27.1,Metformin+Statin,0.7,1,0,Standard Population
+PT-0647,84,Female,12,0,0,0,0,368.0,3.5,234.2,30.0,Antihypertensive+Statin,0.83,1,0,Standard Population
+PT-0648,75,Male,14,0,0,0,0,323.1,3.64,141.5,22.9,Antihypertensive,0.81,0,1,Standard Population
+PT-0649,66,Female,17,0,1,0,0,406.4,1.16,211.9,26.0,Antihypertensive,0.76,0,0,Standard Population
+PT-0650,81,Male,8,0,0,0,1,499.7,1.49,227.3,19.3,Metformin+Statin,0.81,1,0,Standard Population
+PT-0651,68,Male,20,0,1,0,0,416.7,3.71,228.9,29.3,Antihypertensive+Statin,0.79,0,0,Standard Population
+PT-0652,56,Female,9,0,0,1,1,391.8,2.24,152.7,21.7,Antihypertensive+Statin,0.62,1,0,Standard Population
+PT-0653,80,Male,19,0,1,0,0,427.6,0.4,170.0,22.6,Statin,0.85,0,0,Standard Population
+PT-0654,55,Male,13,0,0,0,0,341.5,0.86,232.8,28.0,Antihypertensive,0.74,0,1,Standard Population
+PT-0655,61,Male,11,1,1,0,1,375.4,2.13,166.1,26.1,Antihypertensive+Metformin+Statin,0.76,1,1,Standard Population
+PT-0656,68,Female,10,1,0,0,0,150.0,1.12,183.6,27.4,Antihypertensive+Statin,0.64,0,0,Standard Population
+PT-0657,61,Female,18,1,1,0,0,546.6,1.95,254.9,26.9,Antihypertensive,0.66,0,1,Standard Population
+PT-0658,68,Male,9,0,0,0,0,458.8,2.44,193.2,26.9,Metformin+Statin,0.8,0,0,Standard Population
+PT-0659,71,Female,13,0,1,0,1,319.5,4.01,167.4,25.0,Antihypertensive+Statin,0.95,1,1,Standard Population
+PT-0660,75,Female,6,1,1,0,1,666.8,2.08,161.7,20.2,Antihypertensive,0.45,0,1,Standard Population
+PT-0661,56,Male,19,0,0,1,0,431.3,3.58,207.6,26.5,Statin,0.81,0,0,Standard Population
+PT-0662,85,Male,14,0,0,1,0,285.3,3.97,144.3,24.3,Antihypertensive,0.81,0,0,Standard Population
+PT-0663,57,Male,6,0,1,0,0,531.4,3.98,185.6,24.3,No Medication,0.82,0,0,Standard Population
+PT-0664,53,Male,13,1,0,0,0,471.7,2.71,207.7,26.2,Antihypertensive+Statin,0.74,0,0,Standard Population
+PT-0665,64,Female,9,1,1,1,0,471.3,0.4,244.4,28.5,Antihypertensive,0.78,0,0,Standard Population
+PT-0666,62,Male,14,0,0,0,0,364.7,2.91,220.4,27.5,Metformin+Statin,0.87,0,1,Standard Population
+PT-0667,74,Female,19,0,0,0,0,478.6,3.55,167.9,27.1,Antihypertensive+Metformin+Statin,0.9,1,1,Standard Population
+PT-0668,67,Female,16,1,1,0,0,386.0,2.31,239.8,26.4,No Medication,0.75,0,0,Standard Population
+PT-0669,82,Male,10,0,0,1,0,492.3,4.32,183.6,26.4,Statin,0.9,0,1,Standard Population
+PT-0670,62,Female,8,1,1,0,0,172.4,3.35,148.0,24.8,Metformin+Statin,0.87,1,1,Standard Population
+PT-0671,67,Male,14,1,0,0,1,363.6,3.03,188.5,21.7,Antihypertensive+Statin,0.84,0,0,Standard Population
+PT-0672,59,Female,16,1,0,1,0,643.9,3.6,249.7,26.9,Antihypertensive+Statin,0.73,1,0,Standard Population
+PT-0673,55,Female,19,0,0,0,0,320.3,2.77,201.3,27.3,Antihypertensive,0.69,0,0,Standard Population
+PT-0674,55,Female,19,0,0,0,0,341.5,0.4,195.5,27.4,Statin,0.91,0,0,Standard Population
+PT-0675,76,Female,14,0,0,1,0,361.8,1.85,257.2,25.4,Statin,0.69,0,0,Standard Population
+PT-0676,54,Male,9,1,0,0,0,262.1,3.72,140.6,26.0,Antihypertensive+Metformin+Statin,0.86,0,0,Standard Population
+PT-0677,83,Female,16,1,0,0,0,150.0,1.51,146.1,30.0,Antihypertensive,0.93,0,1,Standard Population
+PT-0678,54,Female,9,0,0,0,0,390.0,2.15,133.6,28.6,Antihypertensive+Metformin+Statin,0.78,0,1,Standard Population
+PT-0679,78,Female,17,0,1,0,0,437.7,1.25,209.2,26.4,Antihypertensive,0.93,0,0,Standard Population
+PT-0680,80,Female,13,1,0,0,0,413.2,4.36,201.3,25.0,Antihypertensive+Metformin+Statin,0.74,0,1,Standard Population
+PT-0681,83,Female,7,1,0,0,0,401.2,4.25,253.6,24.4,Antihypertensive+Statin,0.87,0,0,Standard Population
+PT-0682,70,Male,14,1,0,0,1,425.6,1.43,204.3,21.9,Statin,0.7,0,1,Standard Population
+PT-0683,72,Male,18,0,0,1,0,553.0,2.56,179.6,26.5,Antihypertensive+Statin,0.87,0,0,Standard Population
+PT-0684,56,Female,19,0,0,0,0,395.2,1.65,195.1,22.9,Antihypertensive,0.68,0,0,Standard Population
+PT-0685,69,Male,11,1,0,0,0,345.4,3.08,199.5,22.9,Antihypertensive,0.84,0,1,Standard Population
+PT-0686,79,Female,14,1,0,0,0,383.5,2.96,131.5,24.3,No Medication,0.74,0,0,Standard Population
+PT-0687,73,Female,13,0,0,1,0,495.3,3.29,298.0,26.3,No Medication,0.85,0,0,Standard Population
+PT-0688,72,Male,20,0,0,0,0,603.6,2.77,214.8,25.4,Antihypertensive,0.7,0,0,Standard Population
+PT-0689,57,Male,20,0,1,0,0,338.3,5.63,203.0,29.6,Antihypertensive+Statin,0.89,0,0,Standard Population
+PT-0690,52,Female,12,0,0,0,0,432.9,1.27,218.4,23.9,Antihypertensive+Statin,0.74,1,1,Standard Population
+PT-0691,56,Male,18,0,0,0,0,464.0,0.52,222.0,25.2,No Medication,0.8,0,0,Standard Population
+PT-0692,63,Female,19,1,0,0,0,291.0,1.97,189.7,29.4,Metformin+Statin,0.76,0,1,Standard Population
+PT-0693,77,Male,6,0,0,1,0,422.7,0.68,171.0,25.9,Antihypertensive+Statin,0.88,1,0,Standard Population
+PT-0694,85,Female,19,1,1,0,0,229.5,0.76,217.8,27.0,Antihypertensive+Metformin+Statin,0.8,0,0,Standard Population
+PT-0695,65,Male,17,0,0,0,0,190.0,1.3,209.7,30.0,Antihypertensive+Statin,0.91,0,0,Standard Population
+PT-0696,77,Female,8,1,0,0,0,467.7,1.39,164.2,24.3,Antihypertensive,0.84,0,0,Standard Population
+PT-0697,78,Male,16,1,0,1,0,370.1,1.35,248.9,25.4,Statin,0.89,0,0,Standard Population
+PT-0698,60,Female,19,0,0,0,1,446.3,2.97,206.1,22.2,Antihypertensive+Statin,0.68,0,0,Standard Population
+PT-0699,77,Male,7,0,0,0,0,417.7,1.84,222.7,21.7,No Medication,0.9,0,0,Standard Population
+PT-0700,73,Female,10,0,0,0,1,293.1,2.2,247.9,21.4,No Medication,0.77,0,0,Standard Population
+PT-0701,81,Female,20,0,0,0,0,414.1,3.38,195.8,27.2,No Medication,0.69,0,0,Standard Population
+PT-0702,68,Male,10,1,0,0,0,259.7,1.56,207.0,27.2,Antihypertensive,0.58,0,0,Standard Population
+PT-0703,77,Male,10,1,0,0,0,600.8,2.11,225.8,26.9,Statin,0.82,0,0,Standard Population
+PT-0704,87,Male,9,0,0,0,1,243.7,2.8,167.5,20.6,Statin,0.9,0,0,Standard Population
+PT-0705,52,Female,10,0,0,0,0,394.5,0.4,197.1,25.6,No Medication,0.77,0,0,Standard Population
+PT-0706,59,Female,8,0,0,0,0,284.5,0.4,199.8,29.1,Antihypertensive+Statin,0.91,0,0,Standard Population
+PT-0707,86,Female,17,1,1,0,0,494.2,2.78,158.7,24.2,Statin,0.84,0,0,Standard Population
+PT-0708,66,Male,6,0,0,0,0,376.9,2.94,283.1,26.8,Antihypertensive,0.54,1,0,Standard Population
+PT-0709,73,Male,10,0,1,1,0,352.6,4.67,141.5,26.2,No Medication,0.79,0,0,Standard Population
+PT-0710,65,Female,18,1,0,1,1,530.9,2.57,145.7,25.4,No Medication,0.52,0,0,Standard Population
+PT-0711,77,Female,14,1,0,1,1,423.8,3.3,244.9,23.8,Antihypertensive,0.72,0,1,Standard Population
+PT-0712,79,Female,18,0,0,1,0,487.2,2.18,222.1,23.0,Antihypertensive,0.99,0,0,Standard Population
+PT-0713,74,Male,14,1,0,0,1,292.4,2.73,156.0,19.6,Antihypertensive,0.91,0,0,Standard Population
+PT-0714,65,Female,9,0,0,1,0,237.4,4.23,218.1,27.4,Antihypertensive+Statin,0.64,1,0,Standard Population
+PT-0715,75,Male,8,0,0,0,0,433.9,0.4,250.8,25.6,Statin,0.9,0,0,Standard Population
+PT-0716,53,Male,6,1,0,0,0,378.5,2.85,193.9,25.9,Antihypertensive,0.67,1,1,Standard Population
+PT-0717,77,Female,7,1,1,0,0,501.4,4.75,293.8,27.7,Antihypertensive,0.93,0,0,Standard Population
+PT-0718,65,Female,13,0,0,0,1,409.6,2.71,130.0,22.8,Antihypertensive+Statin,0.89,1,0,Standard Population
+PT-0719,58,Female,6,0,0,1,0,446.7,4.22,221.4,26.7,Metformin+Statin,0.82,0,0,Standard Population
+PT-0720,54,Male,13,0,0,0,0,209.0,1.71,239.3,28.4,Antihypertensive+Statin,0.95,0,0,Standard Population
+PT-0721,74,Male,18,0,0,0,0,665.5,2.36,228.9,25.0,Statin,0.8,1,0,Standard Population
+PT-0722,69,Female,12,0,0,1,0,398.6,2.44,187.2,29.2,Antihypertensive,0.78,0,0,Standard Population
+PT-0723,86,Female,20,0,0,0,0,510.7,0.4,184.0,23.6,Antihypertensive,0.82,1,0,Standard Population
+PT-0724,66,Male,13,0,1,0,1,311.3,1.12,211.9,23.7,Metformin+Statin,0.88,0,0,Standard Population
+PT-0725,76,Male,17,1,1,1,0,460.0,1.19,226.0,28.6,No Medication,0.87,0,1,Standard Population
+PT-0726,88,Male,11,1,0,0,0,250.6,3.3,217.9,22.3,Antihypertensive+Metformin+Statin,0.75,0,1,Standard Population
+PT-0727,79,Female,17,1,0,0,0,478.8,3.36,234.5,24.9,Antihypertensive+Statin,0.67,0,0,Standard Population
+PT-0728,61,Male,19,0,1,0,0,373.7,2.76,156.3,28.7,Antihypertensive+Statin,0.96,0,0,Standard Population
+PT-0729,68,Male,20,1,0,0,0,423.8,3.31,186.3,28.4,No Medication,0.91,0,0,Standard Population
+PT-0730,73,Male,20,1,0,1,0,510.7,2.22,159.3,25.5,Antihypertensive+Statin,0.85,0,0,Standard Population
+PT-0731,77,Male,14,1,0,0,0,259.8,3.72,180.3,24.2,Statin,0.66,0,1,Standard Population
+PT-0732,76,Male,8,1,0,0,0,331.0,2.41,233.6,27.6,No Medication,0.83,0,0,Standard Population
+PT-0733,68,Female,15,1,0,0,0,479.5,2.46,199.1,28.5,Antihypertensive,0.79,0,0,Standard Population
+PT-0734,64,Male,9,0,0,0,0,692.8,2.11,294.1,24.0,Metformin+Statin,0.83,0,1,Standard Population
+PT-0735,71,Female,18,0,0,1,0,402.0,3.15,202.3,23.5,Statin,0.83,0,1,Standard Population
+PT-0736,76,Male,11,1,0,0,0,496.8,1.94,197.3,26.2,Statin,0.84,0,0,Standard Population
+PT-0737,55,Female,13,1,0,0,0,406.1,3.47,199.0,28.0,No Medication,0.81,1,0,Standard Population
+PT-0738,61,Female,10,1,0,0,1,672.5,1.15,170.8,22.1,Antihypertensive+Statin,0.82,0,0,Standard Population
+PT-0739,54,Female,8,0,0,1,0,192.9,1.19,192.8,28.2,Antihypertensive+Statin,0.81,0,0,Standard Population
+PT-0740,69,Female,11,0,0,1,0,432.3,3.16,237.9,24.6,Antihypertensive+Statin,0.85,0,1,Standard Population
+PT-0741,87,Male,9,0,0,0,0,208.7,2.3,199.3,20.9,Statin,0.76,1,0,Standard Population
+PT-0742,73,Male,14,1,0,0,0,150.0,1.9,164.8,25.0,Statin,0.95,0,0,Standard Population
+PT-0743,85,Female,18,0,0,0,0,458.7,3.38,159.8,25.4,Statin,0.88,0,0,Standard Population
+PT-0744,59,Female,8,0,1,1,1,438.1,1.73,177.9,22.2,Antihypertensive,0.81,0,1,Standard Population
+PT-0745,70,Female,9,0,1,0,0,383.0,2.18,197.8,23.7,Antihypertensive+Metformin+Statin,0.9,0,1,Standard Population
+PT-0746,88,Female,12,0,0,1,0,406.2,3.94,240.4,21.5,Statin,0.88,1,1,Standard Population
+PT-0747,57,Female,12,1,0,0,0,822.8,4.09,144.1,25.6,Antihypertensive,0.77,1,0,Standard Population
+PT-0748,77,Male,17,1,0,1,0,386.4,4.13,182.8,27.4,Statin,0.79,1,1,Standard Population
+PT-0749,85,Male,17,1,0,0,0,486.3,2.09,200.5,27.8,Metformin+Statin,0.8,0,0,Standard Population
+PT-0750,57,Female,9,0,1,0,1,335.6,3.75,130.0,25.2,Antihypertensive,0.93,0,0,Standard Population
+PT-0751,88,Female,11,1,0,0,0,458.4,1.36,163.3,23.5,Antihypertensive,0.82,1,0,Standard Population
+PT-0752,84,Male,17,0,0,0,0,389.0,1.4,169.2,23.0,Antihypertensive+Statin,0.88,0,1,Standard Population
+PT-0753,73,Female,18,1,0,1,0,366.6,0.4,164.8,26.8,Antihypertensive,0.81,0,1,Standard Population
+PT-0754,72,Male,8,0,0,1,0,656.5,4.24,202.3,27.2,Antihypertensive+Statin,0.77,0,0,Standard Population
+PT-0755,57,Female,11,0,0,0,0,573.0,1.45,188.9,27.5,No Medication,0.78,0,0,Standard Population
+PT-0756,57,Male,17,1,0,0,0,437.8,2.26,173.9,22.6,Antihypertensive+Statin,0.72,0,1,Standard Population
+PT-0757,55,Male,7,1,0,0,0,150.0,1.4,211.3,25.0,No Medication,0.83,1,0,Standard Population
+PT-0758,81,Female,13,0,1,1,0,373.1,3.16,260.5,25.4,No Medication,0.86,0,1,Standard Population
+PT-0759,62,Male,7,1,1,0,0,771.4,1.99,257.3,27.4,Metformin+Statin,0.75,0,0,Standard Population
+PT-0760,81,Female,16,0,0,0,1,390.0,0.96,130.0,23.2,Statin,0.91,0,0,Standard Population
+PT-0761,82,Female,12,0,0,0,0,563.4,2.89,216.9,25.7,Antihypertensive,0.75,0,0,Standard Population
+PT-0762,75,Female,14,0,0,0,0,607.5,0.82,188.2,26.4,Antihypertensive,0.91,0,0,Standard Population
+PT-0763,60,Male,6,0,0,0,0,448.5,1.48,200.9,26.7,Antihypertensive+Statin,0.76,0,0,Standard Population
+PT-0764,54,Male,13,0,0,0,0,310.6,0.4,179.9,28.2,Statin,0.75,0,0,Standard Population
+PT-0765,82,Male,12,0,0,0,0,150.0,0.83,199.5,26.0,Antihypertensive+Metformin+Statin,0.94,1,0,Standard Population
+PT-0766,88,Female,11,0,0,1,0,508.9,2.6,200.8,25.2,Antihypertensive+Metformin+Statin,0.74,0,0,Standard Population
+PT-0767,87,Female,11,1,0,0,0,314.1,0.4,173.0,24.6,Antihypertensive+Statin,0.77,1,1,Standard Population
+PT-0768,75,Female,11,0,0,0,1,442.9,0.77,160.9,22.1,Statin,0.72,0,0,Standard Population
+PT-0769,82,Female,14,1,0,0,0,257.5,2.4,177.9,26.4,Statin,0.71,0,0,Standard Population
+PT-0770,57,Female,7,0,0,1,0,385.5,1.8,203.9,27.2,Antihypertensive+Statin,0.81,0,1,Standard Population
+PT-0771,53,Female,6,1,0,0,0,424.4,4.59,217.8,27.6,No Medication,0.63,0,0,Standard Population
+PT-0772,71,Male,18,0,1,0,0,454.9,4.42,227.4,28.6,Antihypertensive,0.77,0,0,Standard Population
+PT-0773,79,Female,17,0,0,0,0,275.1,1.45,176.2,26.1,No Medication,0.84,0,0,Standard Population
+PT-0774,62,Male,11,0,0,0,1,575.6,3.01,205.8,21.3,No Medication,0.8,0,1,Standard Population
+PT-0775,55,Female,15,0,1,0,0,342.4,3.22,231.6,28.5,Antihypertensive,0.78,0,1,Standard Population
+PT-0776,66,Female,16,0,1,1,0,202.3,1.74,239.3,23.5,Statin,0.85,0,0,Standard Population
+PT-0777,57,Female,13,1,0,1,0,405.8,0.75,192.8,24.5,Antihypertensive+Statin,0.95,0,1,Standard Population
+PT-0778,81,Male,8,1,1,0,0,424.5,2.39,186.6,26.1,Statin,0.9,0,0,Standard Population
+PT-0779,53,Male,17,1,0,0,0,440.9,2.21,202.3,27.9,Antihypertensive,0.65,0,0,Standard Population
+PT-0780,66,Male,15,1,0,1,0,597.1,1.92,151.3,23.7,No Medication,0.88,0,1,Standard Population
+PT-0781,62,Male,6,0,0,0,0,389.3,2.89,187.6,25.6,Statin,0.67,0,0,Standard Population
+PT-0782,59,Male,14,0,0,1,0,404.4,1.57,223.3,25.3,Antihypertensive,0.91,0,1,Standard Population
+PT-0783,77,Female,18,0,0,0,0,276.6,1.13,219.4,24.7,Antihypertensive+Statin,0.96,0,0,Standard Population
+PT-0784,56,Female,18,0,0,1,1,526.7,2.52,184.7,24.8,Antihypertensive+Metformin+Statin,0.85,0,0,Standard Population
+PT-0785,57,Male,6,0,0,1,0,444.0,2.82,203.3,28.1,No Medication,0.82,1,1,Standard Population
+PT-0786,77,Male,8,0,0,1,0,365.4,1.11,163.7,25.6,Antihypertensive,0.81,0,0,Standard Population
+PT-0787,55,Male,13,0,0,0,0,172.4,3.42,221.7,25.7,Statin,0.87,1,1,Standard Population
+PT-0788,70,Female,19,0,0,0,0,607.8,0.45,192.0,23.3,Antihypertensive+Metformin+Statin,0.97,0,1,Standard Population
+PT-0789,71,Female,8,1,0,1,0,260.4,1.76,184.5,28.8,Antihypertensive+Statin,0.8,1,1,Standard Population
+PT-0790,84,Female,18,1,0,0,0,343.1,2.12,181.3,26.5,Metformin+Statin,0.65,0,0,Standard Population
+PT-0791,71,Female,9,0,1,0,0,466.6,1.7,192.6,24.5,Antihypertensive,0.8,1,0,Standard Population
+PT-0792,63,Female,13,1,1,1,0,264.4,1.78,178.0,27.8,Antihypertensive+Metformin+Statin,0.83,0,1,Standard Population
+PT-0793,52,Female,6,1,0,1,0,225.8,4.46,220.0,26.8,No Medication,0.99,0,0,Standard Population
+PT-0794,77,Male,18,0,0,1,1,150.0,1.46,180.0,21.3,No Medication,0.86,0,0,Standard Population
+PT-0795,65,Female,18,0,0,0,0,513.7,5.09,255.5,27.1,Metformin+Statin,0.9,0,1,Standard Population
+PT-0796,88,Male,11,0,0,1,0,349.1,2.88,250.7,23.6,Antihypertensive+Metformin+Statin,0.96,1,0,Standard Population
+PT-0797,62,Female,6,1,0,1,0,800.5,2.5,161.1,25.7,No Medication,0.81,0,1,Standard Population
+PT-0798,87,Male,19,1,0,0,1,290.7,2.92,197.6,21.6,No Medication,0.79,1,0,Standard Population
+PT-0799,64,Female,6,0,0,0,0,300.2,5.18,170.3,25.3,No Medication,0.78,0,0,Standard Population
+PT-0800,54,Female,19,0,0,0,0,346.5,1.31,182.6,28.1,No Medication,0.71,0,0,Standard Population
+PT-0801,84,Female,13,0,1,0,0,451.6,1.17,271.1,29.0,Antihypertensive,0.95,0,0,Standard Population
+PT-0802,57,Female,16,0,0,1,0,358.9,1.57,183.3,25.1,Antihypertensive+Metformin+Statin,0.76,1,0,Standard Population
+PT-0803,61,Male,9,0,0,0,1,499.6,2.44,208.7,19.3,Antihypertensive+Statin,0.77,0,0,Standard Population
+PT-0804,56,Male,17,1,1,1,0,292.8,0.5,215.6,22.7,Antihypertensive+Statin,0.89,0,1,Standard Population
+PT-0805,74,Male,6,1,0,1,0,240.4,2.42,157.0,25.5,Antihypertensive+Statin,0.6,0,0,Standard Population
+PT-0806,61,Male,15,1,0,0,1,186.2,4.26,162.5,21.3,Statin,0.82,0,0,Standard Population
+PT-0807,53,Female,12,1,0,1,0,150.0,2.57,149.2,27.3,Antihypertensive+Statin,0.83,1,0,Standard Population
+PT-0808,64,Male,10,1,0,0,0,352.7,2.08,161.3,26.6,Statin,0.9,0,0,Standard Population
+PT-0809,53,Female,10,0,0,1,0,380.9,1.72,130.0,23.6,Antihypertensive,0.95,0,0,Standard Population
+PT-0810,71,Female,6,1,0,0,0,337.9,3.39,215.7,22.3,Statin,0.4,0,0,Standard Population
+PT-0811,52,Female,19,0,0,1,0,581.6,1.49,273.1,27.5,Statin,0.76,1,0,Standard Population
+PT-0812,88,Male,15,1,0,0,0,579.6,4.43,200.6,25.4,Metformin+Statin,0.88,0,0,Standard Population
+PT-0813,60,Female,16,0,0,0,0,376.5,4.53,141.2,25.6,Antihypertensive+Metformin+Statin,0.78,0,0,Standard Population
+PT-0814,68,Female,11,1,0,1,0,186.8,2.68,170.6,22.8,Statin,0.8,0,0,Standard Population
+PT-0815,60,Female,19,0,0,0,0,346.3,2.39,177.6,27.4,Antihypertensive+Statin,0.82,0,0,Standard Population
+PT-0816,62,Female,14,0,1,0,0,342.0,3.53,156.3,28.9,No Medication,0.77,0,0,Standard Population
+PT-0817,66,Female,14,0,0,0,0,334.6,3.6,227.7,26.8,Antihypertensive+Statin,0.59,0,0,Standard Population
+PT-0818,75,Male,13,0,0,1,0,329.3,1.51,225.8,24.1,Antihypertensive,0.9,1,0,Standard Population
+PT-0819,86,Female,10,1,0,0,0,335.0,1.82,151.1,25.3,No Medication,0.68,1,0,Standard Population
+PT-0820,81,Male,6,1,0,0,0,369.7,0.95,222.6,22.7,Antihypertensive,0.62,0,0,Standard Population
+PT-0821,82,Male,14,0,0,0,0,337.4,2.85,253.0,27.5,Antihypertensive+Statin,0.91,0,1,Standard Population
+PT-0822,56,Male,6,0,0,0,0,447.1,3.13,267.3,26.9,No Medication,0.84,0,1,Standard Population
+PT-0823,65,Male,13,0,1,0,0,466.8,0.92,303.9,22.7,Antihypertensive+Metformin+Statin,0.95,0,0,Standard Population
+PT-0824,62,Male,10,0,1,0,0,301.6,1.9,160.7,25.8,No Medication,0.95,0,1,Standard Population
+PT-0825,60,Male,8,0,0,0,0,585.2,0.92,302.3,27.4,Antihypertensive+Metformin+Statin,0.77,0,0,Standard Population
+PT-0826,85,Female,16,1,0,0,0,292.6,1.41,181.5,24.6,Antihypertensive+Statin,0.9,0,0,Standard Population
+PT-0827,63,Female,12,0,0,0,0,209.7,3.01,172.5,25.8,Antihypertensive,0.9,0,0,Standard Population
+PT-0828,86,Female,12,0,0,1,1,469.5,1.59,207.4,19.0,Antihypertensive,0.56,1,0,Standard Population
+PT-0829,86,Male,14,0,0,0,0,313.7,2.07,172.9,26.3,Antihypertensive+Statin,0.76,0,0,Standard Population
+PT-0830,52,Male,12,0,0,0,0,461.8,0.61,210.2,25.6,Antihypertensive+Statin,0.95,0,0,Standard Population
+PT-0831,73,Female,18,0,0,0,0,150.0,2.61,144.8,21.5,Antihypertensive+Statin,0.92,0,1,Standard Population
+PT-0832,80,Male,16,1,0,0,1,601.0,2.35,185.9,21.0,Antihypertensive,0.94,0,0,Standard Population
+PT-0833,59,Male,19,0,0,1,0,507.4,1.6,243.9,28.5,Statin,0.84,0,0,Standard Population
+PT-0834,62,Female,8,0,1,0,0,224.9,2.19,192.8,25.6,Antihypertensive+Metformin+Statin,0.91,0,0,Standard Population
+PT-0835,88,Male,16,0,0,0,0,227.8,2.6,200.4,28.6,Antihypertensive,0.9,1,1,Standard Population
+PT-0836,65,Female,18,0,0,0,1,637.4,1.5,213.1,23.3,Statin,0.87,1,0,Standard Population
+PT-0837,81,Female,20,0,0,1,0,324.1,0.78,239.5,26.1,Antihypertensive,0.83,0,0,Standard Population
+PT-0838,86,Male,19,1,1,0,0,311.6,4.39,132.1,24.9,Antihypertensive+Statin,0.83,0,0,Standard Population
+PT-0839,72,Male,18,1,0,0,1,150.0,1.7,217.2,22.0,Antihypertensive+Statin,0.95,1,0,Standard Population
+PT-0840,88,Female,6,0,0,0,1,374.4,2.29,184.8,20.8,Antihypertensive,0.96,0,0,Standard Population
+PT-0841,56,Male,13,0,0,1,1,390.4,3.51,201.3,22.3,No Medication,0.78,0,0,Standard Population
+PT-0842,70,Male,17,0,0,0,0,513.0,6.28,235.3,27.1,No Medication,0.82,0,0,Standard Population
+PT-0843,65,Female,8,0,1,0,0,238.1,1.03,149.6,24.4,Statin,0.82,0,0,Standard Population
+PT-0844,77,Male,17,1,0,1,0,222.4,2.89,156.5,23.5,Statin,0.91,1,0,Standard Population
+PT-0845,55,Female,13,1,0,1,0,478.6,1.62,130.0,24.5,Antihypertensive+Metformin+Statin,0.77,0,0,Standard Population
+PT-0846,76,Female,13,0,1,0,0,550.9,1.81,174.1,29.8,Statin,0.73,0,0,Standard Population
+PT-0847,76,Male,18,0,0,1,0,215.8,1.61,245.6,26.8,Antihypertensive,0.84,0,0,Standard Population
+PT-0848,69,Male,10,0,0,1,0,560.6,1.16,190.4,26.7,Metformin+Statin,0.9,0,0,Standard Population
+PT-0849,59,Male,18,1,0,0,0,424.9,2.35,144.1,24.4,Statin,0.67,1,1,Standard Population
+PT-0850,65,Male,17,1,1,0,0,561.9,0.78,176.5,27.5,Statin,0.62,0,0,Standard Population
+PT-0851,83,Male,18,0,0,0,0,410.9,3.44,138.5,25.1,No Medication,0.84,0,0,Standard Population
+PT-0852,84,Female,6,0,0,1,0,150.0,2.46,152.2,25.7,Antihypertensive,0.93,1,0,Standard Population
+PT-0853,74,Male,18,1,0,1,0,400.2,2.86,209.8,23.8,Antihypertensive+Metformin+Statin,0.9,0,1,Standard Population
+PT-0854,66,Female,15,0,0,0,0,557.8,1.89,150.4,26.5,Statin,0.76,0,0,Standard Population
+PT-0855,84,Female,12,0,0,1,0,303.8,2.0,237.3,24.5,Antihypertensive,0.9,0,0,Standard Population
+PT-0856,76,Female,17,0,0,0,0,369.6,2.72,192.3,24.2,Antihypertensive+Statin,0.61,0,0,Standard Population
+PT-0857,68,Female,15,1,1,0,0,397.1,1.12,198.3,27.6,Antihypertensive+Metformin+Statin,0.91,0,0,Standard Population
+PT-0858,84,Male,10,0,0,0,0,150.0,2.01,184.4,22.2,Antihypertensive,0.63,0,0,Standard Population
+PT-0859,53,Female,13,0,0,0,1,637.3,1.45,224.4,24.2,Statin,0.53,0,1,Standard Population
+PT-0860,65,Female,14,1,0,1,0,302.8,1.42,224.8,27.6,Antihypertensive+Metformin+Statin,0.58,1,0,Standard Population
+PT-0861,57,Male,16,0,0,0,0,485.7,0.4,207.7,24.9,Antihypertensive,0.94,0,0,Standard Population
+PT-0862,57,Male,19,0,1,1,1,408.7,3.87,216.5,21.2,Antihypertensive+Statin,0.96,0,0,Standard Population
+PT-0863,54,Female,12,0,0,0,0,583.5,1.64,186.9,26.4,Antihypertensive+Statin,0.94,0,0,Standard Population
+PT-0864,58,Male,19,0,0,0,1,472.8,3.68,215.6,23.4,Antihypertensive+Statin,0.96,1,1,Standard Population
+PT-0865,59,Male,18,1,0,1,1,389.5,3.58,182.2,22.4,Antihypertensive,0.53,0,0,Standard Population
+PT-0866,66,Male,20,0,0,0,0,303.8,0.99,195.1,27.1,Antihypertensive,0.92,1,1,Standard Population
+PT-0867,80,Male,12,0,0,0,1,523.7,1.2,184.6,25.2,Antihypertensive+Statin,0.81,0,0,Standard Population
+PT-0868,84,Female,6,0,0,0,0,176.5,5.22,177.6,24.3,Antihypertensive,0.78,1,0,Standard Population
+PT-0869,81,Female,20,1,1,1,0,504.0,4.33,168.8,22.0,Statin,0.8,0,0,Standard Population
+PT-0870,78,Female,9,1,1,0,0,277.1,2.37,212.8,27.3,Antihypertensive,0.92,0,0,Standard Population
+PT-0871,87,Male,7,0,0,0,0,582.8,2.68,244.8,28.5,No Medication,0.75,0,0,Standard Population
+PT-0872,80,Male,7,0,1,0,1,441.0,1.71,239.5,22.5,Antihypertensive+Metformin+Statin,0.98,1,0,Standard Population
+PT-0873,84,Female,7,1,0,0,0,503.7,2.88,147.3,23.1,Statin,0.74,0,0,Standard Population
+PT-0874,88,Male,9,0,0,1,0,430.7,1.61,244.0,24.9,Antihypertensive+Metformin+Statin,0.88,0,0,Standard Population
+PT-0875,78,Male,19,1,0,0,0,192.2,0.4,182.9,23.4,No Medication,0.79,0,0,Standard Population
+PT-0876,84,Female,6,1,0,0,0,308.1,0.95,217.8,26.6,Statin,0.97,1,0,Standard Population
+PT-0877,55,Male,20,1,0,0,0,507.4,2.42,160.6,24.0,Antihypertensive,0.87,1,0,Standard Population
+PT-0878,73,Female,9,0,0,0,0,441.7,1.16,200.4,25.2,Antihypertensive+Statin,0.66,0,1,Standard Population
+PT-0879,53,Male,7,0,0,1,1,573.5,2.33,206.9,21.0,Antihypertensive+Statin,0.85,0,0,Standard Population
+PT-0880,61,Male,10,1,0,0,0,472.4,1.22,138.6,26.7,No Medication,0.78,0,0,Standard Population
+PT-0881,56,Male,8,0,0,1,1,294.3,1.54,218.1,22.2,Antihypertensive+Metformin+Statin,0.83,1,0,Standard Population
+PT-0882,61,Female,20,0,0,0,0,316.5,3.34,246.1,26.8,Antihypertensive,0.85,1,0,Standard Population
+PT-0883,84,Female,17,1,0,0,0,433.4,2.67,188.4,25.3,Antihypertensive+Statin,0.76,0,0,Standard Population
+PT-0884,64,Female,13,1,0,1,0,150.0,2.39,246.7,24.3,Antihypertensive+Metformin+Statin,0.51,0,1,Standard Population
+PT-0885,82,Female,9,0,0,0,0,637.5,3.37,187.8,26.7,Metformin+Statin,0.79,1,0,Standard Population
+PT-0886,87,Male,6,0,0,1,0,477.4,2.93,227.3,25.1,Antihypertensive+Metformin+Statin,0.7,1,0,Standard Population
+PT-0887,75,Female,6,0,1,1,1,579.5,3.99,130.0,20.0,Antihypertensive,0.59,0,0,Standard Population
+PT-0888,66,Male,17,1,0,0,0,214.5,1.89,286.9,30.0,No Medication,0.81,0,0,Standard Population
+PT-0889,80,Female,15,1,0,0,1,581.8,1.93,251.8,22.7,Antihypertensive,0.94,0,0,Standard Population
+PT-0890,59,Male,8,0,1,1,0,710.1,0.97,184.2,26.2,Statin,0.84,0,1,Standard Population
+PT-0891,56,Female,20,0,0,0,0,248.3,1.93,130.0,29.5,Antihypertensive+Statin,0.79,0,0,Standard Population
+PT-0892,80,Male,14,1,0,0,0,520.3,3.46,205.9,29.2,Antihypertensive,0.87,0,1,Standard Population
+PT-0893,55,Male,12,0,0,0,1,420.1,3.83,140.1,22.7,Antihypertensive+Statin,0.84,0,0,Standard Population
+PT-0894,63,Female,7,0,1,0,0,219.2,3.46,211.9,27.0,Antihypertensive,0.83,0,0,Standard Population
+PT-0895,53,Male,20,1,0,1,1,484.1,0.43,210.6,21.1,Antihypertensive,0.81,0,0,Standard Population
+PT-0896,78,Male,18,0,0,0,1,528.4,3.59,159.2,21.5,Antihypertensive+Statin,0.62,0,0,Standard Population
+PT-0897,82,Male,14,1,0,0,0,341.9,0.4,237.6,25.0,Statin,0.9,1,1,Standard Population
+PT-0898,87,Male,15,0,0,0,0,571.6,3.39,225.6,25.5,Metformin+Statin,0.86,0,0,Standard Population
+PT-0899,87,Female,7,0,0,0,0,203.3,2.0,232.1,25.8,Antihypertensive,0.5,0,1,Standard Population
+PT-0900,77,Female,8,1,0,0,0,225.7,3.17,195.3,26.8,Antihypertensive+Statin,0.94,0,0,Standard Population
+PT-0901,78,Female,16,0,0,1,0,437.8,0.93,141.2,26.1,No Medication,0.93,1,0,Standard Population
+PT-0902,56,Female,18,1,1,0,0,423.3,3.69,232.2,24.3,Antihypertensive,0.82,1,1,Standard Population
+PT-0903,71,Male,15,0,1,1,0,326.8,0.79,184.7,24.1,Antihypertensive+Statin,0.95,0,0,Standard Population
+PT-0904,62,Female,19,0,0,1,0,525.2,1.66,142.2,25.3,Metformin+Statin,0.72,1,1,Standard Population
+PT-0905,61,Male,7,0,1,0,0,489.0,1.3,246.4,25.9,Antihypertensive,0.52,0,0,Standard Population
+PT-0906,57,Male,8,0,0,0,0,531.6,0.47,274.8,28.8,Antihypertensive,0.95,1,1,Standard Population
+PT-0907,59,Female,11,0,0,0,0,404.0,2.5,193.4,24.2,Statin,0.92,0,0,Standard Population
+PT-0908,74,Male,14,0,0,0,0,498.3,4.39,277.0,25.1,Antihypertensive,0.69,0,0,Standard Population
+PT-0909,77,Female,14,0,1,1,0,362.1,5.33,198.5,27.6,Metformin+Statin,0.8,0,0,Standard Population
+PT-0910,63,Male,12,0,1,1,0,687.0,2.51,180.5,25.8,Antihypertensive+Statin,0.89,0,0,Standard Population
+PT-0911,77,Female,17,1,0,0,0,314.4,3.63,171.0,26.6,No Medication,0.78,0,0,Standard Population
+PT-0912,64,Female,8,1,1,0,0,693.7,2.66,257.2,26.0,Statin,0.83,1,0,Standard Population
+PT-0913,69,Female,9,1,0,1,0,424.5,2.95,165.4,26.6,Antihypertensive+Statin,0.88,1,0,Standard Population
+PT-0914,76,Female,11,0,1,1,0,241.2,2.02,222.9,25.2,Antihypertensive,0.9,0,0,Standard Population
+PT-0915,84,Female,16,0,1,0,0,597.9,2.61,173.8,26.6,Antihypertensive+Statin,0.9,0,0,Standard Population
+PT-0916,63,Male,10,1,0,0,1,436.4,2.99,177.5,19.5,No Medication,0.96,0,0,Standard Population
+PT-0917,87,Female,7,0,0,0,0,530.6,1.76,234.1,24.4,Antihypertensive+Statin,0.9,0,0,Standard Population
+PT-0918,55,Male,18,0,0,1,0,579.1,2.31,180.6,27.3,Antihypertensive,0.9,0,0,Standard Population
+PT-0919,56,Female,11,1,0,0,0,463.9,2.34,179.6,27.8,Metformin+Statin,0.85,0,0,Standard Population
+PT-0920,88,Female,8,1,0,0,0,343.0,3.31,238.0,28.1,Antihypertensive,0.95,0,0,Standard Population
+PT-0921,59,Female,19,0,0,0,0,546.8,1.23,255.7,25.8,Antihypertensive,0.87,0,0,Standard Population
+PT-0922,79,Male,13,0,1,0,0,420.1,2.34,219.5,28.5,Metformin+Statin,0.88,0,1,Standard Population
+PT-0923,82,Male,7,1,0,0,0,509.2,4.5,170.1,24.1,No Medication,0.81,0,0,Standard Population
+PT-0924,60,Female,6,0,0,1,0,150.0,3.68,175.6,29.2,Antihypertensive,0.85,0,0,Standard Population
+PT-0925,80,Male,14,1,1,0,0,478.1,3.88,198.0,27.1,Antihypertensive,0.91,0,0,Standard Population
+PT-0926,65,Male,19,1,1,0,0,337.0,2.43,207.2,24.4,Antihypertensive,0.89,1,0,Standard Population
+PT-0927,73,Male,17,1,0,0,1,634.9,2.75,157.5,22.7,Antihypertensive+Metformin+Statin,0.59,0,1,Standard Population
+PT-0928,62,Female,8,0,1,0,0,501.0,3.5,222.5,26.3,Antihypertensive+Statin,0.83,0,1,Standard Population
+PT-0929,74,Female,16,0,0,0,0,451.2,4.12,198.2,27.1,No Medication,0.82,0,0,Standard Population
+PT-0930,52,Male,6,1,1,0,0,483.2,0.4,130.0,26.5,Antihypertensive+Statin,0.73,0,0,Standard Population
+PT-0931,88,Male,12,1,0,0,0,290.2,0.95,159.7,24.5,Statin,0.86,0,0,Standard Population
+PT-0932,72,Male,18,1,0,0,0,631.0,3.84,175.8,28.6,Antihypertensive+Metformin+Statin,0.95,0,0,Standard Population
+PT-0933,77,Female,20,0,0,0,0,678.9,2.1,192.2,25.5,Antihypertensive,0.72,0,1,Standard Population
+PT-0934,87,Female,15,0,0,0,0,471.1,1.66,266.8,26.8,Statin,0.94,1,0,Standard Population
+PT-0935,74,Male,10,1,0,1,0,626.8,1.02,204.1,25.3,Statin,0.88,0,0,Standard Population
+PT-0936,52,Male,10,1,0,1,0,346.0,1.79,163.1,30.0,Statin,0.94,0,0,Standard Population
+PT-0937,66,Male,19,1,0,0,0,316.4,0.86,203.4,24.8,Statin,0.68,0,0,Standard Population
+PT-0938,72,Female,6,1,1,0,0,425.3,4.7,181.6,24.7,Antihypertensive,0.8,1,0,Standard Population
+PT-0939,60,Female,20,0,0,1,0,476.5,2.38,207.3,29.5,Antihypertensive+Statin,0.83,0,1,Standard Population
+PT-0940,60,Male,20,1,0,0,0,368.8,2.34,217.1,25.6,Statin,0.96,0,0,Standard Population
+PT-0941,61,Male,14,1,0,1,0,489.9,3.05,241.0,29.7,Antihypertensive+Metformin+Statin,0.92,0,1,Standard Population
+PT-0942,77,Male,12,0,0,1,0,459.8,3.46,194.1,27.4,Antihypertensive,0.78,0,0,Standard Population
+PT-0943,86,Female,13,1,1,0,0,290.2,3.44,257.3,24.9,Antihypertensive+Statin,0.82,1,0,Standard Population
+PT-0944,76,Male,14,0,1,0,1,487.4,3.58,229.5,18.3,Antihypertensive+Metformin+Statin,0.86,0,0,Standard Population
+PT-0945,77,Female,11,0,0,1,0,532.3,1.71,168.1,25.6,Antihypertensive+Statin,0.86,0,0,Standard Population
+PT-0946,62,Female,17,1,0,0,0,442.3,2.07,279.0,26.6,Metformin+Statin,0.76,1,1,Standard Population
+PT-0947,53,Male,10,0,1,0,0,569.8,3.25,207.4,29.2,Metformin+Statin,0.81,0,0,Standard Population
+PT-0948,58,Male,11,0,0,0,1,261.7,1.82,163.3,26.0,Antihypertensive,0.87,0,0,Standard Population
+PT-0949,69,Male,16,0,1,0,0,480.8,2.39,257.8,24.7,Antihypertensive+Statin,0.83,0,0,Standard Population
+PT-0950,78,Female,7,0,0,1,0,267.9,2.84,274.0,27.2,Antihypertensive,0.79,0,0,Standard Population
+PT-0951,85,Female,9,0,1,1,0,275.2,3.26,193.7,26.8,Statin,0.79,1,0,Standard Population
+PT-0952,78,Female,8,0,0,1,0,338.0,0.44,175.9,27.7,Antihypertensive,0.73,0,0,Standard Population
+PT-0953,68,Female,18,1,0,0,0,297.5,3.19,188.4,27.1,Antihypertensive+Statin,0.77,0,0,Standard Population
+PT-0954,75,Male,12,0,1,0,0,348.8,2.14,222.2,21.9,Statin,0.73,1,0,Standard Population
+PT-0955,76,Female,14,0,0,0,1,392.2,3.18,243.6,21.6,Statin,0.82,0,0,Standard Population
+PT-0956,58,Female,10,0,0,0,1,528.8,3.25,216.7,20.5,Antihypertensive,0.68,0,0,Standard Population
+PT-0957,57,Male,11,1,0,0,0,378.2,4.17,198.9,26.2,Antihypertensive+Metformin+Statin,0.95,0,0,Standard Population
+PT-0958,75,Female,15,0,0,1,0,213.9,3.89,251.9,27.7,No Medication,0.66,1,0,Standard Population
+PT-0959,84,Female,19,1,0,1,1,568.2,3.88,183.1,22.1,No Medication,0.82,1,0,Standard Population
+PT-0960,80,Female,17,1,0,0,0,311.2,3.99,234.2,27.8,Antihypertensive,0.88,0,0,Standard Population
+PT-0961,73,Female,17,1,0,0,0,412.4,2.72,184.1,26.5,Antihypertensive+Metformin+Statin,0.88,0,0,Standard Population
+PT-0962,77,Female,7,0,0,0,0,478.0,2.44,211.4,23.1,Antihypertensive+Metformin+Statin,0.68,1,0,Standard Population
+PT-0963,79,Female,8,1,1,0,0,445.9,3.36,190.7,20.5,Antihypertensive+Statin,0.77,0,0,Standard Population
+PT-0964,72,Male,8,0,0,1,0,562.2,3.21,192.9,26.2,Metformin+Statin,0.56,1,0,Standard Population
+PT-0965,58,Male,17,1,0,0,0,482.3,2.06,180.7,26.2,Antihypertensive,0.73,0,0,Standard Population
+PT-0966,68,Female,17,1,0,1,0,308.0,2.85,246.1,24.1,Antihypertensive+Metformin+Statin,0.84,0,0,Standard Population
+PT-0967,71,Male,20,0,0,0,0,703.2,2.36,167.1,22.5,No Medication,0.81,0,0,Standard Population
+PT-0968,71,Male,14,0,0,0,0,445.3,1.46,166.9,24.5,No Medication,0.79,0,1,Standard Population
+PT-0969,73,Male,20,0,0,1,0,400.8,3.82,275.6,25.5,No Medication,0.88,0,0,Standard Population
+PT-0970,79,Male,12,1,0,0,1,545.3,2.46,232.2,23.1,Statin,0.69,1,1,Standard Population
+PT-0971,58,Female,13,0,0,0,0,452.4,4.65,130.0,27.0,Antihypertensive+Statin,0.87,0,0,Standard Population
+PT-0972,52,Female,16,0,0,0,0,471.9,0.61,173.5,30.0,Antihypertensive,0.56,1,0,Standard Population
+PT-0973,83,Male,15,0,0,0,1,744.0,1.79,130.0,19.5,Antihypertensive+Metformin+Statin,0.93,0,0,Standard Population
+PT-0974,64,Male,16,1,0,1,1,384.2,2.44,158.9,24.3,Statin,0.69,1,0,Standard Population
+PT-0975,81,Male,14,1,0,0,0,378.7,3.65,130.0,25.5,Antihypertensive,0.98,1,0,Standard Population
+PT-0976,74,Female,11,1,0,1,0,435.2,2.84,189.8,27.2,Statin,0.88,0,0,Standard Population
+PT-0977,70,Female,9,1,0,0,0,559.3,2.74,151.6,25.1,Antihypertensive+Statin,0.83,0,1,Standard Population
+PT-0978,83,Male,17,0,1,0,1,224.2,1.16,197.3,23.7,Metformin+Statin,0.85,0,0,Standard Population
+PT-0979,81,Female,6,0,0,1,1,164.5,1.13,133.2,22.2,Statin,0.83,0,1,Standard Population
+PT-0980,80,Female,13,1,0,0,1,343.7,2.75,198.2,20.3,Statin,0.74,0,0,Standard Population
+PT-0981,80,Female,12,0,0,0,0,207.6,0.9,179.2,25.5,Antihypertensive,0.59,1,0,Standard Population
+PT-0982,81,Female,7,0,0,0,0,364.8,1.81,252.1,25.0,Antihypertensive+Statin,0.82,1,0,Standard Population
+PT-0983,67,Male,13,0,0,0,0,485.3,2.95,248.6,27.1,Antihypertensive+Metformin+Statin,0.86,0,0,Standard Population
+PT-0984,70,Female,17,0,0,0,0,304.2,1.32,224.8,23.6,No Medication,0.63,0,0,Standard Population
+PT-0985,69,Male,10,0,1,0,0,234.5,4.17,182.6,26.0,Metformin+Statin,0.88,0,1,Standard Population
+PT-0986,52,Female,12,1,0,0,0,429.0,3.75,270.4,27.7,Statin,0.9,0,0,Standard Population
+PT-0987,65,Female,9,0,1,0,0,532.1,0.67,136.0,26.3,Antihypertensive,0.86,0,0,Standard Population
+PT-0988,53,Female,10,0,0,1,0,199.7,1.37,141.7,29.5,Antihypertensive+Metformin+Statin,0.72,1,0,Standard Population
+PT-0989,79,Female,13,0,0,0,0,526.6,0.4,191.8,27.1,Statin,0.69,0,0,Standard Population
+PT-0990,81,Male,6,1,0,1,0,526.2,1.54,280.7,25.4,Antihypertensive,0.84,0,0,Standard Population
+PT-0991,55,Female,6,0,0,0,0,544.0,3.24,187.3,27.2,Antihypertensive,0.73,1,0,Standard Population
+PT-0992,52,Female,20,1,0,0,0,578.4,1.94,188.0,27.5,Antihypertensive,0.82,0,0,Standard Population
+PT-0993,59,Female,9,1,0,1,0,706.3,2.91,140.2,27.4,Metformin+Statin,0.89,1,0,Standard Population
+PT-0994,80,Male,8,0,0,0,0,373.7,0.73,230.9,21.8,Antihypertensive+Statin,0.64,0,0,Standard Population
+PT-0995,54,Male,18,1,1,1,1,434.2,3.28,231.2,22.4,Antihypertensive+Metformin+Statin,0.56,0,0,Standard Population
+PT-0996,83,Male,15,1,1,0,0,365.9,1.79,225.0,22.4,Antihypertensive,0.9,1,0,Standard Population
+PT-0997,61,Female,17,1,0,0,0,420.3,2.41,171.1,29.0,No Medication,0.79,0,0,Standard Population
+PT-0998,61,Female,7,1,0,0,0,619.3,2.3,168.1,26.3,No Medication,0.93,1,0,Standard Population
+PT-0999,70,Male,17,0,0,0,0,245.1,1.0,145.9,25.6,Statin,0.85,1,1,Standard Population
+PT-1000,85,Female,8,0,0,1,1,308.1,1.13,198.2,23.2,Antihypertensive+Metformin+Statin,0.75,0,1,Standard Population

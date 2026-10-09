@@ -63,4 +63,12 @@ export const handlers = [
       data_mode: 'synthetic'
     })
   }),
+
+  http.delete('/v1/sessions/:id', ({ params }: { params: any }) => {
+    return HttpResponse.json({
+      status: 'purged',
+      id: params.id,
+      purged_at: new Date().toISOString()
+    })
+  }),
 ]

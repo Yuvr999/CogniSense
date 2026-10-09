@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { BandSection, TiltCard } from '../ui';
 import { motion, useMotionValue, useTransform, animate } from 'motion/react';
@@ -74,22 +75,42 @@ export function NumbersBand() {
       
       {/* Evidence cards carousel */}
       <div className="mt-24 pb-8 flex gap-6 overflow-x-auto snap-x px-4 md:px-0 -mx-4 md:mx-0">
-        <TiltCard rotation={-2} tone="cream" className="min-w-[300px] snap-center">
-          <h3 className="text-xl font-bold mb-2">Why this flag</h3>
-          <p className="text-muted">Every risk estimate comes with a waterfall chart of exactly which features drove the result.</p>
-        </TiltCard>
-        <TiltCard rotation={1} tone="white" className="min-w-[300px] snap-center">
-          <h3 className="text-xl font-bold mb-2">Fair across groups?</h3>
-          <p className="text-muted">Explore the subgroup audit to check for demographic bias before deploying.</p>
-        </TiltCard>
-        <TiltCard rotation={3} tone="paper" className="min-w-[300px] snap-center">
-          <h3 className="text-xl font-bold mb-2">Where your data goes</h3>
-          <p className="text-muted">Audio is processed entirely on the local server and deleted immediately.</p>
-        </TiltCard>
-        <TiltCard rotation={-1} tone="cream" className="min-w-[300px] snap-center">
-          <h3 className="text-xl font-bold mb-2">Where it fits</h3>
-          <p className="text-muted">Designed as a triage step before a full neuropsychological battery.</p>
-        </TiltCard>
+        <Link to="/evidence" className="block focus:outline-none">
+          <TiltCard rotation={-2} tone="cream" className="min-w-[300px] snap-center hover:shadow-md transition-shadow cursor-pointer h-full">
+            <h3 className="text-xl font-bold mb-2 flex items-center justify-between">
+              <span>Why this flag</span>
+              <span className="text-xs font-mono text-muted">View →</span>
+            </h3>
+            <p className="text-muted">Every risk estimate comes with a waterfall chart of exactly which features drove the result.</p>
+          </TiltCard>
+        </Link>
+        <Link to="/evidence/fairness" className="block focus:outline-none">
+          <TiltCard rotation={1} tone="white" className="min-w-[300px] snap-center hover:shadow-md transition-shadow cursor-pointer h-full">
+            <h3 className="text-xl font-bold mb-2 flex items-center justify-between">
+              <span>Fair across groups?</span>
+              <span className="text-xs font-mono text-muted">View →</span>
+            </h3>
+            <p className="text-muted">Explore the subgroup audit to check for demographic bias before deploying.</p>
+          </TiltCard>
+        </Link>
+        <Link to="/privacy" className="block focus:outline-none">
+          <TiltCard rotation={3} tone="paper" className="min-w-[300px] snap-center hover:shadow-md transition-shadow cursor-pointer h-full">
+            <h3 className="text-xl font-bold mb-2 flex items-center justify-between">
+              <span>Where your data goes</span>
+              <span className="text-xs font-mono text-muted">View →</span>
+            </h3>
+            <p className="text-muted">Audio is processed entirely on the local server and deleted immediately.</p>
+          </TiltCard>
+        </Link>
+        <Link to="/clinic" className="block focus:outline-none">
+          <TiltCard rotation={-1} tone="cream" className="min-w-[300px] snap-center hover:shadow-md transition-shadow cursor-pointer h-full">
+            <h3 className="text-xl font-bold mb-2 flex items-center justify-between">
+              <span>Where it fits</span>
+              <span className="text-xs font-mono text-muted">View →</span>
+            </h3>
+            <p className="text-muted">Designed as a triage step before a full neuropsychological battery.</p>
+          </TiltCard>
+        </Link>
       </div>
     </BandSection>
   );

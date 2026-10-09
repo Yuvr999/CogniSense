@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #111111;
+  --color-paper: #FBF7F0;
+  --color-paper-dim: #F1EADF;
+  --color-sand: #DBC09D;
+  --color-cream: #EDDECF;
+  --color-sky: #82B6E2;
+  --color-lavender: #ABA4FA;
+  --color-lime: #E4FF65;
+  --color-berry: #8E1457;
+  --color-pink-deco: #DE57A0;
+  --color-muted: #4A4540;
+
+  --color-risk-low: #1F7A4D;
+  --color-risk-low-bg: #DCF3E4;
+  --color-risk-low-text: #14532D;
+
+  --color-risk-elevated: #B26A00;
+  --color-risk-elevated-bg: #FCE9C5;
+  --color-risk-elevated-text: #6B3B00;
+
+  --color-risk-high: #B3261E;
+  --color-risk-high-bg: #FADBD8;
+  --color-risk-high-text: #7F1D1D;
+
+  --color-risk-indet: #475569;
+  --color-risk-indet-bg: #E5E7EB;
+  --color-risk-indet-text: #1F2937;
+
+  --color-speech: #2F6FB5;
+  --color-speech-bg: var(--color-sky);
+  --color-speech-text: var(--color-ink);
+
+  --color-cognitive: #5B4BD6;
+  --color-cognitive-bg: var(--color-lavender);
+  --color-cognitive-text: var(--color-ink);
+
+  --font-sans: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', sans-serif;
+  --font-display: 'Archivo Variable', sans-serif;
+
+  --shadow-float: 0 12px 32px rgba(17,17,17,.14);
+
+  --animate-marquee: marquee 30s linear infinite;
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); }
+  }
+
+  --animate-shake: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
+}
+
+@utility pause-marquee {
+  animation-play-state: paused;
+}
+
+@layer base {
+  :root {
+    --ink: #111111;
+    --paper: #FBF7F0;
+    --paper-dim: #F1EADF;
+    --sand: #DBC09D;
+    --cream: #EDDECF;
+    --sky: #82B6E2;
+    --lavender: #ABA4FA;
+    --lime: #E4FF65;
+    --berry: #8E1457;
+    --pink-deco: #DE57A0;
+    --muted: #4A4540;
+    
+    font-family: var(--font-sans);
+    line-height: 1.55;
+    font-size: 18px;
+  }
+  
+  html[data-mode="landing"] {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  html[data-mode="patient"] {
+    font-size: 24px;
+    line-height: 1.6;
+  }
+
+  html[data-mode="clinic"] {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+}

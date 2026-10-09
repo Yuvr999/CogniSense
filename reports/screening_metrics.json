@@ -1,0 +1,22 @@
+{
+    "dataset_samples": 1000,
+    "n_features": 47,
+    "random_seed": 42,
+    "cv_5fold_train_metrics": {
+        "accuracy": 0.85875,
+        "precision": 0.7383024389474347,
+        "recall": 0.8375,
+        "f1": 0.782227886618449,
+        "roc_auc": 0.9409970238095239,
+        "roc_auc_std": 0.014369657423098165
+    },
+    "test_holdout_metrics": {
+        "test_accuracy": 0.885,
+        "test_precision": 0.8490566037735849,
+        "test_recall": 0.75,
+        "test_f1": 0.7964601769911505,
+        "test_roc_auc": 0.9453571428571428,
+        "test_brier_score": 0.08661240475482052
+    },
+    "disclaimer": "Screening aid, not a diagnosis. Synthetic research prototype."
+}

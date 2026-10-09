@@ -45,7 +45,10 @@ export function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-          <Button variant="primary" size="patient" onClick={() => window.location.href = '/clinic'}>
+          <Button variant="primary" size="patient" onClick={() => window.location.href = '/twin'}>
+            🧬 Launch CogniTwin Dashboard
+          </Button>
+          <Button variant="secondary" size="patient" onClick={() => window.location.href = '/clinic'}>
             {t('common.openClinicianDemo')}
           </Button>
           <Button variant="link-arrow" onClick={() => window.location.href = '/screen'}>

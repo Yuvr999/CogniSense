@@ -25,10 +25,11 @@ export function Landing() {
 
   const navLinks = [
     { label: t('nav.howItWorks'), href: '#how-it-works' },
-    { label: t('nav.forClinicians'), href: '#clinicians' },
+    { label: 'Find Clinics (Pune)', href: '/clinics' },
     { label: t('nav.evidence'), href: '#evidence' },
-    { label: t('nav.privacy'), href: '#privacy' }
+    { label: t('nav.forClinicians'), href: '/clinic' }
   ];
+
 
 
   return (
