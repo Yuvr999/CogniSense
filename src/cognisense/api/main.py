@@ -4,6 +4,10 @@ from pydantic import BaseModel
 from typing import Dict, Any, Optional
 import os
 import uuid
+import json
+import sqlite3
+import threading
+from datetime import datetime, timezone
 import pandas as pd
 import numpy as np
 
@@ -19,29 +23,140 @@ from src.cognisense.data.synthetic import generate_tabular_risk_dataset
 
 app = FastAPI(title="CogniSense API", version="0.1.0")
 
-# In-memory storage for demo purposes
-sessions: Dict[str, Dict[str, Any]] = {}
 
-# Cached screening model
+class SessionProxy(dict):
+    """
+    A dict proxy that automatically persists modifications back to the SQLite store.
+    """
+    def __init__(self, session_id: str, store: "PersistentSessionStore", *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._session_id = session_id
+        self._store = store
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        super().__setitem__(key, value)
+        self._store.save_session(self._session_id, dict(self))
+
+    def update(self, *args, **kwargs) -> None:
+        super().update(*args, **kwargs)
+        self._store.save_session(self._session_id, dict(self))
+
+
+class PersistentSessionStore:
+    """
+    Thread-safe, SQLite-backed persistent session store.
+    Survives server restarts and multi-worker execution.
+    """
+    def __init__(self, db_path: str = "data/cognitwin.db"):
+        self.db_path = db_path
+        os.makedirs(os.path.dirname(os.path.abspath(self.db_path)), exist_ok=True)
+        self._lock = threading.Lock()
+        self._init_table()
+
+    def _get_connection(self) -> sqlite3.Connection:
+        conn = sqlite3.connect(self.db_path, timeout=15.0)
+        conn.row_factory = sqlite3.Row
+        return conn
+
+    def _init_table(self) -> None:
+        with self._lock:
+            with self._get_connection() as conn:
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS screening_sessions (
+                        session_id TEXT PRIMARY KEY,
+                        speech INTEGER NOT NULL DEFAULT 0,
+                        cognitive INTEGER NOT NULL DEFAULT 0,
+                        persona TEXT NOT NULL DEFAULT 'Low risk',
+                        session_data_json TEXT NOT NULL,
+                        created_at TEXT NOT NULL,
+                        updated_at TEXT NOT NULL
+                    )
+                """)
+                conn.commit()
+
+    def save_session(self, session_id: str, data: Dict[str, Any]) -> None:
+        now = datetime.now(timezone.utc).isoformat()
+        speech_val = 1 if data.get("speech") else 0
+        cog_val = 1 if data.get("cognitive") else 0
+        persona_val = str(data.get("persona", "Low risk"))
+        data_json = json.dumps(data)
+        with self._lock:
+            with self._get_connection() as conn:
+                conn.execute("""
+                    INSERT INTO screening_sessions (session_id, speech, cognitive, persona, session_data_json, created_at, updated_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(session_id) DO UPDATE SET
+                        speech = excluded.speech,
+                        cognitive = excluded.cognitive,
+                        persona = excluded.persona,
+                        session_data_json = excluded.session_data_json,
+                        updated_at = excluded.updated_at
+                """, (session_id, speech_val, cog_val, persona_val, data_json, now, now))
+                conn.commit()
+
+    def __contains__(self, session_id: str) -> bool:
+        with self._lock:
+            with self._get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT 1 FROM screening_sessions WHERE session_id = ?", (session_id,))
+                return cursor.fetchone() is not None
+
+    def __getitem__(self, session_id: str) -> SessionProxy:
+        with self._lock:
+            with self._get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT session_data_json FROM screening_sessions WHERE session_id = ?", (session_id,))
+                row = cursor.fetchone()
+                if row is None:
+                    raise KeyError(session_id)
+                data = json.loads(row["session_data_json"])
+                return SessionProxy(session_id, self, data)
+
+    def __setitem__(self, session_id: str, value: Dict[str, Any]) -> None:
+        self.save_session(session_id, dict(value))
+
+    def __delitem__(self, session_id: str) -> None:
+        with self._lock:
+            with self._get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("DELETE FROM screening_sessions WHERE session_id = ?", (session_id,))
+                conn.commit()
+                if cursor.rowcount == 0:
+                    raise KeyError(session_id)
+
+    def get(self, session_id: str, default: Any = None) -> Any:
+        try:
+            return self[session_id]
+        except KeyError:
+            return default
+
+
+# Persistent session store (replaces volatile in-memory dict)
+sessions = PersistentSessionStore()
+
+# Cached screening model + locks for thread safety
 _cached_tabular_model: Optional[TabularRiskScreeningModel] = None
+_tabular_model_lock = threading.Lock()
 
 
 def get_tabular_screening_model() -> TabularRiskScreeningModel:
     global _cached_tabular_model
     if _cached_tabular_model is None:
-        model_path = "alzheimers_risk_model.pkl"
-        if os.path.exists(model_path):
-            try:
-                _cached_tabular_model = TabularRiskScreeningModel.load(model_path)
-            except Exception:
-                _cached_tabular_model = None
-        if _cached_tabular_model is None:
-            # Fit a default model from synthetic data if pkl not present
-            df = generate_tabular_risk_dataset(n_samples=500, seed=42)
-            X = df.drop(columns=["Early_Alzheimer_Risk"])
-            y = df["Early_Alzheimer_Risk"]
-            _cached_tabular_model = TabularRiskScreeningModel(calibrate=True, random_state=42)
-            _cached_tabular_model.fit(X, y)
+        with _tabular_model_lock:
+            if _cached_tabular_model is None:
+                model_path = "alzheimers_risk_model.pkl"
+                if os.path.exists(model_path):
+                    try:
+                        _cached_tabular_model = TabularRiskScreeningModel.load(model_path)
+                    except Exception:
+                        _cached_tabular_model = None
+                if _cached_tabular_model is None:
+                    # Fit a default model from synthetic data if pkl not present
+                    df = generate_tabular_risk_dataset(n_samples=500, seed=42)
+                    X = df.drop(columns=["Early_Alzheimer_Risk"])
+                    y = df["Early_Alzheimer_Risk"]
+                    _cached_tabular_model = TabularRiskScreeningModel(calibrate=True, random_state=42)
+                    _cached_tabular_model.fit(X, y)
     return _cached_tabular_model
 
 
@@ -252,22 +367,25 @@ from src.cognisense.twin.schemas import (
 )
 
 _cached_twin_pipeline: Optional[CogniTwinPredictionPipeline] = None
+_twin_pipeline_lock = threading.Lock()
 
 
 def get_twin_pipeline() -> CogniTwinPredictionPipeline:
     global _cached_twin_pipeline
     if _cached_twin_pipeline is None:
-        if os.path.exists(MODEL_SAVE_PATH):
-            try:
-                _cached_twin_pipeline = CogniTwinPredictionPipeline.load(MODEL_SAVE_PATH)
-            except Exception:
-                _cached_twin_pipeline = None
-        if _cached_twin_pipeline is None:
-            init_db()
-            df_fused = pd.read_csv("data/fused_patient_dataset_1000.csv")
-            _cached_twin_pipeline = CogniTwinPredictionPipeline(random_state=42)
-            _cached_twin_pipeline.train_and_evaluate(df_fused)
-            _cached_twin_pipeline.save(MODEL_SAVE_PATH)
+        with _twin_pipeline_lock:
+            if _cached_twin_pipeline is None:
+                if os.path.exists(MODEL_SAVE_PATH):
+                    try:
+                        _cached_twin_pipeline = CogniTwinPredictionPipeline.load(MODEL_SAVE_PATH)
+                    except Exception:
+                        _cached_twin_pipeline = None
+                if _cached_twin_pipeline is None:
+                    init_db()
+                    df_fused = pd.read_csv("data/fused_patient_dataset_1000.csv")
+                    _cached_twin_pipeline = CogniTwinPredictionPipeline(random_state=42)
+                    _cached_twin_pipeline.train_and_evaluate(df_fused)
+                    _cached_twin_pipeline.save(MODEL_SAVE_PATH)
     return _cached_twin_pipeline
 
 

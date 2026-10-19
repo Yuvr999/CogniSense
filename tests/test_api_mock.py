@@ -25,3 +25,40 @@ def test_full_flow():
     
     resp_fhir = client.get(f"/v1/sessions/{session_id}/fhir")
     assert resp_fhir.status_code == 200
+
+    # Test DELETE endpoint
+    resp_del = client.delete(f"/v1/sessions/{session_id}")
+    assert resp_del.status_code == 200
+    assert resp_del.json()["status"] == "deleted"
+
+    # Verifying session is now gone
+    resp_del_404 = client.get(f"/v1/sessions/{session_id}/result")
+    assert resp_del_404.status_code == 404
+
+
+def test_persistent_session_store_survival():
+    from src.cognisense.api.main import PersistentSessionStore
+    store = PersistentSessionStore()
+    test_id = "test-survival-session-12345"
+    store[test_id] = {"speech": True, "cognitive": False, "persona": "Low risk"}
+    assert test_id in store
+
+    # Re-instantiate a fresh store instance simulating server restart
+    store2 = PersistentSessionStore()
+    assert test_id in store2
+    session_data = store2[test_id]
+    assert session_data["speech"] is True
+    assert session_data["persona"] == "Low risk"
+
+    # Test in-place mutation via SessionProxy
+    session_data["cognitive"] = True
+    session_data["persona"] = "Elevated – memory"
+
+    # Verify mutation persisted in a 3rd instance
+    store3 = PersistentSessionStore()
+    assert store3[test_id]["cognitive"] is True
+    assert store3[test_id]["persona"] == "Elevated – memory"
+
+    # Cleanup
+    del store3[test_id]
+    assert test_id not in store3
