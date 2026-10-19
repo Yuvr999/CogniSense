@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { useAuthStore } from '../../state/authStore';
 
 interface NavPillProps {
   links: { label: string; href: string }[];
@@ -9,6 +11,7 @@ interface NavPillProps {
 
 export function NavPill({ links, activeHref }: NavPillProps) {
   const { t } = useTranslation();
+  const { user, isAuthenticated, logout } = useAuthStore();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -63,15 +66,42 @@ export function NavPill({ links, activeHref }: NavPillProps) {
             <LanguageSwitcher size="sm" />
           </div>
 
-          {/* Clinician Demo CTA Button */}
-          <div className="hidden md:block flex-shrink-0 pl-1">
-            <a 
-              href="/clinic" 
-              className="inline-flex items-center whitespace-nowrap px-4 py-2 bg-ink text-paper rounded-full font-bold text-sm hover:bg-muted focus:outline-none focus:ring-[3px] focus:ring-ink focus:ring-offset-2 shadow-xs transition-transform active:scale-95"
-            >
-              <span>{t('common.openClinicianDemo')}</span>
-              <span className="ml-2 text-lime font-mono">→</span>
-            </a>
+          {/* Portal / Login Actions */}
+          <div className="hidden md:flex items-center gap-2 pl-1 flex-shrink-0">
+            {isAuthenticated && user ? (
+              <div className="flex items-center gap-2">
+                <Link
+                  to={user.role === 'patient' ? '/patient' : '/clinic'}
+                  className="inline-flex items-center whitespace-nowrap px-3 py-1.5 bg-paper border border-ink rounded-full font-bold text-xs text-ink hover:bg-paper-dim transition-colors"
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>
+                  <span>{user.name}</span>
+                  <span className="ml-1 text-muted">({user.role === 'patient' ? 'Patient' : 'Doctor'})</span>
+                </Link>
+                <button
+                  onClick={logout}
+                  className="px-2.5 py-1 text-xs font-bold text-muted hover:text-ink hover:underline"
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <Link
+                  to="/login/patient"
+                  className="inline-flex items-center whitespace-nowrap px-3.5 py-1.5 bg-paper border border-ink rounded-full font-bold text-xs text-ink hover:bg-paper-dim focus:outline-none focus:ring-2 focus:ring-ink transition-transform active:scale-95"
+                >
+                  <span>Patient Login</span>
+                </Link>
+                <Link
+                  to="/login/clinic"
+                  className="inline-flex items-center whitespace-nowrap px-3.5 py-1.5 bg-ink text-paper rounded-full font-bold text-xs hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ink shadow-xs transition-transform active:scale-95"
+                >
+                  <span>Doctor Login</span>
+                  <span className="ml-1.5 text-lime font-mono">→</span>
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Mobile toggle */}
@@ -122,10 +152,21 @@ export function NavPill({ links, activeHref }: NavPillProps) {
               <div className="text-xs font-bold text-muted uppercase tracking-wider mb-2">Language</div>
               <LanguageSwitcher size="md" />
             </li>
-            <li className="pt-4">
-               <a href="/clinic" className="inline-flex items-center text-2xl font-bold text-ink underline decoration-lime decoration-4 underline-offset-4">
-                {t('common.openClinicianDemo')} <span className="text-lime ml-2">→</span>
-              </a>
+            <li className="pt-4 space-y-3">
+              <Link 
+                to="/login/patient" 
+                onClick={() => setMobileOpen(false)}
+                className="block text-xl font-bold text-ink hover:text-muted"
+              >
+                👤 Patient Portal & Screening →
+              </Link>
+              <Link 
+                to="/login/clinic" 
+                onClick={() => setMobileOpen(false)}
+                className="block text-xl font-bold text-ink underline decoration-lime decoration-4 underline-offset-4"
+              >
+                🩺 Doctor & Admin Login <span className="text-lime ml-1">→</span>
+              </Link>
             </li>
           </ul>
         </div>

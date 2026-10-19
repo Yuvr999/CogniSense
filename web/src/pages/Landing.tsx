@@ -24,10 +24,11 @@ export function Landing() {
   }, []);
 
   const navLinks = [
+    { label: 'Patient Portal', href: '/patient' },
     { label: t('nav.howItWorks'), href: '#how-it-works' },
     { label: 'Find Clinics (Pune)', href: '/clinics' },
     { label: t('nav.evidence'), href: '#evidence' },
-    { label: t('nav.forClinicians'), href: '/clinic' }
+    { label: t('nav.forClinicians'), href: '/login/clinic' }
   ];
 
 

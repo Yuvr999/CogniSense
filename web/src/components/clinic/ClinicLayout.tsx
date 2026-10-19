@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
+import { useAuthStore } from '../../state/authStore';
 
 interface ClinicLayoutProps {
   children: React.ReactNode;
@@ -8,6 +9,8 @@ interface ClinicLayoutProps {
 }
 
 export function ClinicLayout({ children, activePath = '/clinic' }: ClinicLayoutProps) {
+  const navigate = useNavigate();
+  const { user, logout } = useAuthStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -17,6 +20,7 @@ export function ClinicLayout({ children, activePath = '/clinic' }: ClinicLayoutP
 
   const navLinks = [
     { label: 'Queue', href: '/clinic' },
+    { label: 'Patient Twin', href: '/twin' },
     { label: 'Evidence', href: '/evidence' },
     { label: 'Fairness', href: '/evidence/fairness' },
     { label: 'Privacy', href: '/privacy' }
@@ -24,6 +28,8 @@ export function ClinicLayout({ children, activePath = '/clinic' }: ClinicLayoutP
 
   const isLinkActive = (href: string) => {
     if (activePath === href) return true;
+    if (href === '/twin' && (activePath === '/twin' || activePath === '/clinician')) return true;
+    if (href === '/clinic' && activePath.startsWith('/clinic')) return true;
     if (href === '/evidence/fairness' && (activePath === '/fairness' || activePath.startsWith('/evidence/fairness'))) return true;
     if (href === '/evidence' && activePath === '/evidence') return true;
     return false;
@@ -53,9 +59,22 @@ export function ClinicLayout({ children, activePath = '/clinic' }: ClinicLayoutP
             })}
           </nav>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
           <LanguageSwitcher size="sm" />
-          <div className="hidden sm:block text-sm text-gray-200">Dr. Demo ▾</div>
+          <div className="hidden sm:flex items-center gap-2 bg-gray-900 border border-gray-700 px-3 py-1 rounded-full text-xs text-gray-200">
+            <span className="w-2 h-2 rounded-full bg-lime"></span>
+            <span className="font-bold">{user?.name || 'Dr. Priya Sharma'}</span>
+            <span className="text-gray-400">({user?.role === 'admin' ? 'Admin' : 'Clinician'})</span>
+          </div>
+          <button
+            onClick={() => {
+              logout();
+              navigate('/login/clinic');
+            }}
+            className="text-xs font-semibold text-gray-300 hover:text-white border border-gray-700 px-2.5 py-1 rounded-full hover:border-lime transition-colors"
+          >
+            Sign Out
+          </button>
           <button 
             className="md:hidden text-gray-300 hover:text-white p-1"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

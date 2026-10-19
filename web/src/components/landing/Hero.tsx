@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, useScroll, useTransform } from 'motion/react';
 import { Button } from '../ui';
 
 export function Hero() {
   const { t } = useTranslation();
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [96, 0]);
-  const scale = useTransform(scrollY, [0, 500], [0.94, 1]);
-
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -22,7 +17,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="bg-sand pt-40 px-4 flex flex-col items-center overflow-hidden">
+    <section className="bg-sand pt-40 pb-24 px-4 flex flex-col items-center overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <h1 className="font-display font-black text-[clamp(48px,8vw,130px)] leading-[0.98] tracking-tighter text-ink mb-8">
           {headlineLines.map((line, i) => (
@@ -44,44 +39,18 @@ export function Hero() {
           {t('landing.heroSub')}
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-          <Button variant="primary" size="patient" onClick={() => window.location.href = '/twin'}>
-            🧬 Launch CogniTwin Dashboard
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button variant="primary" size="patient" onClick={() => window.location.href = '/login/clinic'}>
+            🩺 Doctor & Admin Login
           </Button>
-          <Button variant="secondary" size="patient" onClick={() => window.location.href = '/clinic'}>
-            {t('common.openClinicianDemo')}
+          <Button variant="secondary" size="patient" onClick={() => window.location.href = '/login/patient'}>
+            👤 Patient Login & Portal
           </Button>
-          <Button variant="link-arrow" onClick={() => window.location.href = '/screen'}>
-            {t('common.tryPatientScreening')}
+          <Button variant="link-arrow" onClick={() => window.location.href = '/clinics'}>
+            Find Pune Clinics →
           </Button>
         </div>
       </div>
-
-      {/* Tablet Mockup rising from bottom */}
-      <motion.div 
-        className="w-full max-w-5xl bg-ink rounded-t-3xl border-8 border-b-0 border-ink shadow-2xl overflow-hidden relative z-20 will-change-transform"
-        style={{ y, scale, minHeight: '400px' }}
-      >
-        {/* Screen Content - A simple representation of patient flow */}
-        <div className="bg-paper w-full h-full p-8 min-h-[400px]">
-          <div className="flex justify-between items-center mb-8">
-            <span className="text-muted font-bold">{t('common.stepOf', { current: 3, total: 7 })}</span>
-            <Button variant="secondary" size="clinic">{t('common.needHelp')}</Button>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-ink mb-4 max-w-2xl">{t('speech.title')}</h2>
-          <p className="text-xl text-muted mb-12">{t('speech.subtitle')}</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-200 rounded-xl aspect-[4/3] flex items-center justify-center text-muted font-bold text-lg">
-              {t('speech.pictureLabel')}
-            </div>
-            <div className="flex flex-col items-center justify-center p-8 bg-white rounded-xl border border-gray-200">
-              <Button variant="primary" size="patient" className="mb-4">{t('speech.startTalking')}</Button>
-              <span className="text-2xl font-bold font-mono text-muted">00:00</span>
-            </div>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }

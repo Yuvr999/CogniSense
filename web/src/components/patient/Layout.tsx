@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 
@@ -40,8 +41,14 @@ export function PatientLayout({ children, currentStep, totalSteps, title, subtit
   return (
     <div className="min-h-screen bg-paper flex flex-col p-4 md:p-8 selection:bg-lime selection:text-ink">
       <header className="w-full max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4 mb-8 md:mb-12">
-        <div className="flex items-center gap-2">
-          <div className="text-xl font-bold text-muted whitespace-nowrap">
+        <div className="flex items-center gap-3">
+          <Link
+            to="/patient"
+            className="text-xs font-bold text-ink bg-cream border border-ink/20 px-3 py-1.5 rounded-full hover:bg-lime/30 transition-colors"
+          >
+            ← Patient Portal
+          </Link>
+          <div className="text-lg font-bold text-muted whitespace-nowrap">
             {t('common.stepOf', { current: currentStep, total: totalSteps })}
           </div>
         </div>

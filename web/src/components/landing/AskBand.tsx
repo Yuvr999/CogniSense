@@ -8,11 +8,11 @@ export function AskBand() {
         See a screening <br className="hidden md:block" />from both sides.
       </h2>
       <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-        <Button variant="primary" size="patient" onClick={() => window.location.href = '/clinic'}>
-          Open clinician demo
+        <Button variant="primary" size="patient" onClick={() => window.location.href = '/login/clinic'}>
+          🩺 Doctor & Admin Portal
         </Button>
-        <Button variant="secondary" onClick={() => window.location.href = '/screen'} className="bg-white border-none shadow-sm h-[56px] px-8 text-xl rounded-full">
-          Try the patient screening
+        <Button variant="secondary" onClick={() => window.location.href = '/login/patient'} className="bg-white border-none shadow-sm h-[56px] px-8 text-xl rounded-full">
+          👤 Patient Portal & Screening
         </Button>
       </div>
     </BandSection>

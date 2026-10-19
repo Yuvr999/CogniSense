@@ -32,8 +32,8 @@ export function Footer() {
           <div>
             <h3 className="font-bold mb-4 uppercase tracking-wider text-gray-400">Project</h3>
             <ul className="space-y-3">
-              <li><Link to="/clinic" className="hover:text-lime transition-colors">Clinician Portal</Link></li>
-              <li><Link to="/screen" className="hover:text-lime transition-colors">Patient Screening Flow</Link></li>
+              <li><Link to="/login/clinic" className="hover:text-lime transition-colors">Doctor & Admin Login</Link></li>
+              <li><Link to="/login/patient" className="hover:text-lime transition-colors">Patient Portal & Screening</Link></li>
               <li><Link to="/styleguide" className="hover:text-lime transition-colors">Design System</Link></li>
             </ul>
           </div>

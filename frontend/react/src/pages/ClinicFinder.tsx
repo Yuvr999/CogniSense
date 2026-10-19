@@ -120,7 +120,7 @@ export function ClinicFinder() {
     { label: t('nav.howItWorks'), href: '/#how-it-works' },
     { label: 'Find Clinics (Pune)', href: '/clinics' },
     { label: t('nav.evidence'), href: '/#evidence' },
-    { label: t('nav.forClinicians'), href: '/clinic' }
+    { label: t('nav.forClinicians'), href: '/login/clinic' }
   ];
 
   return (

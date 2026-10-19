@@ -1,14 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui';
 import { useScreeningStore } from '../../state/sessionStore';
+import { useAuthStore } from '../../state/authStore';
+import { useClinicQueueStore } from '../../state/clinicQueueStore';
+import { registerCompletedScreening, generateDynamicSession } from '../../api/sessionRepository';
 import { PUNE_CLINICS } from '../../data/puneClinics';
 
 export function Done() {
   const { t, i18n } = useTranslation();
   const lang = (i18n.language || 'en') as 'en' | 'hi' | 'mr' | 'kn';
-  const { reset } = useScreeningStore();
+  const navigate = useNavigate();
+  const { user } = useAuthStore();
+  const { profile, reset, sessionId, setSessionId } = useScreeningStore();
+  const { addSession } = useClinicQueueStore();
   const [uploading, setUploading] = useState(true);
+  const registeredRef = useRef(false);
+
+  // Generate or reuse session ID
+  const activeSessionId = useRef(
+    sessionId || `PT-${Math.floor(1000 + Math.random() * 9000)}`
+  ).current;
 
   // Top recommended Pune memory clinic (Deenanath Mangeshkar Hospital)
   const topClinic = PUNE_CLINICS[0];
@@ -16,16 +29,47 @@ export function Done() {
   const localizedArea = topClinic.area[lang] || topClinic.area.en;
 
   useEffect(() => {
+    if (!sessionId) {
+      setSessionId(activeSessionId);
+    }
+
+    if (!registeredRef.current) {
+      registeredRef.current = true;
+      const patientAge = profile.age || user?.patientAge || 72;
+      const ageBand = patientAge >= 80 ? '80-84' : patientAge >= 75 ? '75-79' : patientAge >= 70 ? '70-74' : '65-69';
+      
+      // Create session result in repository
+      const fullResult = generateDynamicSession(activeSessionId);
+      fullResult.patient.age_band = ageBand;
+      fullResult.patient.education_years = profile.educationYears || 14;
+      registerCompletedScreening(fullResult);
+
+      // Register session in clinician queue
+      const now = new Date();
+      const formattedDate = `${now.toLocaleString('default', { month: 'short' })} ${now.getDate()}, ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+      
+      addSession({
+        id: activeSessionId,
+        date: formattedDate,
+        age: ageBand,
+        tier: fullResult.risk_tier,
+        p: fullResult.probability,
+        mods: 'Speech, Cog',
+        qc: fullResult.data_quality.flags.length,
+        status: 'Needs review'
+      });
+    }
+
     // Simulate upload delay
     const timer = setTimeout(() => {
       setUploading(false);
-    }, 1500);
+    }, 1200);
     return () => clearTimeout(timer);
-  }, []);
+  }, [activeSessionId, profile, user, sessionId, setSessionId, addSession]);
 
   const handleRestart = () => {
     reset();
-    window.location.href = '/';
+    navigate('/patient');
   };
 
   return (
@@ -49,10 +93,17 @@ export function Done() {
               </svg>
             </div>
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-3">{t('done.allDoneTitle')}</h1>
-            <p className="text-lg text-muted mb-8 leading-relaxed max-w-xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">{t('done.allDoneTitle')}</h1>
+            <p className="text-lg text-muted mb-4 leading-relaxed max-w-xl mx-auto">
               {t('done.allDoneSub')}
             </p>
+
+            {/* Session Token Badge */}
+            <div className="inline-flex items-center gap-2 bg-cream border border-ink/20 px-4 py-1.5 rounded-full text-xs font-mono mb-8">
+              <span className="text-muted">Screening Token:</span>
+              <strong className="text-ink text-sm">{activeSessionId}</strong>
+              <span className="text-emerald-700 font-bold ml-1">✓ Sent to Clinic Queue</span>
+            </div>
 
             {/* Nearest Pune Clinic Recommendation Card */}
             <div className="bg-sand/30 border border-sand rounded-3xl p-6 mb-8 text-left">
@@ -91,20 +142,26 @@ export function Done() {
                   📞 Call Hospital
                 </a>
 
-                <a
-                  href="/clinics"
+                <button
+                  onClick={() => navigate('/clinics')}
                   className="ml-auto text-sm font-bold text-ink underline underline-offset-4 hover:text-muted"
                 >
                   View All Pune Clinics on Map →
-                </a>
+                </button>
               </div>
             </div>
 
             {/* Restart Button */}
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <Button variant="secondary" size="patient" onClick={handleRestart}>
                 {t('common.startNextPatient')}
               </Button>
+              <button
+                onClick={() => navigate('/clinic')}
+                className="text-xs font-bold text-muted hover:text-ink underline underline-offset-4"
+              >
+                Inspect in Doctor Queue (Clinician Preview) →
+              </button>
             </div>
           </>
         )}
