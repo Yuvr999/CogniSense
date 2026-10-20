@@ -26,9 +26,9 @@
 
 ### 👥 Team MEDVORTEX (Army Institute of Technology, Pune)
 * **Team Lead / ML Engineer**: [Yuvraj Shekhawat](https://github.com/Yuvr999) — *Multimodal Feature Engineering, Calibration & Digital Twin State Engine*
-* **Healthcare AI Specialist**: *MEDVORTEX Member 2* — *Clinical Domain Modeling, SHAP Attributions & Fairness Auditing*
-* **Full-Stack / Systems Engineer**: *MEDVORTEX Member 3* — *FastAPI Microservice, React 18 Web Portal & Streamlit UI*
-* **Clinical Interface & Telemetry**: *MEDVORTEX Member 4* — *Sensor Pipeline, Speech Biomarkers & FHIR R4 Interoperability*
+* **Healthcare AI Specialist**: *Shwet kumar singh* — *Clinical Domain Modeling, SHAP Attributions & Fairness Auditing*
+* **Full-Stack / Systems Engineer**: *Dhiraj gurjar* — *FastAPI Microservice, React 18 Web Portal & Streamlit UI*
+
 
 ---
 
