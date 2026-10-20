@@ -37,7 +37,7 @@
 
 
 
-> 🔗 **Direct Video URL**: `https://youtu.be/hkTU7Mvi8iQ?si=r12BiIp7u5rTv_3F` *(Replace with unlisted YouTube or Google Drive video link prior to final portal submission)*
+> 🔗 **Direct Video URL**: https://youtu.be/hkTU7Mvi8iQ?si=r12BiIp7u5rTv_3F
 
 
 ---
