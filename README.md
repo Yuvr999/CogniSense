@@ -34,19 +34,11 @@
 
 ## 🎥 Demonstration Video (Minimum 20-Minute Full Walkthrough)
 
-An end-to-end 20-minute video detailing the healthcare problem, clinical foundation, mathematical digital twin modeling, zero-leakage cross-validation, live patient screening, and physician counterfactual simulation:
 
-[![CogniSense Video Walkthrough](https://img.shields.io/badge/▶%EF%B8%8F%20Watch%2020--Minute%20Demonstration%20Video-YouTube%20Presentation-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/YOUR_VIDEO_ID_HERE)
+
 
 > 🔗 **Direct Video URL**: `https://youtu.be/hkTU7Mvi8iQ?si=r12BiIp7u5rTv_3F` *(Replace with unlisted YouTube or Google Drive video link prior to final portal submission)*
 
-### ⏱️ Video Presentation Agenda & Timestamps
-* **[00:00 – 03:15] Problem Statement & Healthcare Dilemma**: The 75% MCI underdetection crisis, single-point clinic barriers, and why longitudinal continuous telemetry is required.
-* **[03:15 – 07:00] Mathematical & Algorithmic Architecture**: Daily state representations, 3-day/7-day rolling biomarker trends, Platt sigmoid calibration, and zero-leakage subject-grouped splits.
-* **[07:00 – 11:30] Live Patient Screening Demonstration**: Active multimodal tasks (local privacy-preserving `faster-whisper` speech pause tracking, digital trail-making, delayed word recall).
-* **[11:30 – 16:15] Clinician Digital Twin & What-If Simulator**: Longitudinal timeline scrubber, real-time counterfactual sensitivity testing (sleep hygiene, autonomic HRV recovery, medication adherence).
-* **[16:15 – 18:30] Responsible AI, Fairness & Privacy**: Subgroup demographic parity analysis across age and sex, HL7 FHIR R4 export, and GDPR Article 17 cryptographic right-to-erasure.
-* **[18:30 – 20:00] Clinical Referral Network & Hackathon Summary**: Connecting at-risk seniors to verified Pune memory clinics (Deenanath Mangeshkar, Ruby Hall Clinic, KEM, Sahyadri).
 
 ---
 
