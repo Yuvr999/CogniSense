@@ -4,7 +4,35 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+- **Microphone Check & Speech Audio Recording Robustness**:
+  - Overhauled `MicCheck.tsx` detection algorithm from unweighted full-spectrum averaging to dual-domain RMS time-domain amplitude and vocal-band frequency analysis, providing immediate sensitivity to natural human speech.
+  - Eliminated stale closure timeout bug in `MicCheck.tsx` that previously left patients permanently frozen on the `"Please say your name aloud"` screen without feedback.
+  - Added direct patient action controls (`I Spoke My Name — Continue →` and `Skip Mic Check`) on the active testing screen so users are never trapped regardless of hardware audio drivers or background cancellation settings.
+  - Enhanced `SpeechTask.tsx` with dynamic cross-browser `MediaRecorder` MIME type detection (`audio/webm`, `audio/mp4`, `audio/ogg`, `audio/aac`), live pulsing audio amplitude level indicator during recording, and microphone permission error alerts with one-click skip fallback.
+
 ### Added
+- **Repository Architecture Reorganization & Directory Segregation**:
+  - Cleaned root repository space, archiving legacy prototype scripts (`alzheimers_ml_pipeline.py`, `scaffold.py`, `write_files.py`) into `_archive/` with dedicated documentation.
+  - Relocated developer utilities to `scripts/dev/check_pkgs.py` and consolidated serialized models into `models/` (`cognitwin_risk_model.joblib`, `alzheimers_risk_model.pkl`).
+  - Added dedicated `backend/schemas.py` and `data/README.md` cataloging dataset provenance and schemas.
+  - Updated `.gitignore` to comprehensively cover frontend build outputs, database journals, and temporary logs.
+- **PowerPoint Architecture Presentation Deck & Visual Diagrams (`ppt/CogniSense_Architecture.pptx`)**:
+  - Built an executive-grade 10-slide widescreen (16:9) PowerPoint presentation (`ppt/CogniSense_Architecture.pptx`, `docs/CogniSense_Architecture.pptx`, `CogniSense_Architecture.pptx`) containing native editable vector architecture shapes, component cards, connectors, and embedded high-resolution graphics.
+  - Implemented automated Python builder (`scripts/generate_architecture_ppt.py` and `scripts/generate_diagram_images.py`) generating publication-grade 300-DPI diagrams (`docs/architecture_diagram.png`, `docs/clinical_workflow_diagram.png`, `docs/state_engine_diagram.png`) and printable vector PDF (`docs/architecture_diagram.pdf`).
+  - Embedded the visual architecture blueprints directly into [README.md](file:///c:/Users/YUVRAJ/Documents/antigravity/hopeful-shannon/README.md) under `## 📑 Presentation & Architecture Diagrams` and `### 🏛️ System Architecture & Clinical Workflow Visual Blueprint`.
+  - Authored comprehensive technical documentation in [docs/ARCHITECTURE.md](file:///c:/Users/YUVRAJ/Documents/antigravity/hopeful-shannon/docs/ARCHITECTURE.md) including 4-tier system specifications, state machine transitions, zero-leakage cross-validation, and clinical care integration pathways.
+- **Official 14-Slide Presentation Deck Integration**:
+  - Embedded the full 14-slide presentation deck transcript, visual architecture, validation tables, and clinical workflows into [README.md](file:///c:/Users/YUVRAJ/Documents/antigravity/hopeful-shannon/README.md#L60-L320) under Section `## 📑 Presentation & Architecture Diagrams`.
+  - Updated [docs/HACKATHON_PRESENTATION.md](file:///c:/Users/YUVRAJ/Documents/antigravity/hopeful-shannon/docs/HACKATHON_PRESENTATION.md) Section 2 with the complete 14-slide deck structure, verbatim OCR extractions, and Judge Q&A quick reference.
+- **Patient Screening Recording & Doctor Portal Synchronization**:
+  - Connected the patient screening flow directly to persistent storage, capturing the patient's actual submitted tasks (picture story duration, delayed word recall text & matched target items, category fluency words, and motor trail tracing).
+  - Built real multimodal scoring evaluation in `sessionRepository.ts` (`evaluateAndRegisterScreening`) computing calibrated probability, risk tier, SHAP feature contributions, and cognitive domain z-scores based on the patient's actual inputs.
+  - Implemented Patient Test History tracking in `PatientPortal.tsx` (`/patient`), allowing patients to view their completed tests, review tokens, submitted task summaries, and doctor review status & notes.
+  - Enhanced Doctor Queue (`Queue.tsx`) with a dedicated **Patient Name** column and patient search capability, enabling clinicians to triage incoming screenings by patient identity.
+  - Created `PatientTestResponses.tsx` component in `Session.tsx` (`/clinic/session/:id`) to display the patient's actual recorded responses side-by-side with clinical KPI strips and SHAP graphs.
+  - Synchronized clinician sign-off workflow between `clinicQueueStore` and `sessionRepository`, ensuring doctor review notes immediately update on the patient's portal.
+  - Fixed MSW mock service worker handler to return actual stored patient sessions instead of overwriting with static dummy payloads.
 - **Dedicated Doctor & Patient Login Portals and Role-Based Route Isolation**:
   - Created dedicated Clinic Doctor & Admin Login page (`/login/clinic`, `/login/doctor`, `/login/admin`) featuring institutional clinical design (`data-mode="clinic"`), clinic affiliation selection, medical registration verification, and 1-click doctor presets (Dr. Priya Sharma, Dr. Rahul Mehta).
   - Created senior-accessible Patient Login page (`/login/patient`) featuring high-contrast Atkinson Hyperlegible Next styling (`data-mode="patient"`), local on-device privacy notices, and 1-click patient presets (Anita Deshmukh, Gopal Joshi, Guest Participant).

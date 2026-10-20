@@ -20,6 +20,19 @@ export function Landing() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-mode', 'landing');
+    
+    // Smooth scroll to anchor if arriving with hash (e.g. /#how-it-works or /#evidence)
+    if (window.location.hash) {
+      const id = window.location.hash.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        const timer = setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 150);
+        return () => clearTimeout(timer);
+      }
+    }
+
     return () => document.documentElement.removeAttribute('data-mode');
   }, []);
 

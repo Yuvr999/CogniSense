@@ -113,6 +113,8 @@ export const useAuthStore = create<AuthState>((set) => ({
   logout: () => {
     try {
       localStorage.removeItem(AUTH_STORAGE_KEY);
+      sessionStorage.removeItem('cognisense_has_completed_screening');
+      sessionStorage.removeItem('cognisense_completed_session_id');
     } catch (e) {
       console.warn('Failed to clear auth state', e);
     }

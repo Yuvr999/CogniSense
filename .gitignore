@@ -26,3 +26,11 @@ htmlcov/
 # Frontend
 web/node_modules/
 web/dist/
+frontend/react/node_modules/
+frontend/react/dist/
+
+# Local Streamlit & logs
+.streamlit/secrets.toml
+*.log
+*.tmp
+data/*.db-journal

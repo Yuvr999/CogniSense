@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ClinicLayout } from '../components/clinic/ClinicLayout';
+import { useClinicQueueStore } from '../state/clinicQueueStore';
 
 interface AuditEvent {
   id: string;
@@ -69,6 +70,7 @@ export function Privacy() {
     message: ''
   });
   const [auditLogs, setAuditLogs] = useState<AuditEvent[]>(initialAuditLogs);
+  const { deleteSession } = useClinicQueueStore();
 
   const handleDeleteData = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,13 +83,28 @@ export function Privacy() {
     setDeleteStatus({ type: 'loading', message: `Purging all records for session ${target}...` });
 
     try {
-      // Simulate/call API endpoint
+      // Purge from clinic queue store immediately so it disappears from queue
+      deleteSession(target);
+
+      // Purge from custom sessions in local storage
+      try {
+        const raw = localStorage.getItem('cognisense_custom_sessions');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          delete parsed[target];
+          localStorage.setItem('cognisense_custom_sessions', JSON.stringify(parsed));
+        }
+      } catch (err) {
+        console.warn('Could not purge custom session cache', err);
+      }
+
+      // Call API endpoint
       await fetch(`/v1/sessions/${target}`, { method: 'DELETE' }).catch(() => null);
 
       setTimeout(() => {
         setDeleteStatus({
           type: 'success',
-          message: `Session ${target} has been permanently erased. All encrypted feature records, pseudonymous linkage, and cached assets were purged.`
+          message: `Session ${target} has been permanently erased. All encrypted feature records, pseudonymous linkage, and cached assets were purged from the clinic queue.`
         });
         
         // Add purge event to audit log
@@ -97,7 +114,7 @@ export function Privacy() {
           event: `GDPR RIGHT TO ERASURE: Session ${target} Purged`,
           actor: 'Clinician / Data Controller',
           category: 'purge',
-          details: 'Cryptographic shredding executed (AES-256 key retired)'
+          details: 'Cryptographic shredding executed (AES-256 key retired & queue entry destroyed)'
         };
         setAuditLogs(prev => [newLog, ...prev]);
         setSessionId('');

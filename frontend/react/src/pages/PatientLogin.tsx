@@ -14,12 +14,8 @@ export function PatientLogin() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-mode', 'patient');
-    // If already logged in as patient, redirect to patient portal
-    if (user && user.role === 'patient') {
-      navigate('/patient', { replace: true });
-    }
     return () => document.documentElement.removeAttribute('data-mode');
-  }, [user, navigate]);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

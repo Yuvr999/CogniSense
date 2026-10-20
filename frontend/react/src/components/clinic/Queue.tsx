@@ -41,7 +41,7 @@ export function Queue() {
           <div className="relative w-full sm:w-72">
             <input 
               type="search" 
-              placeholder="Search session ID, age, tier..." 
+              placeholder="Search patient name, ID, age, tier..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-white border border-gray-300 rounded-lg pl-9 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ink"
@@ -96,6 +96,7 @@ export function Queue() {
               <thead>
                 <tr className="border-b border-gray-200 text-muted text-xs uppercase font-mono bg-gray-50/50">
                   <th className="px-6 py-3.5 font-bold">Session ID</th>
+                  <th className="px-6 py-3.5 font-bold">Patient Name</th>
                   <th className="px-6 py-3.5 font-bold">Screening Date</th>
                   <th className="px-6 py-3.5 font-bold">Age Cohort</th>
                   <th className="px-6 py-3.5 font-bold">Risk Tier</th>
@@ -108,7 +109,7 @@ export function Queue() {
               <tbody className="divide-y divide-gray-100">
                 {filteredQueue.length === 0 ? (
                   <tr>
-                    <td colSpan={8} className="px-6 py-16 text-center text-muted">
+                    <td colSpan={9} className="px-6 py-16 text-center text-muted">
                       <div className="text-3xl mb-2">📋</div>
                       <div className="font-bold text-ink text-base mb-1">No screenings match this view</div>
                       <p className="text-xs text-muted max-w-sm mx-auto mb-4">
@@ -134,6 +135,16 @@ export function Queue() {
                       <td className="px-6 py-4 font-mono font-bold text-ink flex items-center gap-2">
                         <span>{row.id}</span>
                         <span className="text-muted group-hover:text-ink group-hover:translate-x-0.5 transition-all text-xs">→</span>
+                      </td>
+                      <td className="px-6 py-4 font-bold text-ink">
+                        <div className="flex items-center gap-2">
+                          <span>{row.patientName || 'Anonymous Participant'}</span>
+                          {row.patientId && (
+                            <span className="text-[11px] font-mono font-normal text-muted bg-gray-100 px-1.5 py-0.5 rounded">
+                              {row.patientId}
+                            </span>
+                          )}
+                        </div>
                       </td>
                       <td className="px-6 py-4 text-muted text-xs">{row.date}</td>
                       <td className="px-6 py-4 font-medium">{row.age}</td>

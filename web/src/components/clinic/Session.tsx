@@ -8,6 +8,7 @@ import { DomainBars } from './DomainBars';
 import { SpeechEvidence } from './SpeechEvidence';
 import { IconArray } from './IconArray';
 import { ContextPanel } from './ContextPanel';
+import { PatientTestResponses } from './PatientTestResponses';
 import { DataQualityBanner, Skeleton } from '../ui';
 import { getSessionResult } from '../../api/sessionRepository';
 import { useClinicQueueStore } from '../../state/clinicQueueStore';
@@ -45,7 +46,12 @@ export function Session() {
     ...data,
     review_status: queueItem ? queueItem.status : data.review_status,
     clinician_notes: queueItem?.clinicianNotes || data.clinician_notes,
-    reviewed_at: queueItem?.reviewedAt || data.reviewed_at
+    reviewed_at: queueItem?.reviewedAt || data.reviewed_at,
+    patient: {
+      ...data.patient,
+      name: queueItem?.patientName || data.patient?.name,
+      patient_id: queueItem?.patientId || data.patient?.patient_id
+    }
   } : null;
 
   if (isLoading) {
@@ -78,12 +84,23 @@ export function Session() {
 
   return (
     <ClinicLayout>
-      <div className="flex items-center gap-4 text-sm font-bold text-muted mb-6">
-        <button onClick={() => navigate('/clinic')} className="hover:text-ink">Queue</button>
+      <div className="flex flex-wrap items-center gap-3 text-sm font-bold text-muted mb-6">
+        <button onClick={() => navigate('/clinic')} className="hover:text-ink">← Queue</button>
         <span>/</span>
-        <span className="text-ink">Session {sessionId}</span>
-        <span className="bg-gray-200 px-2 py-0.5 rounded ml-4 font-mono text-xs">{sessionData.patient.age_band}</span>
+        <span className="text-ink font-mono font-bold">Session {sessionId}</span>
+        {sessionData.patient?.name && (
+          <span className="bg-ink text-paper px-3 py-0.5 rounded-full text-xs font-bold">
+            👤 Patient: {sessionData.patient.name}
+          </span>
+        )}
+        {sessionData.patient?.patient_id && (
+          <span className="bg-gray-100 border border-gray-300 px-2 py-0.5 rounded font-mono text-xs text-ink">
+            {sessionData.patient.patient_id}
+          </span>
+        )}
+        <span className="bg-gray-200 px-2 py-0.5 rounded font-mono text-xs">{sessionData.patient.age_band}</span>
         <span className="bg-gray-200 px-2 py-0.5 rounded font-mono text-xs">{sessionData.patient.education_years} yrs edu</span>
+        <span className="bg-gray-200 px-2 py-0.5 rounded font-mono text-xs">{sessionData.patient.language}</span>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6">
@@ -93,6 +110,12 @@ export function Session() {
           {sessionData.data_quality.flags.map((flag: string, i: number) => (
             <DataQualityBanner key={i} level="warn" message={flag} className="mb-6" />
           ))}
+
+          {/* Actual Recorded Patient Responses */}
+          <PatientTestResponses 
+            responses={sessionData.patient_responses} 
+            patient={sessionData.patient} 
+          />
 
           <KPIStrip data={sessionData} />
           

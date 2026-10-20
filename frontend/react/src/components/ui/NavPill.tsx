@@ -23,6 +23,18 @@ export function NavPill({ links, activeHref }: NavPillProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleAnchorClick = (e: React.MouseEvent, href: string) => {
+    if (href.startsWith('#') || href.startsWith('/#')) {
+      const targetId = href.replace('/#', '').replace('#', '');
+      const el = document.getElementById(targetId);
+      if (el && window.location.pathname === '/') {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.history.pushState(null, '', `#${targetId}`);
+      }
+    }
+  };
+
   return (
     <>
       <a 
@@ -48,6 +60,7 @@ export function NavPill({ links, activeHref }: NavPillProps) {
               <li key={link.href} className="whitespace-nowrap">
                 <a 
                   href={link.href}
+                  onClick={(e) => handleAnchorClick(e, link.href)}
                   className={`px-3 py-1.5 rounded-full font-bold text-sm whitespace-nowrap transition-colors focus:outline-none focus:ring-[3px] focus:ring-ink ${
                     activeHref === link.href 
                       ? 'bg-ink text-paper' 
@@ -142,7 +155,10 @@ export function NavPill({ links, activeHref }: NavPillProps) {
                 <a 
                   href={link.href}
                   className="block text-2xl font-bold text-ink hover:text-muted"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => {
+                    handleAnchorClick(e, link.href);
+                    setMobileOpen(false);
+                  }}
                 >
                   {link.label}
                 </a>

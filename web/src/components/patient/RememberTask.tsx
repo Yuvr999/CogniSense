@@ -4,7 +4,7 @@ import { PatientLayout } from './Layout';
 import { Button } from '../ui';
 import { useScreeningStore } from '../../state/sessionStore';
 
-const WORDS_BY_LANG: Record<string, string[]> = {
+export const WORDS_BY_LANG: Record<string, string[]> = {
   en: ["BUTTER", "ARM", "SHORE", "LETTER", "QUEEN", "CABIN", "POLE", "TICKET", "GRASS", "ENGINE"],
   hi: ["मक्खन", "हाथ", "किनारा", "पत्र", "रानी", "कुटिया", "खंभा", "टिकट", "घास", "इंजन"],
   mr: ["लोणी", "हात", "किनारा", "पत्र", "राणी", "झोपडी", "खांब", "तिकीट", "गवत", "इंजिन"]

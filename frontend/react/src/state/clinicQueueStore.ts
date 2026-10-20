@@ -12,9 +12,12 @@
  */
 
 import { create } from 'zustand';
+import { updateSessionSignOff } from '../api/sessionRepository';
 
 export interface QueueItem {
   id: string;
+  patientName?: string;
+  patientId?: string;
   date: string;
   age: string;
   tier: 'Low' | 'Elevated' | 'High' | 'Indeterminate';
@@ -30,21 +33,25 @@ export interface QueueItem {
 const INITIAL_QUEUE: QueueItem[] = [
   { 
     id: '7F3A', 
+    patientName: 'Ramesh Varma',
+    patientId: 'PT-7F3A',
     date: 'Oct 7, 10:45 AM', 
     age: '70-74', 
     tier: 'Elevated', 
     p: 0.62, 
-    mods: 'Speech, Cog', 
+    mods: 'Speech, Cog, Motor', 
     qc: 1, 
     status: 'Needs review' 
   },
   { 
     id: '2B9C', 
+    patientName: 'Sunita Kulkarni',
+    patientId: 'PT-2B9C',
     date: 'Oct 7, 09:12 AM', 
     age: '65-69', 
     tier: 'Low', 
     p: 0.15, 
-    mods: 'Speech, Cog', 
+    mods: 'Speech, Cog, Motor', 
     qc: 0, 
     status: 'Reviewed',
     clinicianNotes: 'Routine screen. Speech metrics intact. Patient advised to return in 12 months for routine annual follow-up.',
@@ -53,6 +60,8 @@ const INITIAL_QUEUE: QueueItem[] = [
   },
   { 
     id: '8E4D', 
+    patientName: 'Mohan Lal',
+    patientId: 'PT-8E4D',
     date: 'Oct 6, 03:30 PM', 
     age: '80-84', 
     tier: 'High', 
@@ -63,11 +72,13 @@ const INITIAL_QUEUE: QueueItem[] = [
   },
   { 
     id: '1A5B', 
+    patientName: 'Sarita Patil',
+    patientId: 'PT-1A5B',
     date: 'Oct 6, 11:15 AM', 
     age: '75-79', 
     tier: 'Indeterminate', 
     p: 0.45, 
-    mods: 'Speech, Cog', 
+    mods: 'Speech, Cog, Motor', 
     qc: 2, 
     status: 'Needs review' 
   }
@@ -137,6 +148,9 @@ export const useClinicQueueStore = create<ClinicQueueState>((set, get) => ({
       return item;
     });
 
+    // Also update sessionRepository so session details and patient portal stay in sync
+    updateSessionSignOff(id, notes, doctorName, formattedDate);
+
     persistQueue(updated);
     set({ items: updated });
   },
@@ -177,11 +191,12 @@ export const useClinicQueueStore = create<ClinicQueueState>((set, get) => ({
       // Search filter
       if (q) {
         const matchId = item.id.toLowerCase().includes(q);
+        const matchPatient = (item.patientName || '').toLowerCase().includes(q);
         const matchAge = item.age.toLowerCase().includes(q);
         const matchTier = item.tier.toLowerCase().includes(q);
         const matchMods = item.mods.toLowerCase().includes(q);
         const matchStatus = item.status.toLowerCase().includes(q);
-        return matchId || matchAge || matchTier || matchMods || matchStatus;
+        return matchId || matchPatient || matchAge || matchTier || matchMods || matchStatus;
       }
 
       return true;

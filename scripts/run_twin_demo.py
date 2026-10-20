@@ -193,10 +193,9 @@ def run_demo():
     print(f"Total Available States Now : {len(get_patient_state_history(demo_pid))} days")
 
     print_banner("DEMO COMPLETED SUCCESSFULLY")
-    print("The entire workflow has been verified end-to-end.")
     print("You can explore the interactive visual UI at:")
-    print("  • Streamlit Dashboard: streamlit run app/Home.py")
-    print("  • React Web Portal   : cd web && npm run dev (Visit /twin)")
+    print("  • Streamlit Dashboard: streamlit run frontend/streamlit/Home.py (or app/Home.py)")
+    print("  • React Web Portal   : cd frontend/react && npm run dev (or cd web && npm run dev)")
     print("=" * 75 + "\n")
 
 

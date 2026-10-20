@@ -1,5 +1,5 @@
 import { http, HttpResponse } from 'msw';
-import { DEFAULT_SESSIONS, generateDynamicSession } from '../sessionRepository';
+import { getSessionResult } from '../sessionRepository';
 
 export const handlers = [
   http.get('/v1/model/card', () => {
@@ -20,9 +20,9 @@ export const handlers = [
     });
   }),
 
-  http.get('/v1/sessions/:id/result', ({ params }: { params: any }) => {
+  http.get('/v1/sessions/:id/result', async ({ params }: { params: any }) => {
     const id = String(params.id).toUpperCase();
-    const result = DEFAULT_SESSIONS[id] || generateDynamicSession(id);
+    const result = await getSessionResult(id);
     return HttpResponse.json(result);
   }),
 
