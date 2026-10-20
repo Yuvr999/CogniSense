@@ -25,7 +25,7 @@
 | **License** | Open-Source [MIT License](LICENSE) |
 
 ### 👥 Team MEDVORTEX (Army Institute of Technology, Pune)
-* **Team Lead / ML Engineer**: [Yuvraj Shekhawat](https://github.com/) — *Multimodal Feature Engineering, Calibration & Digital Twin State Engine*
+* **Team Lead / ML Engineer**: [Yuvraj Shekhawat](https://github.com/Yuvr999) — *Multimodal Feature Engineering, Calibration & Digital Twin State Engine*
 * **Healthcare AI Specialist**: *MEDVORTEX Member 2* — *Clinical Domain Modeling, SHAP Attributions & Fairness Auditing*
 * **Full-Stack / Systems Engineer**: *MEDVORTEX Member 3* — *FastAPI Microservice, React 18 Web Portal & Streamlit UI*
 * **Clinical Interface & Telemetry**: *MEDVORTEX Member 4* — *Sensor Pipeline, Speech Biomarkers & FHIR R4 Interoperability*
@@ -497,7 +497,7 @@ Audited across protected demographic groups per Section 8 of the clinical specif
 
 ```bash
 # 1. Clone the repository and enter the directory
-git clone https://github.com/MEDVORTEX/CogniSense.git
+git clone https://github.com/Yuvr999/CogniSense.git
 cd CogniSense
 
 # 2. Install Python dependencies and initialize database
@@ -660,5 +660,5 @@ SOFTWARE.
 For technical questions, demonstration requests, or judge evaluations:
 * **Team**: **MEDVORTEX**
 * **Institution**: **Army Institute of Technology (AIT), Alandi Road, Dighi, Pune, Maharashtra 411015**
-* **Repository**: [https://github.com/MEDVORTEX/CogniSense](https://github.com/MEDVORTEX/CogniSense)
+* **Repository**: [https://github.com/Yuvr999/CogniSense](https://github.com/Yuvr999/CogniSense)
 * **Production Web App**: [https://web-kappa-three-89.vercel.app](https://web-kappa-three-89.vercel.app)
