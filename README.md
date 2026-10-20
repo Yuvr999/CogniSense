@@ -38,7 +38,7 @@ An end-to-end 20-minute video detailing the healthcare problem, clinical foundat
 
 [![CogniSense Video Walkthrough](https://img.shields.io/badge/▶%EF%B8%8F%20Watch%2020--Minute%20Demonstration%20Video-YouTube%20Presentation-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/YOUR_VIDEO_ID_HERE)
 
-> 🔗 **Direct Video URL**: `https://youtu.be/YOUR_VIDEO_ID_HERE` *(Replace with unlisted YouTube or Google Drive video link prior to final portal submission)*
+> 🔗 **Direct Video URL**: `https://youtu.be/hkTU7Mvi8iQ?si=r12BiIp7u5rTv_3F` *(Replace with unlisted YouTube or Google Drive video link prior to final portal submission)*
 
 ### ⏱️ Video Presentation Agenda & Timestamps
 * **[00:00 – 03:15] Problem Statement & Healthcare Dilemma**: The 75% MCI underdetection crisis, single-point clinic barriers, and why longitudinal continuous telemetry is required.
